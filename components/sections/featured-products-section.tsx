@@ -1,6 +1,8 @@
 "use client";
 
 import { FadeImage } from "@/components/fade-image";
+import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const features = [
   {
@@ -75,10 +77,13 @@ export function FeaturedProductsSection() {
 
       <div className="flex justify-center px-6 pb-28 md:px-12 lg:px-20">
         <a
-          href="#contato"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
         >
-          Solicitar catálogo e orçamento
+          <WhatsAppIcon className="size-4" />
+          Solicitar catálogo no WhatsApp
         </a>
       </div>
     </section>

@@ -1,5 +1,8 @@
 "use client";
 
+import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { WHATSAPP_URL } from "@/lib/contact";
+
 const specs = [
   { label: "Anos de mercado", value: "15+" },
   { label: "Colaboradores", value: "10" },
@@ -20,10 +23,13 @@ export function EditorialSection() {
           com brindes corporativos sob medida para o seu projeto.
         </p>
         <a
-          href="mailto:contato@majestadepersonalizados.com.br"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
         >
-          Solicitar orçamento
+          <WhatsAppIcon className="size-4" />
+          Falar no WhatsApp
         </a>
       </div>
 
