@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
+import { navLinks } from "@/lib/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,14 +20,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "#produtos", label: "Produtos" },
-    { href: "#historia", label: "Nossa História" },
-    { href: "#diferenciais", label: "Diferenciais" },
-    { href: "#portfolio", label: "Portfólio" },
-    { href: "#sobre", label: "Sobre" },
-  ];
-
   return (
     <header 
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md rounded-full" : "bg-transparent"}`}
@@ -35,7 +28,7 @@ export function Header() {
       }}
     >
       <div className="flex items-center justify-between transition-all duration-300 px-2 pl-5 py-2">
-        <Link href="#" className={`text-sm font-semibold tracking-tight transition-colors duration-300 md:text-base ${isScrolled ? "text-foreground" : "text-white"}`}>
+        <Link href="/" className={`text-sm font-semibold tracking-tight transition-colors duration-300 md:text-base ${isScrolled ? "text-foreground" : "text-white"}`}>
           MAJESTADE
         </Link>
 

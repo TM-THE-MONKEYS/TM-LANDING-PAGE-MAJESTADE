@@ -10,10 +10,10 @@ const specs = [
   { label: "Produção", value: "Própria" },
 ];
 
-export function EditorialSection() {
+export function EditorialSection({ compact = false }: { compact?: boolean }) {
   return (
     <section className="bg-background">
-      <div id="contato" className="px-6 py-20 text-center md:px-12 md:py-28 lg:px-20">
+      <div id="contato" className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20">
         <p className="text-xs uppercase tracking-widest text-accent">Orçamento</p>
         <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
           Pronto para fortalecer a marca da sua empresa?
@@ -49,22 +49,24 @@ export function EditorialSection() {
         ))}
       </div>
 
-      <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bcdafadc-cb7e-4cb7-9cbf-edcbaf2360a5_1-cNBCz5fomcLRmm1cTXSBOKCq10VP91.mp4"
-        />
-        <div className="absolute inset-0 bg-foreground/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-center text-white text-xl font-medium md:text-3xl px-6">
-            Fabricação própria. Qualidade garantida. Atendimento corporativo.
-          </p>
+      {!compact && (
+        <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bcdafadc-cb7e-4cb7-9cbf-edcbaf2360a5_1-cNBCz5fomcLRmm1cTXSBOKCq10VP91.mp4"
+          />
+          <div className="absolute inset-0 bg-foreground/30" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <p className="text-center text-white text-xl font-medium md:text-3xl px-6">
+              Fabricação própria. Qualidade garantida. Atendimento corporativo.
+            </p>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

@@ -96,7 +96,7 @@ export function TechnologySection() {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
+      const scrollableHeight = window.innerHeight * 1.4;
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
       
@@ -233,11 +233,11 @@ export function TechnologySection() {
         </div>
       </div>
 
-      <div className="h-[200vh]" />
+      <div className="h-[140vh]" />
 
       <div 
         ref={textSectionRef}
-        className="relative overflow-hidden bg-background px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40"
+        className="relative overflow-hidden bg-background px-6 py-16 md:px-12 md:py-24 lg:px-20 lg:py-28"
       >
         <div className="relative z-10 mx-auto max-w-4xl">
           <ScrollRevealText text={descriptionText} />

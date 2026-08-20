@@ -41,7 +41,7 @@ export function HeroSection() {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
+      const scrollableHeight = window.innerHeight * 1.4;
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
       
@@ -175,9 +175,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="h-[200vh]" />
+      <div className="h-[140vh]" />
 
-      <div className="px-6 pt-32 pb-28 md:pt-48 md:px-12 md:pb-36 lg:px-20 lg:pt-56 lg:pb-44">
+      <div className="px-6 pt-20 pb-16 md:pt-28 md:px-12 md:pb-20 lg:px-20 lg:pt-32 lg:pb-24">
         <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
           Brindes corporativos personalizados
           <br />

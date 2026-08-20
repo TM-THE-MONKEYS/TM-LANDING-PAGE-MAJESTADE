@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FadeImage } from "@/components/fade-image";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -37,10 +38,16 @@ const features = [
   },
 ];
 
-export function FeaturedProductsSection() {
+type FeaturedProductsSectionProps = {
+  limit?: number;
+};
+
+export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps) {
+  const displayedFeatures = limit ? features.slice(0, limit) : features;
+
   return (
     <section id="produtos" className="bg-background">
-      <div className="px-6 py-20 text-center md:px-12 md:py-28 lg:px-20 lg:py-32 lg:pb-20">
+      <div className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20 lg:py-24">
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
           Produtos que fortalecem
           <br />
@@ -51,8 +58,8 @@ export function FeaturedProductsSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 px-6 pb-20 md:grid-cols-3 md:px-12 lg:px-20">
-        {features.map((feature) => (
+      <div className="grid grid-cols-1 gap-4 px-6 pb-12 md:grid-cols-2 md:px-12 lg:grid-cols-4 lg:px-20">
+        {displayedFeatures.map((feature) => (
           <div key={feature.title} className="group">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <FadeImage
@@ -75,7 +82,7 @@ export function FeaturedProductsSection() {
         ))}
       </div>
 
-      <div className="flex justify-center px-6 pb-28 md:px-12 lg:px-20">
+      <div className="flex flex-col items-center gap-4 px-6 pb-20 md:px-12 lg:px-20">
         <a
           href={WHATSAPP_URL}
           target="_blank"
@@ -85,6 +92,14 @@ export function FeaturedProductsSection() {
           <WhatsAppIcon className="size-4" />
           Solicitar catálogo no WhatsApp
         </a>
+        {limit && (
+          <Link
+            href="/empresa#aplicacoes"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Ver todas as aplicações corporativas →
+          </Link>
+        )}
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { AGENCY } from '@/lib/agency'
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
@@ -9,7 +10,11 @@ const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 export const metadata: Metadata = {
   title: 'Majestade Personalizados | Brindes Corporativos em Montenegro, RS',
   description: 'Mais de 15 anos fabricando brindes corporativos personalizados para empresas. Canecas, chaveiros, squeezes e produtos sob medida com a identidade da sua marca.',
-  generator: 'v0.app',
+  creator: AGENCY.name,
+  authors: [{ name: 'Majestade Personalizados' }],
+  other: {
+    developer: `${AGENCY.name} — ${AGENCY.website}`,
+  },
   icons: {
     icon: [
       {

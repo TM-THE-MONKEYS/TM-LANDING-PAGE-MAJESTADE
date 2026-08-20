@@ -2,26 +2,9 @@
 
 import Link from "next/link";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
+import { AGENCY } from "@/lib/agency";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
-
-const footerLinks = {
-  navegacao: [
-    { label: "Produtos", href: "#produtos" },
-    { label: "Nossa História", href: "#historia" },
-    { label: "Diferenciais", href: "#diferenciais" },
-    { label: "Portfólio", href: "#portfolio" },
-  ],
-  empresa: [
-    { label: "Sobre nós", href: "#sobre" },
-    { label: "Aplicações", href: "#aplicacoes" },
-    { label: "WhatsApp", href: WHATSAPP_URL },
-  ],
-  atendimento: [
-    { label: "Montenegro, RS", href: "#contato" },
-    { label: "Atendimento B2B", href: "#contato" },
-    { label: "Produção sob demanda", href: "#produtos" },
-  ],
-};
+import { footerLinks } from "@/lib/navigation";
 
 export function FooterSection() {
   return (
@@ -97,6 +80,62 @@ export function FooterSection() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-border px-6 py-8 md:px-12 lg:px-20">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xs font-medium text-foreground">Desenvolvimento web</p>
+            <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground">
+              Site desenvolvido por{" "}
+              <a
+                href={AGENCY.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground transition-colors hover:text-accent"
+              >
+                {AGENCY.name}
+              </a>
+              {" — "}
+              {AGENCY.tagline}. {AGENCY.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a
+              href={AGENCY.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
+              themonkeys.com.br
+            </a>
+            <a
+              href={`mailto:${AGENCY.email}`}
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {AGENCY.email}
+            </a>
+            <a
+              href={AGENCY.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <InstagramIcon className="size-3.5" />
+              {AGENCY.instagramHandle}
+            </a>
+            <a
+              href={AGENCY.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <WhatsAppIcon className="size-3.5" />
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

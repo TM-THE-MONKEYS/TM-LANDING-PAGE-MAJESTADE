@@ -16,9 +16,6 @@ export function GallerySection() {
     { src: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200", alt: "Kits de brindes corporativos" },
     { src: "https://images.unsplash.com/photo-1505373877841-8d25f0021eec?q=80&w=1200", alt: "Brindes para eventos empresariais" },
     { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200", alt: "Produtos personalizados com identidade visual" },
-    { src: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200", alt: "Canecas com logotipo personalizado" },
-    { src: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200", alt: "Chaveiros corporativos personalizados" },
-    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200", alt: "Processo de fabricação de brindes" },
   ];
 
   useEffect(() => {
