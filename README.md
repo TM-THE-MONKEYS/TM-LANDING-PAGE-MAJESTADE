@@ -136,7 +136,7 @@ O deploy de **produção** é feito automaticamente na [Vercel](https://vercel.c
 
 | Ambiente | Branch | Plataforma |
 |----------|--------|------------|
-| Produção | `main` | Vercel (automático) |
+| Produção | `main` | Vercel → [majestadepersonalizados.com.br](https://majestadepersonalizados.com.br) |
 | Desenvolvimento | `devl` | Local (`pnpm dev`) |
 
 ### Fluxo recomendado
@@ -147,6 +147,22 @@ O deploy de **produção** é feito automaticamente na [Vercel](https://vercel.c
 4. Fazer merge em `main` — a Vercel publica em produção
 
 A branch `devl` **não** dispara deploy na Vercel (`vercel.json` bloqueia deploys automáticos dessa branch).
+
+### Domínio personalizado
+
+| Domínio | Função |
+|---------|--------|
+| `majestadepersonalizados.com.br` | Produção (principal) |
+| `www.majestadepersonalizados.com.br` | Redireciona para o domínio principal |
+
+Configure estes registros DNS no provedor do domínio:
+
+| Tipo | Nome | Valor |
+|------|------|-------|
+| A | `@` | `76.76.21.21` |
+| A | `www` | `76.76.21.21` |
+
+Alternativa: apontar os nameservers para `ns1.vercel-dns.com` e `ns2.vercel-dns.com`.
 
 ### Configuração
 

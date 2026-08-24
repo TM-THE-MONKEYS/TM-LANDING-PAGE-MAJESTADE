@@ -8,5 +8,18 @@
       "main": true,
       "devl": false
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.majestadepersonalizados.com.br"
+        }
+      ],
+      "destination": "https://majestadepersonalizados.com.br/:path*",
+      "permanent": true
+    }
+  ]
 }

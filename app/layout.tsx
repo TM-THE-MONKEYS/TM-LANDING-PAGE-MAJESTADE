@@ -7,7 +7,10 @@ import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
+const SITE_URL = 'https://majestadepersonalizados.com.br'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Majestade Personalizados | Brindes Corporativos em Montenegro, RS',
   description: 'Mais de 15 anos fabricando brindes corporativos personalizados para empresas. Canecas, chaveiros, squeezes e produtos sob medida com a identidade da sua marca.',
   creator: AGENCY.name,
@@ -17,18 +20,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: '/apple-icon.png',
   },
