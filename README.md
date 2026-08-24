@@ -132,13 +132,35 @@ O CTA de orçamento aponta para `contato@majestadepersonalizados.com.br` em `com
 
 ## Deploy
 
-O projeto é compatível com [Vercel](https://vercel.com/) out of the box. O `@vercel/analytics` já está integrado no layout.
+O deploy de **produção** é feito automaticamente na [Vercel](https://vercel.com/) a cada push na branch `main` do GitHub.
+
+| Ambiente | Branch | Plataforma |
+|----------|--------|------------|
+| Produção | `main` | Vercel (automático) |
+| Desenvolvimento | `devl` | Local (`pnpm dev`) |
+
+### Fluxo recomendado
+
+1. Desenvolver na branch `devl`
+2. Abrir Pull Request de `devl` → `main`
+3. Aguardar o CI (GitHub Actions) passar
+4. Fazer merge em `main` — a Vercel publica em produção
+
+A branch `devl` **não** dispara deploy na Vercel (`vercel.json` bloqueia deploys automáticos dessa branch).
+
+### Configuração
+
+- **Framework:** Next.js
+- **Install:** `pnpm install`
+- **Build:** `pnpm run build`
+- **Variáveis de ambiente:** nenhuma obrigatória para o funcionamento básico
+
+### Validação local antes do merge
 
 ```bash
-npm run build
+pnpm install
+pnpm run build
 ```
-
-Para deploy na Vercel, conecte o repositório e configure o framework como **Next.js**. Nenhuma variável de ambiente é obrigatória para o funcionamento básico.
 
 ---
 
