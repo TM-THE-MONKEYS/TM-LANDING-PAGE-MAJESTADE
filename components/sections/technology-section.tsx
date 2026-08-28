@@ -44,7 +44,7 @@ function ScrollRevealText({ text }: { text: string }) {
   return (
     <p
       ref={containerRef}
-      className="text-3xl font-semibold leading-snug md:text-4xl lg:text-5xl"
+      className="text-center text-3xl font-semibold leading-snug md:text-4xl lg:text-5xl"
     >
       {words.map((word, index) => {
         const wordProgress = index / words.length;

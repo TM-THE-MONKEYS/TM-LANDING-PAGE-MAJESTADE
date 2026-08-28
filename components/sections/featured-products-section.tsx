@@ -70,7 +70,7 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
               />
             </div>
 
-            <div className="py-6">
+            <div className="py-6 text-center">
               <p className="mb-2 text-xs uppercase tracking-widest text-accent">
                 {feature.description}
               </p>

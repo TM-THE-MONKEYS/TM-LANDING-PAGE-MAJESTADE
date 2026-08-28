@@ -78,7 +78,7 @@ export function GallerySection() {
       style={{ height: sectionHeight }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute top-8 left-6 z-10 md:left-12 lg:left-20">
+        <div className="absolute top-8 left-1/2 z-10 w-full -translate-x-1/2 px-6 text-center">
           <p className="text-xs uppercase tracking-widest text-accent">Portfólio</p>
           <h2 className="mt-2 text-2xl font-medium text-foreground md:text-3xl">
             Trabalhos realizados

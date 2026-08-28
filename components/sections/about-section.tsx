@@ -5,8 +5,8 @@ import Image from "next/image";
 export function AboutSection({ showVideo = false }: { showVideo?: boolean }) {
   return (
     <section id="sobre" className="bg-background">
-      <div className="px-6 py-20 md:px-12 md:py-28 lg:px-20">
-        <p className="text-xs uppercase tracking-widest text-accent mb-6">Sobre nós</p>
+      <div className="px-6 py-20 text-center md:px-12 md:py-28 lg:px-20">
+        <p className="mb-6 text-xs uppercase tracking-widest text-accent">Sobre nós</p>
         <p className="mx-auto max-w-5xl text-2xl leading-relaxed text-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
           A Majestade Personalizados é uma empresa gaúcha especializada na fabricação 
           de brindes corporativos — com mais de 15 anos de experiência, estrutura própria 

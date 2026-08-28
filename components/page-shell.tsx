@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { FooterSection } from "@/components/sections/footer-section";
+import { WhatsAppFloat } from "@/components/whatsapp-float";
 
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
       <Header />
       {children}
       <FooterSection />
+      <WhatsAppFloat />
     </main>
   );
 }

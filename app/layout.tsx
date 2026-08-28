@@ -1,11 +1,14 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AGENCY } from '@/lib/agency'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: '--font-montserrat',
+});
 
 const SITE_URL = 'https://majestadepersonalizados.com.br'
 const OG_TITLE = 'Majestade Personalizados | Brindes Corporativos em Montenegro, RS'
@@ -88,7 +91,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${montserrat.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

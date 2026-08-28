@@ -50,9 +50,9 @@ const useCases = [
 export function CollectionSection() {
   return (
     <section id="aplicacoes" className="bg-background">
-      <div className="px-6 py-20 md:px-12 lg:px-20 md:py-10">
+      <div className="px-6 py-20 text-center md:px-12 md:py-10 lg:px-20">
         <p className="text-xs uppercase tracking-widest text-accent">Aplicações</p>
-        <h2 className="mt-2 text-3xl font-medium tracking-tight text-foreground md:text-4xl">
+        <h2 className="mx-auto mt-2 max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl">
           Soluções para cada necessidade corporativa
         </h2>
       </div>
@@ -70,7 +70,7 @@ export function CollectionSection() {
                 />
               </div>
 
-              <div className="py-6">
+              <div className="py-6 text-center">
                 <p className="mb-2 text-xs uppercase tracking-widest text-accent">
                   {item.tag}
                 </p>
@@ -97,7 +97,7 @@ export function CollectionSection() {
                 />
               </div>
 
-              <div className="py-6">
+              <div className="py-6 text-center">
                 <p className="mb-2 text-xs uppercase tracking-widest text-accent">
                   {item.tag}
                 </p>
