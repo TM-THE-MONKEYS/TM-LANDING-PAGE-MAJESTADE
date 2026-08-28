@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 import { AGENCY } from "@/lib/agency";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
@@ -12,10 +13,15 @@ export function FooterSection() {
       <div className="border-t border-border px-6 py-16 md:px-12 md:py-20 lg:px-20">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-            <Link href="/" className="text-lg font-semibold text-foreground">
-              MAJESTADE
+            <Link href="/" aria-label="Majestade Personalizados">
+              <Image
+                src="/logo-majestade-navy-gold.png"
+                alt="Majestade Personalizados"
+                width={160}
+                height={56}
+                className="h-12 w-auto"
+              />
             </Link>
-            <p className="mt-1 text-sm text-accent">Personalizados</p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Fabricação de brindes corporativos personalizados. Mais de 15 anos 
               fortalecendo marcas de empresas em Montenegro, RS e em todo o Brasil.
@@ -84,66 +90,10 @@ export function FooterSection() {
         </div>
       </div>
 
-      <div className="border-t border-border px-6 py-8 md:px-12 lg:px-20">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-xs font-medium text-foreground">Desenvolvimento web</p>
-            <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground">
-              Site desenvolvido por{" "}
-              <a
-                href={AGENCY.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-foreground transition-colors hover:text-accent"
-              >
-                {AGENCY.name}
-              </a>
-              {" — "}
-              {AGENCY.tagline}. {AGENCY.description}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <a
-              href={AGENCY.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              themonkeys.com.br
-            </a>
-            <a
-              href={`mailto:${AGENCY.email}`}
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {AGENCY.email}
-            </a>
-            <a
-              href={AGENCY.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <InstagramIcon className="size-3.5" />
-              {AGENCY.instagramHandle}
-            </a>
-            <a
-              href={AGENCY.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <WhatsAppIcon className="size-3.5" />
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-xs text-muted-foreground">
-            © 2026 Majestade Personalizados. Todos os direitos reservados.
+            © {new Date().getFullYear()} Majestade Personalizados. Todos os direitos reservados.
           </p>
 
           <div className="flex items-center gap-5">
@@ -164,6 +114,14 @@ export function FooterSection() {
             >
               <WhatsAppIcon className="size-3.5" />
               WhatsApp
+            </a>
+            <a
+              href={AGENCY.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground/50 transition-colors hover:text-muted-foreground"
+            >
+              feito por {AGENCY.name}
             </a>
           </div>
         </div>

@@ -6,28 +6,37 @@ import { useEffect, useRef, useState } from "react";
 function ScrollRevealText({ text }: { text: string }) {
   const containerRef = useRef<HTMLParagraphElement>(null);
   const [progress, setProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      setProgress(1);
+      return;
+    }
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      const startOffset = windowHeight * 0.9;
-      const endOffset = windowHeight * 0.1;
-      
-      const totalDistance = startOffset - endOffset;
-      const currentPosition = startOffset - rect.top;
-      
-      const newProgress = Math.max(0, Math.min(1, currentPosition / totalDistance));
-      setProgress(newProgress);
+      if (rafRef.current !== null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        if (!containerRef.current) return;
+        const rect = containerRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const startOffset = windowHeight * 0.9;
+        const endOffset = windowHeight * 0.1;
+        const totalDistance = startOffset - endOffset;
+        const currentPosition = startOffset - rect.top;
+        setProgress(Math.max(0, Math.min(1, currentPosition / totalDistance)));
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const words = text.split(" ");
@@ -88,19 +97,28 @@ export function TechnologySection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textSectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
   
   const descriptionText = "Com fabricação própria, mais de 15 anos de experiência e atendimento especializado para empresas, a Majestade Personalizados entende as necessidades do mercado B2B: volume, prazo e personalização de marca. Do evento corporativo ao kit de boas-vindas, entregamos brindes que representam a credibilidade da sua empresa.";
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      setScrollProgress(1);
+      return;
+    }
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 1.4;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-      
-      setScrollProgress(progress);
+      if (rafRef.current !== null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        if (!sectionRef.current) return;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollableHeight = window.innerHeight * 1.4;
+        const scrolled = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
+        setScrollProgress(progress);
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -108,6 +126,7 @@ export function TechnologySection() {
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 

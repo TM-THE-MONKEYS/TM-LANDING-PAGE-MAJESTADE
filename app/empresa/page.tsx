@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 import { PhilosophySection } from "@/components/sections/philosophy-section";
 import { CollectionSection } from "@/components/sections/collection-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { AboutSection } from "@/components/sections/about-section";
 
 export const metadata: Metadata = {
   title: "Empresa | Majestade Personalizados",
@@ -15,7 +15,7 @@ export default function EmpresaPage() {
     <PageShell>
       <PhilosophySection />
       <CollectionSection />
-      <TestimonialsSection showVideo />
+      <AboutSection showVideo />
     </PageShell>
   );
 }

@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const word = "MAJESTADE";
 
@@ -35,17 +37,23 @@ const sideImages = [
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 1.4;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-      
-      setScrollProgress(progress);
+      if (rafRef.current !== null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        if (!sectionRef.current) return;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollableHeight = window.innerHeight * 1.4;
+        const scrolled = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
+        setScrollProgress(progress);
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -53,6 +61,7 @@ export function HeroSection() {
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
@@ -123,9 +132,21 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-foreground/30" />
               
               <div 
-                className="absolute inset-0 flex items-end overflow-hidden"
+                className="absolute inset-0 flex flex-col items-start justify-between overflow-hidden pb-8 pl-6 md:pl-10"
                 style={{ opacity: textOpacity }}
               >
+                <div className="flex w-full items-start justify-end pt-24 pr-6 md:pr-10">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-foreground shadow-lg transition-all hover:bg-white/90 hover:scale-105 animate-[reveal-up_0.6s_ease-out_1s_forwards] opacity-0"
+                  >
+                    <WhatsAppIcon className="size-4 text-[#25D366]" />
+                    Solicitar orçamento
+                  </a>
+                </div>
+
                 <h1 className="w-full whitespace-nowrap text-[17vw] font-medium leading-[0.8] tracking-tighter text-white">
                   {word.split("").map((letter, index) => (
                     <span

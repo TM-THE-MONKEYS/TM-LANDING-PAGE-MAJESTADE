@@ -1,4 +1,3 @@
-import { AGENCY } from "@/lib/agency";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export const navLinks = [
@@ -20,7 +19,6 @@ export const footerLinks = {
     { label: "Sobre nós", href: "/empresa#sobre" },
     { label: "Aplicações", href: "/empresa#aplicacoes" },
     { label: "WhatsApp", href: WHATSAPP_URL },
-    { label: "Desenvolvimento — The Monkeys", href: AGENCY.website },
   ],
   atendimento: [
     { label: "Montenegro, RS", href: "/#contato" },

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export function TestimonialsSection({ showVideo = false }: { showVideo?: boolean }) {
+export function AboutSection({ showVideo = false }: { showVideo?: boolean }) {
   return (
     <section id="sobre" className="bg-background">
       <div className="px-6 py-20 md:px-12 md:py-28 lg:px-20">

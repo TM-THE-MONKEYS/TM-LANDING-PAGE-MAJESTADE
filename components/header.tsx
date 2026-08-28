@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
@@ -28,8 +29,15 @@ export function Header() {
       }}
     >
       <div className="flex items-center justify-between transition-all duration-300 px-2 pl-5 py-2">
-        <Link href="/" className={`text-sm font-semibold tracking-tight transition-colors duration-300 md:text-base ${isScrolled ? "text-foreground" : "text-white"}`}>
-          MAJESTADE
+        <Link href="/" className="flex items-center" aria-label="Majestade Personalizados">
+          <Image
+            src={isScrolled ? "/logo-majestade-navy-gold.png" : "/logo-majestade-white-gold.png"}
+            alt="Majestade Personalizados"
+            width={140}
+            height={48}
+            className="h-10 w-auto transition-all duration-300"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
