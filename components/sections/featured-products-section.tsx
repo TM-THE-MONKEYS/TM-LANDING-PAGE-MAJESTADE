@@ -9,7 +9,7 @@ const features = [
   {
     title: "Canecas Personalizadas",
     description: "Linha premium",
-    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca73?q=80&w=800",
+    image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=800",
   },
   {
     title: "Chaveiros Corporativos",

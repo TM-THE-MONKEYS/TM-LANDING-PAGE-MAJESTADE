@@ -11,7 +11,7 @@ export function GallerySection() {
   const rafRef = useRef<number | null>(null);
 
   const images = [
-    { src: "https://images.unsplash.com/photo-1514228742587-6b1558fcca73?q=80&w=1200", alt: "Canecas personalizadas corporativas" },
+    { src: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=1200", alt: "Canecas personalizadas corporativas" },
     { src: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=1200", alt: "Garrafas e squeezes personalizados" },
     { src: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200", alt: "Kits de brindes corporativos" },
     { src: "https://images.unsplash.com/photo-1505373877841-8d25f0021eec?q=80&w=1200", alt: "Brindes para eventos empresariais" },

@@ -74,7 +74,7 @@ const sideImages = [
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1542744173-8e161446a209?q=80&w=1000",
+    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000",
     alt: "Reunião de negócios",
     position: "left",
     span: 1,

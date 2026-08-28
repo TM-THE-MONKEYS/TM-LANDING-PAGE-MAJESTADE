@@ -9,7 +9,7 @@ const word = "MAJESTADE";
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1514228742587-6b1558fcca73?q=80&w=1000",
+    src: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=1000",
     alt: "Canecas personalizadas corporativas",
     position: "left",
     span: 1,
@@ -27,7 +27,7 @@ const sideImages = [
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1542744173-8e161446a209?q=80&w=1000",
+    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000",
     alt: "Brindes corporativos em ambiente empresarial",
     position: "right",
     span: 1,
