@@ -7,34 +7,44 @@ import { WHATSAPP_URL } from "@/lib/contact";
 
 const features = [
   {
-    title: "Canecas Personalizadas",
+    title: "Canecas Térmicas",
     description: "Linha premium",
-    image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=800",
-  },
-  {
-    title: "Chaveiros Corporativos",
-    description: "Alta visibilidade",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800",
+    image: "/images/catalogo/04-canecas-termicas/caneca-termica-abridor-500ml.png",
   },
   {
     title: "Squeezes e Garrafas",
     description: "Uso diário",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800",
+    image: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-750ml.png",
   },
   {
-    title: "Kits Institucionais",
-    description: "Boas-vindas",
-    image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800",
+    title: "Chaveiros Corporativos",
+    description: "Alta visibilidade",
+    image: "/images/catalogo/07-chaveiros/chaveiro-couro-sortido.png",
   },
   {
-    title: "Brindes para Eventos",
-    description: "Feiras e campanhas",
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f0021eec?q=80&w=800",
+    title: "Kit Vinho",
+    description: "Presentes institucionais",
+    image: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-xadrez.png",
   },
   {
-    title: "Personalização Completa",
-    description: "Sua marca em destaque",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800",
+    title: "Cuia e Bomba",
+    description: "Diferencial gaúcho",
+    image: "/images/catalogo/02-cuia-e-bomba/cuia-pe-de-massa-medalhao.png",
+  },
+  {
+    title: "Canetas",
+    description: "Clássico e versátil",
+    image: "/images/catalogo/08-canetas/canetas-linha-02.png",
+  },
+  {
+    title: "Uniformes Industriais",
+    description: "Equipes operacionais",
+    image: "/images/catalogo/09-uniformes-industriais/macacao-azul.png",
+  },
+  {
+    title: "Mochilas e Bolsas",
+    description: "Brindes de alto impacto",
+    image: "/images/catalogo/13-mochilas-bolsas-termicas/mochila-bolsa-termica.png",
   },
 ];
 
@@ -49,24 +59,24 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
     <section id="produtos" className="bg-background">
       <div className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20 lg:py-24">
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Produtos que fortalecem
+          Produtos que carregam
           <br />
           a identidade da sua empresa.
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-sm text-muted-foreground md:text-base">
-          Fabricamos brindes corporativos sob demanda, com logotipo, cores e mensagens personalizadas para cada cliente.
+          Da caneca ao uniforme, cada peça é produzida sob demanda — com seu logotipo, suas cores e o acabamento que sua marca merece.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 px-6 pb-12 md:grid-cols-2 md:px-12 lg:grid-cols-4 lg:px-20">
         {displayedFeatures.map((feature) => (
           <div key={feature.title} className="group">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#F0EDE6]">
               <FadeImage
                 src={feature.image || "/placeholder.svg"}
                 alt={feature.title}
                 fill
-                className="object-cover group-hover:scale-105"
+                className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 

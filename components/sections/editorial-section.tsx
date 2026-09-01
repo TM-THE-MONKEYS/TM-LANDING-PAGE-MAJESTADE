@@ -16,11 +16,11 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
       <div id="contato" className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20">
         <p className="text-xs uppercase tracking-widest text-accent">Orçamento</p>
         <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Pronto para fortalecer a marca da sua empresa?
+          Pronto para colocar a marca da sua empresa na mão de quem importa?
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-muted-foreground">
-          Solicite uma proposta personalizada. Atendemos empresas de todos os portes 
-          com brindes corporativos sob medida para o seu projeto.
+          Peça uma proposta sem compromisso. Atendemos empresas de todos os portes, 
+          de pedidos pontuais a contratos recorrentes de brindes corporativos.
         </p>
         <a
           href={WHATSAPP_URL}

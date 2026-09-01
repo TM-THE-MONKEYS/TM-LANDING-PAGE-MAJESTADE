@@ -70,8 +70,12 @@ const jsonLd = {
     addressRegion: 'RS',
     addressCountry: 'BR',
   },
+  telephone: '+5551995451992',
+  email: 'personalizadosmajestade@gmail.com',
   contactPoint: {
     '@type': 'ContactPoint',
+    telephone: '+5551995451992',
+    email: 'personalizadosmajestade@gmail.com',
     contactType: 'customer service',
     availableLanguage: 'Portuguese',
   },
@@ -81,6 +85,7 @@ const jsonLd = {
   },
   sameAs: [
     'https://www.instagram.com/majestadepersonalizados/',
+    'https://wa.me/5551995451992',
   ],
 }
 

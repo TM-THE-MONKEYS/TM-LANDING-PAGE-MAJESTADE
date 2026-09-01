@@ -55,7 +55,7 @@ function ScrollRevealText({ text }: { text: string }) {
             key={index}
             className="transition-colors duration-150"
             style={{
-              color: isRevealed ? "var(--foreground)" : "#e4e4e7",
+              color: isRevealed ? "var(--foreground)" : "var(--muted-foreground)",
             }}
           >
             {word}{index < words.length - 1 ? " " : ""}
@@ -68,26 +68,26 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000",
-    alt: "Equipe em ambiente corporativo",
+    src: "/images/catalogo/09-uniformes-industriais/macacao-azul.png",
+    alt: "Macacão industrial personalizado",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000",
-    alt: "Reunião de negócios",
+    src: "/images/catalogo/03-canecas/caneca-inox-parede-dupla-250ml.png",
+    alt: "Caneca inox parede dupla personalizada",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000",
-    alt: "Ambiente empresarial",
+    src: "/images/catalogo/05-copos-termicos/copo-termico-abridor-500ml.png",
+    alt: "Copo térmico com abridor 500ml",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
-    alt: "Colaboradores em escritório",
+    src: "/images/catalogo/11-camisetas/camiseta-esportiva-cinza.png",
+    alt: "Camiseta esportiva personalizada",
     position: "right",
     span: 1,
   },
@@ -99,7 +99,7 @@ export function TechnologySection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const rafRef = useRef<number | null>(null);
   
-  const descriptionText = "Com fabricação própria, mais de 15 anos de experiência e atendimento especializado para empresas, a Majestade Personalizados entende as necessidades do mercado B2B: volume, prazo e personalização de marca. Do evento corporativo ao kit de boas-vindas, entregamos brindes que representam a credibilidade da sua empresa.";
+  const descriptionText = "Fabricação própria, mais de 15 anos de estrada e atendimento pensado para empresas: é assim que a Majestade resolve o que o mercado B2B (negócios para empresas) mais cobra — volume, prazo e consistência na marca. Do evento corporativo ao uniforme da equipe, cada brinde sai da nossa estrutura pronto para representar a credibilidade da sua empresa.";
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -159,7 +159,7 @@ export function TechnologySection() {
               {sideImages.filter(img => img.position === "left").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform"
+                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,
@@ -169,14 +169,14 @@ export function TechnologySection() {
                     src={img.src || "/placeholder.svg"}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain p-6"
                   />
                 </div>
               ))}
             </div>
 
             <div 
-              className="relative overflow-hidden will-change-transform"
+              className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
               style={{
                 width: `${centerWidth}%`,
                 height: "100%",
@@ -185,12 +185,12 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2000"
-                alt="Estrutura empresarial da Majestade Personalizados"
+                src="/images/catalogo/04-canecas-termicas/caneca-termica-canudo-1200ml.png"
+                alt="Caneca térmica personalizada Majestade Personalizados"
                 fill
-                className="object-cover"
+                className="object-contain p-12"
               />
-              <div className="absolute inset-0 bg-foreground/40" />
+              <div className="absolute inset-0 bg-foreground/20" />
               
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
                 <h2 className="max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl">
@@ -233,7 +233,7 @@ export function TechnologySection() {
               {sideImages.filter(img => img.position === "right").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform"
+                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,
@@ -243,7 +243,7 @@ export function TechnologySection() {
                     src={img.src || "/placeholder.svg"}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain p-6"
                   />
                 </div>
               ))}

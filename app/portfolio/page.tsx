@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
-import { GallerySection } from "@/components/sections/gallery-section";
+import { CatalogSection } from "@/components/sections/catalog-section";
 
 export const metadata: Metadata = {
-  title: "Portfólio | Majestade Personalizados",
+  title: "Catálogo | Majestade Personalizados",
   description:
-    "Trabalhos realizados em brindes corporativos personalizados — canecas, kits, squeezes e produtos sob medida para empresas.",
+    "Catálogo completo de brindes corporativos personalizados — canecas térmicas, squeezes, kit vinho, cuia e bomba, uniformes, vestuário e muito mais.",
 };
 
 export default function PortfolioPage() {
   return (
     <PageShell>
-      <GallerySection />
+      <CatalogSection />
     </PageShell>
   );
 }

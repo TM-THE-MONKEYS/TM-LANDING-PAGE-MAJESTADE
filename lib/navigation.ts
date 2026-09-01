@@ -4,7 +4,7 @@ export const navLinks = [
   { href: "/#produtos", label: "Produtos" },
   { href: "/empresa#historia", label: "Nossa História" },
   { href: "/#diferenciais", label: "Diferenciais" },
-  { href: "/portfolio", label: "Portfólio" },
+  { href: "/portfolio", label: "Catálogo" },
   { href: "/empresa#sobre", label: "Sobre" },
 ] as const;
 
@@ -13,7 +13,7 @@ export const footerLinks = {
     { label: "Produtos", href: "/#produtos" },
     { label: "Nossa História", href: "/empresa#historia" },
     { label: "Diferenciais", href: "/#diferenciais" },
-    { label: "Portfólio", href: "/portfolio" },
+    { label: "Catálogo", href: "/portfolio" },
   ],
   empresa: [
     { label: "Sobre nós", href: "/empresa#sobre" },

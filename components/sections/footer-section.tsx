@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 import { AGENCY } from "@/lib/agency";
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
+import { EMAIL_CONTACT, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 import { footerLinks } from "@/lib/navigation";
 
 export function FooterSection() {
@@ -26,15 +26,32 @@ export function FooterSection() {
               Fabricação de brindes corporativos personalizados. Mais de 15 anos 
               fortalecendo marcas de empresas em Montenegro, RS e em todo o Brasil.
             </p>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <InstagramIcon className="size-4" />
-              {INSTAGRAM_HANDLE}
-            </a>
+            <div className="mt-5 flex flex-col gap-2">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <InstagramIcon className="size-4" />
+                {INSTAGRAM_HANDLE}
+              </a>
+              <a
+                href={`https://wa.me/5551995451992`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <WhatsAppIcon className="size-4" />
+                {PHONE_DISPLAY}
+              </a>
+              <a
+                href={`mailto:${EMAIL_CONTACT}`}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {EMAIL_CONTACT}
+              </a>
+            </div>
           </div>
 
           <div>

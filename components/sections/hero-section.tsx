@@ -7,26 +7,26 @@ const word = "MAJESTADE";
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=1000",
-    alt: "Canecas personalizadas corporativas",
+    src: "/images/catalogo/04-canecas-termicas/caneca-termica-canudo-1200ml.png",
+    alt: "Caneca térmica personalizada com canudo 1200ml",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=1000",
-    alt: "Squeeze personalizado para empresas",
+    src: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-900ml.png",
+    alt: "Squeeze inox personalizado 900ml",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000",
-    alt: "Equipe corporativa em reunião",
+    src: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-madeira.png",
+    alt: "Kit vinho em caixa de madeira personalizado",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000",
-    alt: "Brindes corporativos em ambiente empresarial",
+    src: "/images/catalogo/07-chaveiros/chaveiro-couro-sortido.png",
+    alt: "Chaveiros em couro personalizados",
     position: "right",
     span: 1,
   },
@@ -95,7 +95,7 @@ export function HeroSection() {
               {sideImages.filter(img => img.position === "left").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform"
+                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,
@@ -105,7 +105,7 @@ export function HeroSection() {
                     src={img.src || "/placeholder.svg"}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4"
                   />
                 </div>
               ))}
@@ -121,10 +121,10 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2000"
-                alt="Ambiente corporativo com brindes personalizados"
+                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2400"
+                alt="Produção de brindes corporativos personalizados"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 priority
               />
               <div className="absolute inset-0 bg-foreground/30" />
@@ -163,7 +163,7 @@ export function HeroSection() {
               {sideImages.filter(img => img.position === "right").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform"
+                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,
@@ -173,7 +173,7 @@ export function HeroSection() {
                     src={img.src || "/placeholder.svg"}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4"
                   />
                 </div>
               ))}
@@ -186,12 +186,12 @@ export function HeroSection() {
 
       <div className="px-6 pt-20 pb-16 md:pt-28 md:px-12 md:pb-20 lg:px-20 lg:pt-32 lg:pb-24">
         <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
-          Brindes corporativos personalizados
+          Brindes corporativos personalizados,
           <br />
-          com mais de 15 anos de experiência.
+          fabricados por nós — do primeiro rascunho à entrega.
         </p>
         <p className="mx-auto mt-6 max-w-xl text-center text-sm text-muted-foreground md:text-base">
-          Fabricação própria em Montenegro, RS — fortalecendo marcas de empresas em todo o Brasil.
+          Mais de 15 anos de experiência e estrutura própria em Montenegro, RS, atendendo empresas em todo o Brasil.
         </p>
       </div>
     </section>
