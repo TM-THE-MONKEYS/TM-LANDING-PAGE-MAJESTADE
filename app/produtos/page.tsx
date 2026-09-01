@@ -3,12 +3,12 @@ import { PageShell } from "@/components/page-shell";
 import { CatalogSection } from "@/components/sections/catalog-section";
 
 export const metadata: Metadata = {
-  title: "Catálogo | Majestade Personalizados",
+  title: "Produtos | Majestade Personalizados",
   description:
-    "Catálogo completo de brindes corporativos personalizados — canecas térmicas, squeezes, kit vinho, cuia e bomba, uniformes, vestuário e muito mais.",
+    "Conheça as linhas de brindes corporativos personalizados da Majestade — canecas térmicas, squeezes, kit vinho, cuia e bomba, uniformes, vestuário e muito mais.",
 };
 
-export default function PortfolioPage() {
+export default function ProdutosPage() {
   return (
     <PageShell>
       <CatalogSection />

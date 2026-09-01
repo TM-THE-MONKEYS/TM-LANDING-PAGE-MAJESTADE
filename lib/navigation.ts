@@ -1,19 +1,19 @@
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export const navLinks = [
-  { href: "/#produtos", label: "Produtos" },
+  { href: "/", label: "Início" },
+  { href: "/produtos", label: "Produtos" },
+  { href: "/catalogo", label: "Catálogo" },
   { href: "/empresa#historia", label: "Nossa História" },
-  { href: "/#diferenciais", label: "Diferenciais" },
-  { href: "/portfolio", label: "Catálogo" },
   { href: "/empresa#sobre", label: "Sobre" },
 ] as const;
 
 export const footerLinks = {
   navegacao: [
-    { label: "Produtos", href: "/#produtos" },
+    { label: "Início", href: "/" },
+    { label: "Produtos", href: "/produtos" },
+    { label: "Catálogo", href: "/catalogo" },
     { label: "Nossa História", href: "/empresa#historia" },
-    { label: "Diferenciais", href: "/#diferenciais" },
-    { label: "Catálogo", href: "/portfolio" },
   ],
   empresa: [
     { label: "Sobre nós", href: "/empresa#sobre" },

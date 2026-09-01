@@ -1,59 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { FadeImage } from "@/components/fade-image";
+import { useState } from "react";
+import { ProductCard } from "@/components/products/product-card";
+import { ProductModal } from "@/components/products/product-modal";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
-import { WHATSAPP_URL } from "@/lib/contact";
-
-const features = [
-  {
-    title: "Canecas Térmicas",
-    description: "Linha premium",
-    image: "/images/catalogo/04-canecas-termicas/caneca-termica-abridor-500ml.png",
-  },
-  {
-    title: "Squeezes e Garrafas",
-    description: "Uso diário",
-    image: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-750ml.png",
-  },
-  {
-    title: "Chaveiros Corporativos",
-    description: "Alta visibilidade",
-    image: "/images/catalogo/07-chaveiros/chaveiro-couro-sortido.png",
-  },
-  {
-    title: "Kit Vinho",
-    description: "Presentes institucionais",
-    image: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-xadrez.png",
-  },
-  {
-    title: "Cuia e Bomba",
-    description: "Diferencial gaúcho",
-    image: "/images/catalogo/02-cuia-e-bomba/cuia-pe-de-massa-medalhao.png",
-  },
-  {
-    title: "Canetas",
-    description: "Clássico e versátil",
-    image: "/images/catalogo/08-canetas/canetas-linha-02.png",
-  },
-  {
-    title: "Uniformes Industriais",
-    description: "Equipes operacionais",
-    image: "/images/catalogo/09-uniformes-industriais/macacao-azul.png",
-  },
-  {
-    title: "Mochilas e Bolsas",
-    description: "Brindes de alto impacto",
-    image: "/images/catalogo/13-mochilas-bolsas-termicas/mochila-bolsa-termica.png",
-  },
-];
+import { getFeaturedProducts } from "@/lib/catalog";
+import type { Product } from "@/lib/catalog";
+import { buildWhatsAppUrl } from "@/lib/contact";
 
 type FeaturedProductsSectionProps = {
   limit?: number;
 };
 
 export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps) {
-  const displayedFeatures = limit ? features.slice(0, limit) : features;
+  const products = getFeaturedProducts(limit);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openProduct = (product: Product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
+
+  const catalogWhatsAppUrl = buildWhatsAppUrl(
+    "Olá! Gostaria de receber o catálogo completo da Majestade Personalizados."
+  );
 
   return (
     <section id="produtos" className="bg-background">
@@ -69,24 +41,19 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
       </div>
 
       <div className="grid grid-cols-1 gap-4 px-6 pb-12 md:grid-cols-2 md:px-12 lg:grid-cols-4 lg:px-20">
-        {displayedFeatures.map((feature) => (
-          <div key={feature.title} className="group">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#F0EDE6]">
-              <FadeImage
-                src={feature.image || "/placeholder.svg"}
-                alt={feature.title}
-                fill
-                className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
+        {products.map((product) => (
+          <div key={product.id} className="group">
+            <ProductCard
+              product={product}
+              aspectRatio="4/3"
+              onClick={() => openProduct(product)}
+            />
 
             <div className="py-6 text-center">
-              <p className="mb-2 text-xs uppercase tracking-widest text-accent">
-                {feature.description}
+              <h3 className="text-xl font-semibold text-foreground">{product.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                {product.shortDescription}
               </p>
-              <h3 className="text-foreground text-xl font-semibold">
-                {feature.title}
-              </h3>
             </div>
           </div>
         ))}
@@ -94,7 +61,7 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
 
       <div className="flex flex-col items-center gap-4 px-6 pb-20 md:px-12 lg:px-20">
         <a
-          href={WHATSAPP_URL}
+          href={catalogWhatsAppUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
@@ -104,13 +71,19 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
         </a>
         {limit && (
           <Link
-            href="/empresa#aplicacoes"
+            href="/catalogo"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            Ver todas as aplicações corporativas →
+            Ver catálogo completo →
           </Link>
         )}
       </div>
+
+      <ProductModal
+        product={selectedProduct}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </section>
   );
 }

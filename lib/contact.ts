@@ -1,6 +1,12 @@
-export const WHATSAPP_URL =
-  "https://wa.me/5551995451992?text=" +
-  encodeURIComponent("Olá! Gostaria de solicitar um orçamento.");
+export const PHONE_NUMBER = "5551995451992";
+
+export function buildWhatsAppUrl(message: string): string {
+  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+export const WHATSAPP_URL = buildWhatsAppUrl(
+  "Olá! Gostaria de solicitar um orçamento."
+);
 
 export const INSTAGRAM_URL = "https://www.instagram.com/majestadepersonalizados/";
 export const INSTAGRAM_HANDLE = "@majestadepersonalizados";
