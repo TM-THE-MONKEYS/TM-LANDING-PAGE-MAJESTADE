@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
 import { AGENCY } from "@/lib/agency";
-import { EMAIL_CONTACT, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import { EMAIL_CONTACT, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, PHONE_NUMBER, WHATSAPP_URL } from "@/lib/contact";
 import { footerLinks } from "@/lib/navigation";
 
 export function FooterSection() {
@@ -37,7 +37,7 @@ export function FooterSection() {
                 {INSTAGRAM_HANDLE}
               </a>
               <a
-                href={`https://wa.me/5551995451992`}
+                href={`https://wa.me/${PHONE_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"

@@ -2,198 +2,145 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { ProductModal } from "@/components/products/product-modal";
+import { catalogCategories } from "@/lib/catalog";
+import type { Product } from "@/lib/catalog";
 
-const word = "MAJESTADE";
-
-const sideImages = [
-  {
-    src: "/images/catalogo/04-canecas-termicas/caneca-termica-canudo-1200ml.png",
-    alt: "Caneca térmica personalizada com canudo 1200ml",
-    position: "left",
-    span: 1,
-  },
-  {
-    src: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-900ml.png",
-    alt: "Squeeze inox personalizado 900ml",
-    position: "left",
-    span: 1,
-  },
-  {
-    src: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-madeira.png",
-    alt: "Kit vinho em caixa de madeira personalizado",
-    position: "right",
-    span: 1,
-  },
-  {
-    src: "/images/catalogo/07-chaveiros/chaveiro-couro-sortido.png",
-    alt: "Chaveiros em couro personalizados",
-    position: "right",
-    span: 1,
-  },
+const PREVIEW_IDS = [
+  "caneca-termica-canudo-1200ml",
+  "squeeze-inox-900ml",
+  "kit-vinho-caixa-madeira",
+  "chaveiro-couro-sortido",
 ];
 
+function getProductById(id: string): Product | undefined {
+  for (const cat of catalogCategories) {
+    const found = cat.products.find((p) => p.id === id);
+    if (found) return found;
+  }
+}
+
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const rafRef = useRef<number | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [gridVisible, setGridVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const previewProducts = PREVIEW_IDS.map(getProductById).filter(
+    (p): p is Product => !!p
+  );
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+    const el = gridRef.current;
+    if (!el) return;
 
-    const handleScroll = () => {
-      if (rafRef.current !== null) return;
-      rafRef.current = requestAnimationFrame(() => {
-        rafRef.current = null;
-        if (!sectionRef.current) return;
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollableHeight = window.innerHeight * 1.4;
-        const scrolled = -rect.top;
-        const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-        setScrollProgress(progress);
-      });
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setGridVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
-    };
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
-  const textOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
-  const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
-  const centerWidth = 100 - (imageProgress * 58);
-  const centerHeight = 100 - (imageProgress * 30);
-  const sideWidth = imageProgress * 22;
-  const sideOpacity = imageProgress;
-  const sideTranslateLeft = -100 + (imageProgress * 100);
-  const sideTranslateRight = 100 - (imageProgress * 100);
-  const borderRadius = imageProgress * 24;
-  const gap = imageProgress * 16;
-  const sideTranslateY = -(imageProgress * 15);
+  const openProduct = (product: Product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
 
   return (
-    <section ref={sectionRef} className="relative bg-background">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center">
-          <div 
-            className="relative flex h-full w-full items-stretch justify-center"
-            style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px`, paddingBottom: `${60 + (imageProgress * 40)}px` }}
-          >
-            <div 
-              className="flex flex-col will-change-transform"
-              style={{
-                width: `${sideWidth}%`,
-                gap: `${gap}px`,
-                transform: `translateX(${sideTranslateLeft}%) translateY(${sideTranslateY}%)`,
-                opacity: sideOpacity,
-              }}
-            >
-              {sideImages.filter(img => img.position === "left").map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
-                >
-                  <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    fill
-                    className="object-contain p-4"
-                  />
-                </div>
-              ))}
-            </div>
+    <section className="relative bg-background">
+      {/* Hero — tela cheia */}
+      <div className="relative h-screen overflow-hidden">
+        {/* Foto de fundo corporativa */}
+        <Image
+          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2400"
+          alt="Parceria corporativa Majestade Personalizados"
+          fill
+          className="object-cover object-center"
+          priority
+        />
 
-            <div 
-              className="relative overflow-hidden will-change-transform"
-              style={{
-                width: `${centerWidth}%`,
-                height: `${centerHeight}%`,
-                flex: "0 0 auto",
-                borderRadius: `${borderRadius}px`,
-              }}
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2400"
-                alt="Produção de brindes corporativos personalizados"
-                fill
-                className="object-cover object-center"
-                priority
-              />
-              <div className="absolute inset-0 bg-foreground/30" />
-              
-              <div
-                className="absolute inset-0 flex items-end justify-center overflow-hidden px-6 pb-8 md:px-10"
-                style={{ opacity: textOpacity }}
-              >
-                <h1 className="w-full whitespace-nowrap text-center text-[17vw] font-medium leading-[0.8] tracking-tighter text-white">
-                  {word.split("").map((letter, index) => (
-                    <span
-                      key={index}
-                      className="inline-block animate-[slideUp_0.8s_ease-out_forwards] opacity-0"
-                      style={{
-                        animationDelay: `${index * 0.08}s`,
-                        transition: 'all 1.5s',
-                        transitionTimingFunction: 'cubic-bezier(0.86, 0, 0.07, 1)',
-                      }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </h1>
-              </div>
-            </div>
+        {/* Overlay escuro na paleta da marca */}
+        <div className="absolute inset-0 bg-[#0F1B2D]/65" />
 
-            <div 
-              className="flex flex-col will-change-transform"
-              style={{
-                width: `${sideWidth}%`,
-                gap: `${gap}px`,
-                transform: `translateX(${sideTranslateRight}%) translateY(${sideTranslateY}%)`,
-                opacity: sideOpacity,
-              }}
-            >
-              {sideImages.filter(img => img.position === "right").map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
-                >
-                  <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    fill
-                    className="object-contain p-4"
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Logo e tagline */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+          <div className="animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] opacity-0">
+            <Image
+              src="/logo-majestade-white-gold.png"
+              alt="Majestade Personalizados"
+              width={420}
+              height={140}
+              className="h-auto w-[min(380px,72vw)]"
+              priority
+            />
           </div>
+
+          <p className="mt-6 max-w-sm animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.35s_forwards] text-sm text-white/70 opacity-0 md:max-w-md md:text-base">
+            Brindes corporativos personalizados — da ideia à entrega.
+          </p>
         </div>
       </div>
 
-      <div className="h-[140vh]" />
+      {/* Preview de produtos — aparece ao rolar */}
+      <div
+        ref={gridRef}
+        className="grid grid-cols-2 gap-3 bg-background px-4 py-6 md:grid-cols-4 md:gap-4 md:px-6 md:py-8"
+      >
+        {previewProducts.map((product, index) => (
+          <button
+            key={product.id}
+            type="button"
+            onClick={() => openProduct(product)}
+            aria-label={`Ver detalhes de ${product.name}`}
+            className={`group relative aspect-square overflow-hidden rounded-2xl bg-[#F0EDE6] transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
+              gridVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+            style={{ transitionDelay: gridVisible ? `${index * 0.1}s` : "0s" }}
+          >
+            <Image
+              src={product.src}
+              alt={product.alt}
+              fill
+              className="object-contain p-5 transition-transform duration-500 group-hover:scale-110 md:p-7"
+              sizes="(max-width: 768px) 50vw, 25vw"
+            />
 
-      <div className="px-6 pt-20 pb-16 md:pt-28 md:px-12 md:pb-20 lg:px-20 lg:pt-32 lg:pb-24">
+            {/* Hover overlay com label */}
+            <div className="absolute inset-0 bg-foreground/0 transition-colors duration-300 group-hover:bg-foreground/8" />
+            <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
+              <span className="translate-y-2 rounded-full bg-foreground/80 px-3 py-1.5 text-xs font-medium text-background backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+                Ver produto
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Texto institucional */}
+      <div className="px-6 pb-16 pt-4 md:px-12 md:pb-20 md:pt-8 lg:px-20 lg:pb-24">
         <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
           Brindes corporativos personalizados,
           <br />
           fabricados por nós — do primeiro rascunho à entrega.
         </p>
         <p className="mx-auto mt-6 max-w-xl text-center text-sm text-muted-foreground md:text-base">
-          Mais de 15 anos de experiência e estrutura própria em Montenegro, RS, atendendo empresas em todo o Brasil.
+          Mais de 15 anos de experiência e estrutura própria em Montenegro, RS, atendendo
+          empresas em todo o Brasil.
         </p>
       </div>
+
+      <ProductModal
+        product={selectedProduct}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </section>
   );
 }
