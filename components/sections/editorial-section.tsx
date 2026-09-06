@@ -3,13 +3,6 @@
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { WHATSAPP_URL } from "@/lib/contact";
 
-const specs = [
-  { label: "Anos de mercado", value: "15+" },
-  { label: "Colaboradores", value: "10" },
-  { label: "Localização", value: "Montenegro, RS" },
-  { label: "Produção", value: "Própria" },
-];
-
 export function EditorialSection({ compact = false }: { compact?: boolean }) {
   return (
     <section className="bg-background">
@@ -30,22 +23,6 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
           <WhatsAppIcon className="size-4" />
           Falar no WhatsApp
         </a>
-      </div>
-
-      <div className="grid grid-cols-2 border-t border-border md:grid-cols-4">
-        {specs.map((spec) => (
-          <div
-            key={spec.label}
-            className="border-b border-r border-border p-8 text-center last:border-r-0 md:border-b-0"
-          >
-            <p className="mb-2 text-sm text-muted-foreground">
-              {spec.label}
-            </p>
-            <p className="font-medium text-foreground text-3xl md:text-4xl">
-              {spec.value}
-            </p>
-          </div>
-        ))}
       </div>
 
       {!compact && (

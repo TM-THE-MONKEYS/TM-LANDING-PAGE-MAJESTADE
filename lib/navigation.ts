@@ -4,8 +4,7 @@ export const navLinks = [
   { href: "/", label: "Início" },
   { href: "/produtos", label: "Produtos" },
   { href: "/catalogo", label: "Catálogo" },
-  { href: "/empresa#historia", label: "Nossa História" },
-  { href: "/empresa#sobre", label: "Sobre" },
+  { href: "/empresa", label: "Empresa" },
 ] as const;
 
 export const footerLinks = {
@@ -13,16 +12,16 @@ export const footerLinks = {
     { label: "Início", href: "/" },
     { label: "Produtos", href: "/produtos" },
     { label: "Catálogo", href: "/catalogo" },
-    { label: "Nossa História", href: "/empresa#historia" },
+    { label: "Empresa", href: "/empresa" },
   ],
   empresa: [
+    { label: "Nossa História", href: "/empresa#historia" },
     { label: "Sobre nós", href: "/empresa#sobre" },
-    { label: "Produtos", href: "/produtos" },
     { label: "WhatsApp", href: WHATSAPP_URL },
   ],
   atendimento: [
-    { label: "Montenegro, RS", href: "/#contato" },
-    { label: "Atendimento B2B", href: "/#contato" },
-    { label: "Produção sob demanda", href: "/#produtos" },
+    { label: "Montenegro, RS", href: "/empresa" },
+    { label: "Atendimento B2B", href: WHATSAPP_URL },
+    { label: "Produção sob demanda", href: "/produtos" },
   ],
 } as const;

@@ -71,11 +71,11 @@ const jsonLd = {
     addressCountry: 'BR',
   },
   telephone: '+5551995451992',
-  email: 'personalizadosmajestade@gmail.com',
+  email: 'contato@majestadepersonalizados.com.br',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+5551995451992',
-    email: 'personalizadosmajestade@gmail.com',
+    email: 'contato@majestadepersonalizados.com.br',
     contactType: 'customer service',
     availableLanguage: 'Portuguese',
   },

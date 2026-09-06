@@ -33,6 +33,9 @@ export function CatalogCta({
         <WhatsAppIcon className="size-4" />
         {ctaLabel}
       </a>
+      <p className="mt-4 text-xs text-muted-foreground">
+        Orçamento enviado em até 24h úteis.
+      </p>
     </div>
   );
 }

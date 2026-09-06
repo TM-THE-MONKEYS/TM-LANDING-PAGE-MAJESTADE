@@ -85,7 +85,7 @@ export function HeroSection() {
           </div>
 
           <p className="mt-6 max-w-sm motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.35s_forwards] motion-safe:opacity-0 text-sm text-white/70 md:max-w-md md:text-base">
-            Brindes corporativos personalizados — da ideia à entrega.
+            Fabricação própria. Atendimento B2B. Montenegro, RS.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3 motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.55s_forwards] motion-safe:opacity-0 sm:flex-row sm:gap-5">
@@ -147,13 +147,13 @@ export function HeroSection() {
       {/* Texto institucional */}
       <div className="px-6 pb-16 pt-4 md:px-12 md:pb-20 md:pt-8 lg:px-20 lg:pb-24">
         <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
-          Brindes corporativos personalizados,
+          Estrutura própria de produção — silk, bordado,
           <br />
-          fabricados por nós — do primeiro rascunho à entrega.
+          sublimação — com controle de qualidade interno.
         </p>
         <p className="mx-auto mt-6 max-w-xl text-center text-sm text-muted-foreground md:text-base">
-          Mais de 15 anos de experiência e estrutura própria em Montenegro, RS, atendendo
-          empresas em todo o Brasil.
+          Mais de 15 anos atendendo empresas em todo o Brasil.
+          Do briefing ao envio, sem terceirização da produção.
         </p>
       </div>
 
