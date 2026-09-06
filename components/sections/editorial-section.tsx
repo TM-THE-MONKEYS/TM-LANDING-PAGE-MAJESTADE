@@ -14,8 +14,7 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
   return (
     <section className="bg-background">
       <div id="contato" className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20">
-        <p className="text-xs uppercase tracking-widest text-accent">Orçamento</p>
-        <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
+        <h2 className="mx-auto max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
           Pronto para colocar a marca da sua empresa na mão de quem importa?
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-muted-foreground">
@@ -39,7 +38,7 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
             key={spec.label}
             className="border-b border-r border-border p-8 text-center last:border-r-0 md:border-b-0"
           >
-            <p className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="mb-2 text-sm text-muted-foreground">
               {spec.label}
             </p>
             <p className="font-medium text-foreground text-3xl md:text-4xl">

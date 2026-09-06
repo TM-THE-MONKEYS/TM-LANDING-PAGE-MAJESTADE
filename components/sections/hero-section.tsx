@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { ProductModal } from "@/components/products/product-modal";
 import { catalogCategories } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const PREVIEW_IDS = [
   "caneca-termica-canudo-1200ml",
@@ -57,7 +60,7 @@ export function HeroSection() {
     <section className="relative bg-background">
       {/* Hero — tela cheia */}
       <div className="relative h-screen overflow-hidden">
-        {/* Foto de fundo corporativa */}
+        {/* Fundo temporário até haver foto oficial da marca */}
         <Image
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2400"
           alt="Parceria corporativa Majestade Personalizados"
@@ -66,25 +69,42 @@ export function HeroSection() {
           priority
         />
 
-        {/* Overlay escuro na paleta da marca */}
-        <div className="absolute inset-0 bg-[#0F1B2D]/65" />
+        <div className="absolute inset-0 bg-foreground/65" />
 
-        {/* Logo e tagline */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <div className="animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] opacity-0">
+          <div className="motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] motion-safe:opacity-0">
             <Image
               src="/logo-majestade-white-gold.png"
               alt="Majestade Personalizados"
-              width={420}
-              height={140}
-              className="h-auto w-[min(380px,72vw)]"
+              width={720}
+              height={240}
+              className="h-auto w-[min(640px,88vw)] md:w-[min(720px,70vw)]"
               priority
+              sizes="(max-width: 768px) 88vw, 70vw"
             />
           </div>
 
-          <p className="mt-6 max-w-sm animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.35s_forwards] text-sm text-white/70 opacity-0 md:max-w-md md:text-base">
+          <p className="mt-6 max-w-sm motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.35s_forwards] motion-safe:opacity-0 text-sm text-white/70 md:max-w-md md:text-base">
             Brindes corporativos personalizados — da ideia à entrega.
           </p>
+
+          <div className="mt-8 flex flex-col items-center gap-3 motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.55s_forwards] motion-safe:opacity-0 sm:flex-row sm:gap-5">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+            >
+              <WhatsAppIcon className="size-4" />
+              Solicitar orçamento
+            </a>
+            <Link
+              href="/catalogo"
+              className="text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+            >
+              Ver catálogo
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -99,8 +119,10 @@ export function HeroSection() {
             type="button"
             onClick={() => openProduct(product)}
             aria-label={`Ver detalhes de ${product.name}`}
-            className={`group relative aspect-square overflow-hidden rounded-2xl bg-[#F0EDE6] transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
-              gridVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            className={`group relative aspect-square overflow-hidden rounded-2xl bg-secondary transition-all duration-700 ease-out motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
+              gridVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
             }`}
             style={{ transitionDelay: gridVisible ? `${index * 0.1}s` : "0s" }}
           >
@@ -108,11 +130,10 @@ export function HeroSection() {
               src={product.src}
               alt={product.alt}
               fill
-              className="object-contain p-5 transition-transform duration-500 group-hover:scale-110 md:p-7"
+              className="object-contain p-5 transition-transform duration-500 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100 md:p-7"
               sizes="(max-width: 768px) 50vw, 25vw"
             />
 
-            {/* Hover overlay com label */}
             <div className="absolute inset-0 bg-foreground/0 transition-colors duration-300 group-hover:bg-foreground/8" />
             <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
               <span className="translate-y-2 rounded-full bg-foreground/80 px-3 py-1.5 text-xs font-medium text-background backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">

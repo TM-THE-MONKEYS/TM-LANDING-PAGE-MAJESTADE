@@ -28,7 +28,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg gap-0 overflow-hidden p-0 sm:max-w-xl">
-        <div className="relative aspect-square w-full bg-[#F0EDE6]">
+        <div className="relative aspect-square w-full bg-secondary">
           <Image
             src={product.src}
             alt={product.alt}

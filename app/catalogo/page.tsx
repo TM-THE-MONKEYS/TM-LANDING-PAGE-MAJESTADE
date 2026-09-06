@@ -3,9 +3,9 @@ import { PageShell } from "@/components/page-shell";
 import { CatalogPagesSection } from "@/components/sections/catalog-pages-section";
 
 export const metadata: Metadata = {
-  title: "Catálogo Completo | Majestade Personalizados",
+  title: "Catálogo Oficial | Majestade Personalizados",
   description:
-    "Folheie o catálogo completo da Majestade Personalizados — todas as linhas de brindes corporativos, uniformes e produtos personalizados em um só lugar.",
+    "Veja as páginas do catálogo oficial da Majestade Personalizados — linhas, referências e opções de personalização.",
 };
 
 export default function CatalogoPage() {

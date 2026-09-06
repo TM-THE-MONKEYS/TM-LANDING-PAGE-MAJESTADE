@@ -26,7 +26,7 @@ export function ProductCard({
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative w-full overflow-hidden rounded-2xl bg-[#F0EDE6] text-left transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
+        "group relative w-full overflow-hidden rounded-2xl bg-secondary text-left transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
         aspectClass,
         className
       )}

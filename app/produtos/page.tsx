@@ -11,7 +11,10 @@ export const metadata: Metadata = {
 export default function ProdutosPage() {
   return (
     <PageShell>
-      <CatalogSection />
+      <CatalogSection
+        title="Nossos produtos"
+        description="Navegue pelas linhas, clique no produto que interessar e fale conosco no WhatsApp para orçamento ou mais detalhes."
+      />
     </PageShell>
   );
 }

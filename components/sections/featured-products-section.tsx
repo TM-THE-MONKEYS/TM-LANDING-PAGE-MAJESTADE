@@ -74,7 +74,7 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
             href="/catalogo"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            Ver catálogo completo →
+            Ver catálogo completo
           </Link>
         )}
       </div>

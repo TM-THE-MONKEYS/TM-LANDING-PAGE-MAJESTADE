@@ -17,7 +17,7 @@ export const footerLinks = {
   ],
   empresa: [
     { label: "Sobre nós", href: "/empresa#sobre" },
-    { label: "Aplicações", href: "/empresa#aplicacoes" },
+    { label: "Produtos", href: "/produtos" },
     { label: "WhatsApp", href: WHATSAPP_URL },
   ],
   atendimento: [

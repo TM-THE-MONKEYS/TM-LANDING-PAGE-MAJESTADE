@@ -86,7 +86,8 @@ export function Header() {
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`transition-colors md:hidden ${showScrolledStyle ? "text-foreground" : "text-white"}`}
-          aria-label="Abrir menu"
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

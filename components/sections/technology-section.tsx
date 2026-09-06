@@ -159,7 +159,7 @@ export function TechnologySection() {
               {sideImages.filter(img => img.position === "left").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
+                  className="relative overflow-hidden will-change-transform bg-secondary"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,
@@ -176,7 +176,7 @@ export function TechnologySection() {
             </div>
 
             <div 
-              className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
+              className="relative overflow-hidden will-change-transform bg-secondary"
               style={{
                 width: `${centerWidth}%`,
                 height: "100%",
@@ -190,7 +190,11 @@ export function TechnologySection() {
                 fill
                 className="object-contain p-12"
               />
-              <div className="absolute inset-0 bg-foreground/20" />
+              {/* Overlay mais forte enquanto o título está visível (contraste AA) */}
+              <div
+                className="absolute inset-0 bg-foreground"
+                style={{ opacity: 0.62 - imageProgress * 0.42 }}
+              />
               
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
                 <h2 className="max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl">
@@ -233,7 +237,7 @@ export function TechnologySection() {
               {sideImages.filter(img => img.position === "right").map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="relative overflow-hidden will-change-transform bg-[#F0EDE6]"
+                  className="relative overflow-hidden will-change-transform bg-secondary"
                   style={{
                     flex: img.span,
                     borderRadius: `${borderRadius}px`,

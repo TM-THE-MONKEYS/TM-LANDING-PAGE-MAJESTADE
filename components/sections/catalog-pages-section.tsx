@@ -1,108 +1,116 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { CatalogCta } from "@/components/products/catalog-cta";
-import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { CATALOG_PAGE_COUNT, getCatalogPageSrc } from "@/lib/catalog";
-import { useImageCarousel } from "@/hooks/use-image-carousel";
-import { cn } from "@/lib/utils";
+
+const pages = Array.from({ length: CATALOG_PAGE_COUNT }, (_, index) => index + 1);
 
 export function CatalogPagesSection() {
-  const { currentIndex, goTo, goNext, goPrev } = useImageCarousel({
-    total: CATALOG_PAGE_COUNT,
-  });
-
-  const currentPage = currentIndex + 1;
-  const currentSrc = getCatalogPageSrc(currentPage);
+  const [lightboxPage, setLightboxPage] = useState<number | null>(null);
 
   return (
     <section className="bg-background">
-      <div className="px-6 pt-16 pb-10 text-center md:px-12 md:pt-20 lg:px-20">
-        <p className="text-xs uppercase tracking-widest text-accent">Catálogo</p>
-        <h1 className="mt-2 text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Catálogo completo
+      <div className="px-6 pt-24 pb-10 text-center md:px-12 md:pt-28 lg:px-20">
+        <h1 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
+          Catálogo oficial
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
-          Folheie todas as páginas do catálogo oficial — linhas, referências e opções de
-          personalização em um só lugar.
+          Páginas do catálogo atual da Majestade. Role para ver todas ou toque em
+          qualquer página para ampliar.
         </p>
       </div>
 
-      <div className="px-6 pb-8 md:px-12 lg:px-20">
-        <div className="mx-auto max-w-3xl">
-          <div className="relative">
-            <div className="relative aspect-[1240/1754] overflow-hidden rounded-2xl bg-[#F0EDE6]">
-              <Image
-                key={currentSrc}
-                src={currentSrc}
-                alt={`Página ${currentPage} do catálogo Majestade Personalizados`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 768px"
-                priority={currentPage === 1}
-              />
-            </div>
-
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              onClick={goPrev}
-              className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background shadow-md"
-              aria-label="Página anterior"
+      <nav
+        aria-label="Ir para página do catálogo"
+        className="sticky top-20 z-40 border-y border-border bg-background/95 backdrop-blur-sm"
+      >
+        <div className="flex gap-1 overflow-x-auto px-4 py-3 md:justify-center md:px-12 lg:px-20">
+          {pages.map((page) => (
+            <a
+              key={page}
+              href={`#catalogo-pagina-${page}`}
+              className="flex size-9 shrink-0 items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <ChevronLeft className="size-5" />
-            </Button>
-
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              onClick={goNext}
-              className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full bg-background shadow-md"
-              aria-label="Próxima página"
-            >
-              <ChevronRight className="size-5" />
-            </Button>
-          </div>
-
-          <p className="mt-4 text-center text-sm text-muted-foreground">
-            Página {currentPage} de {CATALOG_PAGE_COUNT}
-          </p>
-
-          <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
-            {Array.from({ length: CATALOG_PAGE_COUNT }, (_, index) => {
-              const page = index + 1;
-              const isActive = index === currentIndex;
-
-              return (
-                <button
-                  key={page}
-                  type="button"
-                  onClick={() => goTo(index)}
-                  className={cn(
-                    "relative h-20 w-14 shrink-0 overflow-hidden rounded-md border-2 bg-[#F0EDE6] transition-colors",
-                    isActive ? "border-accent" : "border-transparent opacity-70 hover:opacity-100"
-                  )}
-                  aria-label={`Ir para página ${page}`}
-                  aria-current={isActive ? "true" : undefined}
-                >
-                  <Image
-                    src={getCatalogPageSrc(page)}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="56px"
-                  />
-                </button>
-              );
-            })}
-          </div>
+              {page}
+            </a>
+          ))}
         </div>
+      </nav>
+
+      <div className="mx-auto flex max-w-3xl flex-col gap-8 px-4 py-10 md:gap-10 md:px-6 md:py-14">
+        {pages.map((page) => {
+          const src = getCatalogPageSrc(page);
+
+          return (
+            <figure
+              key={page}
+              id={`catalogo-pagina-${page}`}
+              className="scroll-mt-36"
+            >
+              <button
+                type="button"
+                onClick={() => setLightboxPage(page)}
+                className="group relative block w-full overflow-hidden bg-secondary text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                aria-label={`Ampliar página ${page} do catálogo`}
+              >
+                <div className="relative aspect-[1240/1754] w-full">
+                  <Image
+                    src={src}
+                    alt={`Página ${page} do catálogo Majestade Personalizados`}
+                    fill
+                    className="object-contain transition-opacity group-hover:opacity-95"
+                    sizes="(max-width: 768px) 100vw, 768px"
+                    priority={page <= 2}
+                    loading={page <= 2 ? "eager" : "lazy"}
+                  />
+                </div>
+              </button>
+              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                Página {page} de {CATALOG_PAGE_COUNT}
+              </figcaption>
+            </figure>
+          );
+        })}
       </div>
 
-      <CatalogCta />
+      <CatalogCta
+        title="Quer o PDF ou um orçamento sob medida?"
+        description="Enviamos o catálogo completo e montamos a proposta conforme volume, prazo e personalização."
+        ctaLabel="Falar no WhatsApp"
+        whatsappMessage="Olá! Gostaria de receber o catálogo em PDF e um orçamento."
+      />
+
+      <Dialog
+        open={lightboxPage !== null}
+        onOpenChange={(open) => {
+          if (!open) setLightboxPage(null);
+        }}
+      >
+        <DialogContent className="max-h-[95vh] max-w-4xl overflow-y-auto border-0 bg-background p-2 sm:p-4">
+          <DialogTitle className="sr-only">
+            Página {lightboxPage} do catálogo ampliada
+          </DialogTitle>
+          {lightboxPage !== null && (
+            <div className="relative mx-auto aspect-[1240/1754] w-full">
+              <Image
+                src={getCatalogPageSrc(lightboxPage)}
+                alt={`Página ${lightboxPage} do catálogo Majestade Personalizados`}
+                fill
+                className="object-contain"
+                sizes="(max-width: 896px) 100vw, 896px"
+                priority
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
