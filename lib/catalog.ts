@@ -19,32 +19,72 @@ export const catalogCategories: CatalogCategory[] = [
     id: "squeeze-garrafas",
     title: "Squeeze e Garrafas",
     description:
-      "Squeeze inox, alumínio e plástico em diversas cores e capacidades, para uso diário da sua equipe ou como brinde institucional.",
+      "Squeezes em inox e acrílico, e garrafas térmicas para uso diário da equipe ou como brinde institucional.",
     products: [
       {
-        id: "squeeze-inox-900ml",
-        name: "Squeeze Inox 900ml",
+        id: "squeeze-acrilico",
+        name: "Squeeze Acrílico",
         shortDescription:
-          "Squeeze em aço inox com alça, ideal para uso diário da equipe e brindes institucionais de alto volume.",
-        src: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-900ml.png",
-        alt: "Squeeze inox 900ml",
+          "Squeeze transparente em acrílico, com tampa e base em aço inox.",
+        src: "/images/oficiais/squeeze-acrilico.jpg",
+        alt: "Squeeze acrílico azul com tampa e base de inox",
       },
       {
-        id: "squeeze-inox-750ml",
-        name: "Squeeze Inox 750ml",
+        id: "squeeze-inox-alca",
+        name: "Squeeze Inox com Alça",
         shortDescription:
-          "Versão compacta em inox, prática para levar ao trabalho ou à academia, com boa área de personalização.",
-        src: "/images/catalogo/01-squeeze-garrafas/squeeze-inox-750ml.png",
-        alt: "Squeeze inox 750ml",
+          "Squeeze em aço inox com alça na tampa, para levar no dia a dia.",
+        src: "/images/oficiais/squeeze-inox-alca.jpg",
+        alt: "Squeeze inox preto com alça na tampa",
+      },
+      {
+        id: "garrafa-termica-alca",
+        name: "Garrafa Térmica com Alça",
+        shortDescription:
+          "Garrafa térmica alta em inox, com alça lateral e copo na tampa.",
+        src: "/images/oficiais/garrafa-termica-alca.jpg",
+        alt: "Garrafa térmica de inox com alça",
+      },
+      {
+        id: "garrafa-termica-slim",
+        name: "Garrafa Térmica",
+        shortDescription:
+          "Garrafa térmica slim em inox, sem alça, para uso pessoal e brindes.",
+        src: "/images/oficiais/garrafa-termica-slim.jpg",
+        alt: "Garrafa térmica slim de inox",
+      },
+      {
+        id: "squeeze-inox-900ml",
+        name: "Squeeze Inox",
+        shortDescription:
+          "Squeeze em aço inox, em acabamento fosco ou escovado.",
+        src: "/images/oficiais/squeeze-inox.jpg",
+        alt: "Squeezes de inox fosco e escovado",
         featured: true,
       },
       {
-        id: "squeeze-aluminio-800ml",
-        name: "Squeeze Alumínio 800ml",
+        id: "garrafa-termica-infusor",
+        name: "Garrafa Térmica com Infusor",
         shortDescription:
-          "Squeeze leve em alumínio, disponível em diversas cores — ótimo custo-benefício para grandes quantidades.",
-        src: "/images/catalogo/01-squeeze-garrafas/squeeze-aluminio-800ml.png",
-        alt: "Squeeze alumínio 800ml",
+          "Garrafa térmica com infusor, em várias cores, para chá ou café.",
+        src: "/images/oficiais/garrafa-termica-infusor.jpg",
+        alt: "Garrafas térmicas coloridas com infusor",
+      },
+      {
+        id: "squeeze-tampa",
+        name: "Squeeze com Tampa",
+        shortDescription:
+          "Squeeze com tampa de bico, em inox e pintura, para o uso diário.",
+        src: "/images/oficiais/squeeze-tampa.jpg",
+        alt: "Squeezes com tampa de bico",
+      },
+      {
+        id: "squeeze-manga",
+        name: "Squeeze com Manga de Silicone",
+        shortDescription:
+          "Squeeze térmico com manga de silicone e copo na tampa.",
+        src: "/images/oficiais/squeeze-manga.jpg",
+        alt: "Squeezes com manga de silicone",
       },
     ],
   },

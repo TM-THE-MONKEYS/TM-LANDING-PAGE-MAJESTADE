@@ -33,7 +33,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
             src={product.src}
             alt={product.alt}
             fill
-            className="object-contain p-8"
+            className="object-contain p-2"
             sizes="(max-width: 640px) 100vw, 512px"
           />
         </div>
