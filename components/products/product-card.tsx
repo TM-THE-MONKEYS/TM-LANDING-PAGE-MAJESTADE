@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { formatRef } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
@@ -57,6 +58,9 @@ export function ProductCard({
         </span>
         <span className="mt-3 block text-sm font-medium text-foreground transition-colors group-hover:text-accent">
           {product.name}
+        </span>
+        <span className="mt-0.5 block font-mono text-xs text-muted-foreground">
+          Ref. {formatRef(product.ref)}
         </span>
       </button>
     );

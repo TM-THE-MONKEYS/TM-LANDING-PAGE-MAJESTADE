@@ -10,20 +10,29 @@ import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
 import { navLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
+/**
+ * Páginas internas que devem usar o header na cor escura da marca (#2b2112).
+ * Adicionar novos paths aqui conforme o projeto crescer.
+ */
+const DARK_HEADER_PAGES = ["/produtos"];
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
   const isHomePage = pathname === "/";
+  const isDarkPage = DARK_HEADER_PAGES.includes(pathname);
 
   // Na home o header flutua sobre o hero. Nas demais páginas fica fixo no topo.
   const showScrolledStyle = !isHomePage || isScrolled;
 
+  // Texto branco: header transparente na home OU header escuro nas dark pages
+  const useLightText = !showScrolledStyle || isDarkPage;
+
   useEffect(() => {
     if (!isHomePage) return;
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -35,10 +44,10 @@ export function Header() {
 
   const linkClass = (href: string) => {
     const isCurrent = pathname === href;
-    if (!showScrolledStyle) {
+    if (useLightText) {
       return cn(
         "text-sm transition-colors",
-        isCurrent ? "text-white" : "text-white/70 hover:text-white"
+        isCurrent ? "text-white" : "text-white/60 hover:text-white"
       );
     }
     return cn(
@@ -48,6 +57,12 @@ export function Header() {
         : "text-muted-foreground hover:text-foreground"
     );
   };
+
+  // Logo: branco/ouro quando sobre fundo escuro, navy/ouro sobre fundo claro
+  const logoSrc =
+    showScrolledStyle && !isDarkPage
+      ? "/logo-majestade-navy-gold.png"
+      : "/logo-majestade-white-gold.png";
 
   return (
     <header
@@ -59,13 +74,15 @@ export function Header() {
                 ? "rounded-full bg-background/80 backdrop-blur-md"
                 : "bg-transparent"
             )
+          : isDarkPage
+          ? "fixed inset-x-0 top-0 z-50 bg-[#2b2112]"
           : "fixed inset-x-0 top-0 z-50 border-b border-border bg-background"
       }
       style={
         isHomePage && showScrolledStyle
           ? {
               boxShadow:
-                "rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px",
+                "rgba(14,63,126,.04) 0 0 0 1px,rgba(42,51,69,.04) 0 1px 1px -.5px,rgba(42,51,70,.04) 0 3px 3px -1.5px,rgba(42,51,70,.04) 0 6px 6px -3px,rgba(14,63,126,.04) 0 12px 12px -6px,rgba(14,63,126,.04) 0 24px 24px -12px",
             }
           : undefined
       }
@@ -77,13 +94,10 @@ export function Header() {
             : "mx-auto flex h-16 max-w-7xl items-center justify-between gap-8 px-6"
         }
       >
+        {/* Logo */}
         <Link href="/" className="flex items-center" aria-label="Majestade Personalizados">
           <Image
-            src={
-              showScrolledStyle
-                ? "/logo-majestade-navy-gold.png"
-                : "/logo-majestade-white-gold.png"
-            }
+            src={logoSrc}
             alt="Majestade Personalizados"
             width={140}
             height={48}
@@ -92,6 +106,7 @@ export function Header() {
           />
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">
           {navLinks.map((link) => {
             const isCurrent = pathname === link.href;
@@ -102,7 +117,8 @@ export function Header() {
                 aria-current={isCurrent ? "page" : undefined}
                 className={cn(
                   linkClass(link.href),
-                  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
+                  isDarkPage && "focus-visible:ring-offset-[#2b2112]"
                 )}
               >
                 <span className="relative">
@@ -119,6 +135,7 @@ export function Header() {
           })}
         </nav>
 
+        {/* Desktop actions */}
         <div className="hidden items-center gap-4 md:flex">
           <a
             href={INSTAGRAM_URL}
@@ -126,9 +143,9 @@ export function Header() {
             rel="noopener noreferrer"
             className={cn(
               "inline-flex items-center gap-1.5 rounded-sm text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
-              showScrolledStyle
-                ? "text-muted-foreground hover:text-foreground"
-                : "text-white/70 hover:text-white"
+              useLightText
+                ? "text-white/60 hover:text-white"
+                : "text-muted-foreground hover:text-foreground"
             )}
             aria-label={`Instagram ${INSTAGRAM_HANDLE}`}
           >
@@ -141,7 +158,7 @@ export function Header() {
             rel="noopener noreferrer"
             className={cn(
               "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
-              showScrolledStyle
+              showScrolledStyle || isDarkPage
                 ? "bg-accent text-accent-foreground"
                 : "bg-white text-foreground"
             )}
@@ -151,12 +168,13 @@ export function Header() {
           </a>
         </div>
 
+        {/* Hamburger */}
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={cn(
             "inline-flex size-11 items-center justify-center rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden",
-            showScrolledStyle ? "text-foreground" : "text-white"
+            useLightText ? "text-white" : "text-foreground"
           )}
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isMenuOpen}
@@ -165,11 +183,15 @@ export function Header() {
         </button>
       </div>
 
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div
           className={cn(
-            "border-t border-border bg-background px-6 py-6 lg:hidden",
-            isHomePage && "rounded-b-2xl"
+            "border-t px-6 py-6 lg:hidden",
+            isDarkPage
+              ? "border-white/10 bg-[#2b2112]"
+              : "border-border bg-background",
+            isHomePage && !isDarkPage && "rounded-b-2xl"
           )}
         >
           <nav className="mx-auto flex max-w-7xl flex-col gap-1" aria-label="Mobile">
@@ -182,7 +204,11 @@ export function Header() {
                   aria-current={isCurrent ? "page" : undefined}
                   className={cn(
                     "rounded-sm px-2 py-3 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
-                    isCurrent
+                    isDarkPage
+                      ? isCurrent
+                        ? "font-medium text-white"
+                        : "text-white/60"
+                      : isCurrent
                       ? "font-medium text-foreground"
                       : "text-muted-foreground"
                   )}
@@ -196,7 +222,10 @@ export function Header() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm px-2 py-3 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className={cn(
+                "inline-flex items-center gap-2 rounded-sm px-2 py-3 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+                isDarkPage ? "text-white/60" : "text-foreground"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               <InstagramIcon className="size-5" />
