@@ -423,40 +423,114 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 08. Uniformes Industriais ── refs 27–29 ──────────────────────────────────
+  // ── 08. Uniformes Industriais ── refs 62–66 (27–29 aposentados) ─────────────
   {
     id: "uniformes-industriais",
     title: "Uniformes Industriais",
     description:
-      "Macacões, jalecos, calças e bermudas para equipes operacionais, com identidade visual da empresa.",
+      "Macacões, camisetas, polos e calças para equipes operacionais, com a identidade visual da empresa.",
     products: [
       {
-        ref: 27,
-        id: "macacao-azul",
+        ref: 62,
+        id: "macacao-industrial",
         name: "Macacão Industrial",
         shortDescription:
-          "Macacão profissional em tecido resistente, disponível em cores diversas, para equipes operacionais.",
-        src: "/images/catalogo/09-uniformes-industriais/macacao-azul.png",
-        alt: "Macacão industrial azul",
+          "Macacão com bolsos, cós elástico e espaço para a marca no peito e nas costas.",
+        src: "/images/oficiais/macacao-industrial-frente.jpg",
+        alt: "Macacão industrial cinza, vista de frente",
         featured: true,
+        photos: [
+          {
+            src: "/images/oficiais/macacao-industrial-maleta.jpg",
+            alt: "Macacão industrial em uso, com maleta",
+          },
+          {
+            src: "/images/oficiais/macacao-industrial-lado.jpg",
+            alt: "Macacão industrial de lado",
+          },
+          {
+            src: "/images/oficiais/macacao-industrial-costas.jpg",
+            alt: "Costas do macacão industrial",
+          },
+          {
+            src: "/images/oficiais/macacao-industrial-bolso.jpg",
+            alt: "Bolso do peito do macacão industrial",
+          },
+          {
+            src: "/images/oficiais/macacao-industrial-cintura.jpg",
+            alt: "Cós elástico e bolso traseiro do macacão",
+          },
+        ],
       },
       {
-        ref: 28,
-        id: "jaleco-social-camisa",
-        name: "Jaleco e Camisa Social",
+        ref: 63,
+        id: "camiseta-recorte",
+        name: "Camiseta com Recorte",
         shortDescription:
-          "Jaleco e camisas sociais para equipes técnicas e administrativas, com bordado ou silk da marca da empresa.",
-        src: "/images/catalogo/09-uniformes-industriais/jaleco-social-camisa.png",
-        alt: "Jaleco social e camisa",
+          "Camiseta de manga curta com gola e mangas em recorte contrastante, com a marca no peito e nas costas.",
+        src: "/images/oficiais/camiseta-recorte-frente.jpg",
+        alt: "Camiseta laranja com mangas cinza, vista de frente",
+        photos: [
+          {
+            src: "/images/oficiais/camiseta-recorte-costas.jpg",
+            alt: "Costas da camiseta com recorte",
+          },
+          {
+            src: "/images/oficiais/camiseta-recorte-peito.jpg",
+            alt: "Marca no peito da camiseta com recorte",
+          },
+        ],
       },
       {
-        ref: 29,
-        id: "bermuda-uniforme",
-        name: "Bermuda de Uniforme",
+        ref: 64,
+        id: "polo-operacional",
+        name: "Polo Operacional",
         shortDescription:
-          "Bermuda resistente para uso operacional, compõe o uniforme completo junto com camisas e jalecos.",
-        src: "/images/catalogo/09-uniformes-industriais/bermuda-uniforme.png",
-        alt: "Bermuda uniforme",
+          "Polo de manga curta com a marca no peito, para o uniforme da equipe operacional.",
+        src: "/images/oficiais/polo-operacional-frente.jpg",
+        alt: "Polo preta com calça cargo, vista de frente",
+      },
+      {
+        ref: 65,
+        id: "calca-cargo",
+        name: "Calça Cargo",
+        shortDescription:
+          "Calça cargo com bolsos laterais e traseiros, botão e zíper, para o dia a dia operacional.",
+        src: "/images/oficiais/calca-cargo-costas.jpg",
+        alt: "Calça cargo preta, vista de costas",
+        photos: [
+          {
+            src: "/images/oficiais/calca-cargo-bolso.jpg",
+            alt: "Bolso lateral da calça cargo",
+          },
+          {
+            src: "/images/oficiais/calca-cargo-cinto.jpg",
+            alt: "Cós e zíper da calça cargo",
+          },
+          {
+            src: "/images/oficiais/calca-cargo-botao.jpg",
+            alt: "Botão da calça cargo",
+          },
+        ],
+      },
+      {
+        ref: 66,
+        id: "blusa-manga-longa",
+        name: "Blusa Manga Longa",
+        shortDescription:
+          "Blusa de manga longa com punho e barra em ribana, com a marca no peito.",
+        src: "/images/oficiais/blusa-manga-longa-lado.jpg",
+        alt: "Blusa preta de manga longa, vista de lado",
+        photos: [
+          {
+            src: "/images/oficiais/blusa-manga-longa-punho.jpg",
+            alt: "Punho em ribana da blusa de manga longa",
+          },
+          {
+            src: "/images/oficiais/blusa-manga-longa-barra.jpg",
+            alt: "Barra em ribana da blusa de manga longa",
+          },
+        ],
       },
     ],
   },
@@ -923,7 +997,7 @@ export function getCatalogPageSrc(page: number): string {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 62;
+export const NEXT_PRODUCT_REF = 67;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.
@@ -934,8 +1008,11 @@ export const NEXT_PRODUCT_REF = 62;
  * 33 — Camiseta Esportiva (ilustração)
  * 34 — Camiseta Esportiva Colorida (ilustração)
  * 35 — Camiseta Básica Personalizada (ilustração)
+ * 27 — Macacão Industrial (ilustração)
+ * 28 — Jaleco e Camisa Social (ilustração)
+ * 29 — Bermuda de Uniforme (ilustração)
  */
-export const RETIRED_PRODUCT_REFS = [11, 30, 31, 32, 33, 34, 35] as const;
+export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35] as const;
 
 /**
  * Valida integridade dos refs em desenvolvimento.

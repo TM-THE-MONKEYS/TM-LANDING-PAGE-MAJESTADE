@@ -71,7 +71,10 @@ export function CatalogSection({
     setModalOpen(true);
   };
 
-  const normalized = query.trim().toLowerCase();
+  const fold = (value: string) =>
+    value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+
+  const normalized = fold(query.trim());
 
   const visibleCategories = catalogCategories
     .map((cat) => ({
@@ -79,9 +82,9 @@ export function CatalogSection({
       products: normalized
         ? cat.products.filter(
             (p) =>
-              p.name.toLowerCase().includes(normalized) ||
-              p.shortDescription.toLowerCase().includes(normalized) ||
-              cat.title.toLowerCase().includes(normalized)
+              fold(p.name).includes(normalized) ||
+              fold(p.shortDescription).includes(normalized) ||
+              fold(cat.title).includes(normalized)
           )
         : cat.products,
     }))
@@ -90,14 +93,14 @@ export function CatalogSection({
   const resultCount = visibleCategories.reduce((acc, c) => acc + c.products.length, 0);
 
   return (
-    <section className="bg-background">
+    <section className="w-full overflow-x-clip bg-background">
       {/* ── Hero band — cor escura da marca, flui do navbar ──────────── */}
-      <div className="bg-[#2b2112] pb-12 pt-24 text-center md:pb-16 md:pt-32">
-        <div className="mx-auto max-w-3xl px-6">
+      <div className="bg-[#2b2112] px-4 pb-8 pt-20 text-center sm:px-6 md:pb-10 md:pt-24 lg:px-8 xl:px-10">
+        <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-amber-400/70">
             Majestade Personalizados
           </p>
-          <h1 className="text-5xl font-medium tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-medium tracking-tight text-white sm:text-5xl md:text-6xl">
             {title}
           </h1>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 md:text-base">
@@ -106,36 +109,40 @@ export function CatalogSection({
         </div>
       </div>
 
-      {/* ── Navegação por categoria — busca ao lado de Acessórios ────── */}
+      {/* ── Navegação por categoria — busca ao lado das linhas no desktop */}
       <nav
         aria-label="Linhas de produtos"
         className="sticky top-16 z-40 border-b border-border bg-background/95 backdrop-blur-sm"
       >
-        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto px-6 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {catalogCategories.map((category) => {
-            const isActive = !normalized && activeCategory === category.id;
-            return (
-              <a
-                key={category.id}
-                href={`#${category.id}`}
-                aria-current={isActive ? "location" : undefined}
-                className={cn(
-                  "shrink-0 rounded-full px-4 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
-                  isActive
-                    ? "bg-foreground font-medium text-background"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
-              >
-                {NAV_LABELS[category.id] ?? category.title}
+        <div className="relative flex w-full min-w-0 flex-col gap-2 px-4 py-3 sm:px-6 lg:h-14 lg:px-8 lg:py-0 xl:px-10">
+          <div className="flex w-full min-w-0 gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:absolute lg:inset-x-0 lg:top-0 lg:h-full lg:items-center lg:justify-center lg:overflow-visible">
+            <div className="flex w-max gap-1.5 lg:max-w-[calc(100%-33rem)] lg:overflow-x-auto lg:[scrollbar-width:thin]">
+            {catalogCategories.map((category) => {
+              const isActive = !normalized && activeCategory === category.id;
+              return (
+                <a
+                  key={category.id}
+                  href={`#${category.id}`}
+                  aria-current={isActive ? "location" : undefined}
+                  className={cn(
+                    "inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-9 lg:px-3",
+                    isActive
+                      ? "bg-foreground font-medium text-background"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  {NAV_LABELS[category.id] ?? category.title}
               </a>
             );
           })}
-          <div className="relative ml-1 w-44 shrink-0 sm:w-52">
+            </div>
+          </div>
+          <div className="relative w-full shrink-0 lg:absolute lg:top-1/2 lg:right-8 lg:w-56 lg:-translate-y-1/2 xl:right-10">
             <label htmlFor="catalog-search" className="sr-only">
               Buscar produto
             </label>
             <Search
-              className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground"
+              className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
               aria-hidden
             />
             <input
@@ -145,16 +152,16 @@ export function CatalogSection({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar produto"
               aria-describedby={normalized ? "catalog-search-count" : undefined}
-              className="w-full rounded-full border border-border bg-background py-1.5 pl-8 pr-8 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent [&::-webkit-search-cancel-button]:hidden"
+              className="h-11 w-full rounded-full border border-border bg-background py-2 pl-9 pr-10 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:h-9 lg:text-sm [&::-webkit-search-cancel-button]:hidden"
             />
             {query && (
               <button
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Limpar busca"
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="absolute right-1.5 top-1/2 inline-flex size-8 -translate-y-1/2 items-center justify-center text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <X className="size-3.5" />
+                <X className="size-4" />
               </button>
             )}
           </div>
@@ -163,7 +170,7 @@ export function CatalogSection({
           <p
             id="catalog-search-count"
             aria-live="polite"
-            className="px-6 pb-2 text-center text-xs text-muted-foreground"
+            className="px-4 pb-2 text-center text-xs text-muted-foreground sm:px-6 lg:px-8"
           >
             {resultCount === 1
               ? "1 produto encontrado"
@@ -173,7 +180,7 @@ export function CatalogSection({
       </nav>
 
       {/* ── Grid de produtos ──────────────────────────────────────────── */}
-      <div className="mx-auto max-w-7xl px-6 pb-16 pt-12 md:pb-24">
+      <div className="w-full px-4 pb-20 pt-8 sm:px-6 md:pb-24 md:pt-10 lg:px-8 xl:px-10">
         {visibleCategories.length === 0 ? (
           /* Estado vazio de busca */
           <div className="py-32 text-center">
@@ -192,7 +199,7 @@ export function CatalogSection({
             </button>
           </div>
         ) : (
-          <div className="flex flex-col gap-20 md:gap-24">
+          <div className="flex flex-col gap-14 md:gap-16">
             {visibleCategories.map((category) => (
               <div
                 key={category.id}
@@ -201,10 +208,10 @@ export function CatalogSection({
                   if (el) sectionRefs.current.set(category.id, el);
                   else sectionRefs.current.delete(category.id);
                 }}
-                className="scroll-mt-32"
+                className="scroll-mt-48 lg:scroll-mt-32"
               >
                 {/* Cabeçalho da categoria */}
-                <div className="mb-8 border-t border-border pt-8 text-center">
+                <div className="mb-6 border-t border-border pt-6 text-center md:mb-8 md:pt-8">
                   <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
                     {category.title}
                   </h2>
@@ -219,7 +226,7 @@ export function CatalogSection({
                 </div>
 
                 {/* Cards */}
-                <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
                   {category.products.map((product) => (
                     <button
                       key={product.id}
@@ -235,7 +242,7 @@ export function CatalogSection({
                           alt={product.alt}
                           fill
                           className="object-contain p-2 transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, (max-width: 1536px) 20vw, 16vw"
                         />
                         {/* Badge "Ver produto" no hover */}
                         <span
@@ -249,7 +256,7 @@ export function CatalogSection({
                       </span>
 
                       {/* Nome + ref abaixo */}
-                      <span className="mt-2.5 block truncate text-sm font-medium text-foreground transition-colors group-hover:text-accent">
+                      <span className="mt-2.5 line-clamp-2 text-sm font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
                         {product.name}
                       </span>
                       <span className="mt-0.5 block font-mono text-xs text-muted-foreground">

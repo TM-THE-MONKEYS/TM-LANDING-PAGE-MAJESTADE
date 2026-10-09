@@ -126,6 +126,7 @@
   
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 }
 
@@ -266,4 +267,24 @@
 
 .animate-fade-in {
   animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* ── Auto-slider de produtos ───────────────────────────────────────────────── */
+@keyframes product-auto-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.product-auto-slider-track {
+  animation: product-auto-scroll var(--slider-duration, 32s) linear infinite;
+}
+
+.product-auto-slider-track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-auto-slider-track {
+    animation: none;
+  }
 }

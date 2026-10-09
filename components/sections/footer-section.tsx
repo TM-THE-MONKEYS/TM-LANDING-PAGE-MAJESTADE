@@ -10,8 +10,8 @@ import { footerLinks } from "@/lib/navigation";
 export function FooterSection() {
   return (
     <footer className="bg-background">
-      <div className="border-t border-border px-6 py-16 md:px-12 md:py-20 lg:px-20">
-        <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
+      <div className="border-t border-border px-4 py-14 sm:px-6 md:px-12 md:py-20 lg:px-20">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-12 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
             <Link href="/" aria-label="Majestade Personalizados">
               <Image
@@ -107,13 +107,13 @@ export function FooterSection() {
         </div>
       </div>
 
-      <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="border-t border-border px-4 py-6 sm:px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Majestade Personalizados. Todos os direitos reservados.
           </p>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <a
               href={INSTAGRAM_URL}
               target="_blank"

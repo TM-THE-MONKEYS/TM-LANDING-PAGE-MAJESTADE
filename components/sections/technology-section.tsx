@@ -68,7 +68,7 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "/images/catalogo/09-uniformes-industriais/macacao-azul.png",
+    src: "/images/oficiais/macacao-industrial-frente.jpg",
     alt: "Macacão industrial personalizado",
     position: "left",
     span: 1,
