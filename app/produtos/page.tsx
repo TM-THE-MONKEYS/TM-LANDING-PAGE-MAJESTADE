@@ -13,7 +13,7 @@ export default function ProdutosPage() {
     <PageShell>
       <CatalogSection
         title="Nossos produtos"
-        description="Navegue pelas linhas, clique no produto que interessar e fale conosco no WhatsApp para orçamento ou mais detalhes."
+        description="Escolha a linha, abra o produto e peça o orçamento pelo WhatsApp."
       />
     </PageShell>
   );

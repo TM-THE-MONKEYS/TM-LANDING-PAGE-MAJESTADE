@@ -2,65 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
-import { ProductModal } from "@/components/products/product-modal";
-import { catalogCategories } from "@/lib/catalog";
-import type { Product } from "@/lib/catalog";
+import { ProductCarousel } from "@/components/products/product-carousel";
+import { getFeaturedProducts } from "@/lib/catalog";
 import { WHATSAPP_URL } from "@/lib/contact";
 
-const PREVIEW_IDS = [
-  "caneca-termica-canudo-1200ml",
-  "squeeze-inox-900ml",
-  "kit-vinho-caixa-madeira",
-  "chaveiro-couro-sortido",
-];
-
-function getProductById(id: string): Product | undefined {
-  for (const cat of catalogCategories) {
-    const found = cat.products.find((p) => p.id === id);
-    if (found) return found;
-  }
-}
+// Lista de produtos em destaque vinda do catálogo (source of truth único)
+const featuredProducts = getFeaturedProducts();
 
 export function HeroSection() {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [gridVisible, setGridVisible] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const previewProducts = PREVIEW_IDS.map(getProductById).filter(
-    (p): p is Product => !!p
-  );
-
-  useEffect(() => {
-    const el = gridRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setGridVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const openProduct = (product: Product) => {
-    setSelectedProduct(product);
-    setModalOpen(true);
-  };
-
   return (
     <section className="relative bg-background">
-      {/* Hero — tela cheia */}
+      {/* ── Hero — tela cheia ────────────────────────────────────────── */}
       <div className="relative h-screen overflow-hidden">
-        {/* Fundo temporário até haver foto oficial da marca */}
         <Image
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2400"
           alt="Parceria corporativa Majestade Personalizados"
@@ -108,43 +62,13 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Preview de produtos — aparece ao rolar */}
-      <div
-        ref={gridRef}
-        className="grid grid-cols-2 gap-3 bg-background px-4 py-6 md:grid-cols-4 md:gap-4 md:px-6 md:py-8"
-      >
-        {previewProducts.map((product, index) => (
-          <button
-            key={product.id}
-            type="button"
-            onClick={() => openProduct(product)}
-            aria-label={`Ver detalhes de ${product.name}`}
-            className={`group relative aspect-square overflow-hidden rounded-2xl bg-secondary transition-all duration-700 ease-out motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
-              gridVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
-            }`}
-            style={{ transitionDelay: gridVisible ? `${index * 0.1}s` : "0s" }}
-          >
-            <Image
-              src={product.src}
-              alt={product.alt}
-              fill
-              className="object-contain p-5 transition-transform duration-500 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100 md:p-7"
-              sizes="(max-width: 768px) 50vw, 25vw"
-            />
+      {/* ── Carrossel de produtos em destaque ────────────────────────── */}
+      <ProductCarousel
+        products={featuredProducts}
+        className="bg-background py-6 md:py-8"
+      />
 
-            <div className="absolute inset-0 bg-foreground/0 transition-colors duration-300 group-hover:bg-foreground/8" />
-            <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
-              <span className="translate-y-2 rounded-full bg-foreground/80 px-3 py-1.5 text-xs font-medium text-background backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
-                Ver produto
-              </span>
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {/* Texto institucional */}
+      {/* ── Texto institucional ──────────────────────────────────────── */}
       <div className="px-6 pb-16 pt-4 md:px-12 md:pb-20 md:pt-8 lg:px-20 lg:pb-24">
         <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
           Estrutura própria de produção — silk, bordado,
@@ -156,12 +80,6 @@ export function HeroSection() {
           Do briefing ao envio, sem terceirização da produção.
         </p>
       </div>
-
-      <ProductModal
-        product={selectedProduct}
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-      />
     </section>
   );
 }

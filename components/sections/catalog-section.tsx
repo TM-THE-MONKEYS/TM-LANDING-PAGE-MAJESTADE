@@ -1,12 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Search, X } from "lucide-react";
-import { CatalogCta } from "@/components/products/catalog-cta";
-import { ProductCard } from "@/components/products/product-card";
+import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { ProductModal } from "@/components/products/product-modal";
-import { catalogCategories } from "@/lib/catalog";
+import { catalogCategories, formatRef } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
+import { buildWhatsAppUrl } from "@/lib/contact";
+import { cn } from "@/lib/utils";
+
+const NAV_LABELS: Record<string, string> = {
+  "squeeze-garrafas": "Garrafas",
+  "canecas-termicas": "Canecas",
+  "canecas-copos": "Copos",
+  "cuia-e-bomba": "Cuia",
+  "kit-vinho": "Kit vinho",
+  chaveiros: "Chaveiros",
+  canetas: "Canetas",
+  "uniformes-industriais": "Uniformes",
+  "vestuario-corporativo": "Vestuário",
+  camisetas: "Camisetas",
+  acessorios: "Acessórios",
+};
+
+const WHATSAPP_QUOTE = buildWhatsAppUrl(
+  "Olá! Gostaria de um orçamento de brindes personalizados."
+);
 
 type CatalogSectionProps = {
   title?: string;
@@ -15,15 +35,15 @@ type CatalogSectionProps = {
 
 export function CatalogSection({
   title = "Catálogo de produtos",
-  description = "Navegue pelas linhas, clique no produto que interessar e fale conosco no WhatsApp para orçamento ou mais detalhes.",
+  description = "Escolha a linha, abra o produto e peça o orçamento pelo WhatsApp.",
 }: CatalogSectionProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string>("");
+  const [activeCategory, setActiveCategory] = useState(catalogCategories[0]?.id ?? "");
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  // Active category via IntersectionObserver
+  // Rastreia qual categoria está visível no viewport
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     const entries = new Map<string, boolean>();
@@ -34,11 +54,10 @@ export function CatalogSection({
       const obs = new IntersectionObserver(
         ([entry]) => {
           entries.set(id, entry.isIntersecting);
-          // Pick the first visible category
           const first = catalogCategories.find((c) => entries.get(c.id));
           if (first) setActiveCategory(first.id);
         },
-        { rootMargin: "-30% 0px -60% 0px" }
+        { rootMargin: "-28% 0px -60% 0px" }
       );
       obs.observe(el);
       observers.push(obs);
@@ -54,7 +73,6 @@ export function CatalogSection({
 
   const normalized = query.trim().toLowerCase();
 
-  // Filter categories and products by query
   const visibleCategories = catalogCategories
     .map((cat) => ({
       ...cat,
@@ -69,92 +87,112 @@ export function CatalogSection({
     }))
     .filter((cat) => cat.products.length > 0);
 
+  const resultCount = visibleCategories.reduce((acc, c) => acc + c.products.length, 0);
+
   return (
     <section className="bg-background">
-      <div className="px-6 pt-24 pb-10 text-center md:px-12 md:pt-28 lg:px-20">
-        <h1 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
-          {description}
-        </p>
+      {/* ── Hero band — cor escura da marca, flui do navbar ──────────── */}
+      <div className="bg-[#2b2112] pb-12 pt-24 text-center md:pb-16 md:pt-32">
+        <div className="mx-auto max-w-3xl px-6">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-amber-400/70">
+            Majestade Personalizados
+          </p>
+          <h1 className="text-5xl font-medium tracking-tight text-white md:text-6xl lg:text-7xl">
+            {title}
+          </h1>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 md:text-base">
+            {description}
+          </p>
+        </div>
+      </div>
 
-        {/* Busca client-side */}
-        <div className="mx-auto mt-8 max-w-sm">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
+      {/* ── Navegação por categoria — busca ao lado de Acessórios ────── */}
+      <nav
+        aria-label="Linhas de produtos"
+        className="sticky top-16 z-40 border-b border-border bg-background/95 backdrop-blur-sm"
+      >
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto px-6 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {catalogCategories.map((category) => {
+            const isActive = !normalized && activeCategory === category.id;
+            return (
+              <a
+                key={category.id}
+                href={`#${category.id}`}
+                aria-current={isActive ? "location" : undefined}
+                className={cn(
+                  "shrink-0 rounded-full px-4 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+                  isActive
+                    ? "bg-foreground font-medium text-background"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                )}
+              >
+                {NAV_LABELS[category.id] ?? category.title}
+              </a>
+            );
+          })}
+          <div className="relative ml-1 w-44 shrink-0 sm:w-52">
+            <label htmlFor="catalog-search" className="sr-only">
+              Buscar produto
+            </label>
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground"
+              aria-hidden
+            />
             <input
+              id="catalog-search"
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar produto…"
-              aria-label="Buscar produto no catálogo"
-              className="w-full rounded-full border border-border bg-background py-2.5 pl-9 pr-9 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              placeholder="Buscar produto"
+              aria-describedby={normalized ? "catalog-search-count" : undefined}
+              className="w-full rounded-full border border-border bg-background py-1.5 pl-8 pr-8 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent [&::-webkit-search-cancel-button]:hidden"
             />
             {query && (
               <button
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Limpar busca"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <X className="size-4" />
+                <X className="size-3.5" />
               </button>
             )}
           </div>
-          {normalized && (
-            <p className="mt-2 text-xs text-muted-foreground">
-              {visibleCategories.reduce((acc, c) => acc + c.products.length, 0)} produto(s) encontrado(s)
-            </p>
-          )}
         </div>
-      </div>
+        {normalized && (
+          <p
+            id="catalog-search-count"
+            aria-live="polite"
+            className="px-6 pb-2 text-center text-xs text-muted-foreground"
+          >
+            {resultCount === 1
+              ? "1 produto encontrado"
+              : `${resultCount} produtos encontrados`}
+          </p>
+        )}
+      </nav>
 
-      {/* Sticky nav de categorias — só exibe quando não há busca ativa */}
-      {!normalized && (
-        <nav
-          aria-label="Categorias do catálogo"
-          className="sticky top-20 z-40 border-y border-border bg-background/95 backdrop-blur-sm"
-        >
-          <div className="flex gap-1 overflow-x-auto px-4 py-3 md:justify-center md:gap-2 md:px-12 lg:px-20">
-            {catalogCategories.map((category) => {
-              const isActive = activeCategory === category.id;
-              return (
-                <a
-                  key={category.id}
-                  href={`#${category.id}`}
-                  aria-current={isActive ? "location" : undefined}
-                  className={`shrink-0 rounded-full px-3 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                    isActive
-                      ? "bg-foreground text-background font-medium"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {category.title}
-                </a>
-              );
-            })}
-          </div>
-        </nav>
-      )}
-
-      <div className="px-6 pb-8 md:px-12 lg:px-20">
+      {/* ── Grid de produtos ──────────────────────────────────────────── */}
+      <div className="mx-auto max-w-7xl px-6 pb-16 pt-12 md:pb-24">
         {visibleCategories.length === 0 ? (
-          <div className="py-24 text-center">
-            <p className="text-muted-foreground">
-              Nenhum produto encontrado para{" "}
-              <strong className="text-foreground">&ldquo;{query}&rdquo;</strong>.
+          /* Estado vazio de busca */
+          <div className="py-32 text-center">
+            <p className="text-lg font-medium text-foreground">
+              Nenhum produto com &ldquo;{query}&rdquo;
+            </p>
+            <p className="mt-1.5 text-sm text-muted-foreground">
+              Tente outro termo ou navegue pelas categorias.
             </p>
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="mt-3 text-sm text-foreground underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="mt-6 rounded-full border border-border px-5 py-2.5 text-sm text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              Limpar busca
+              Ver todos os produtos
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-16 md:gap-20">
+          <div className="flex flex-col gap-20 md:gap-24">
             {visibleCategories.map((category) => (
               <div
                 key={category.id}
@@ -163,40 +201,61 @@ export function CatalogSection({
                   if (el) sectionRefs.current.set(category.id, el);
                   else sectionRefs.current.delete(category.id);
                 }}
-                className="scroll-mt-36 border-t border-border pt-12 first:border-t-0 first:pt-8"
+                className="scroll-mt-32"
               >
-                <div className="mb-8 max-w-xl">
+                {/* Cabeçalho da categoria */}
+                <div className="mb-8 border-t border-border pt-8 text-center">
                   <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
                     {category.title}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  <p className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
                     {category.description}
                   </p>
+                  <span className="mt-3 inline-block rounded-full bg-muted px-3 py-1 text-xs tabular-nums text-muted-foreground">
+                    {category.products.length === 1
+                      ? "1 produto"
+                      : `${category.products.length} produtos`}
+                  </span>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {/* Cards */}
+                <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
                   {category.products.map((product) => (
-                    <div key={product.id}>
-                      <ProductCard
-                        product={product}
-                        onClick={() => openProduct(product)}
-                      />
-                      <div className="pt-4">
-                        <h3 className="text-lg font-medium text-foreground">
-                          {product.name}
-                        </h3>
-                        <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                          {product.shortDescription}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => openProduct(product)}
-                          className="mt-3 text-sm text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    <button
+                      key={product.id}
+                      type="button"
+                      onClick={() => openProduct(product)}
+                      aria-label={`Ver detalhes de ${product.name}`}
+                      className="group w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    >
+                      {/* Imagem */}
+                      <span className="relative block aspect-square overflow-hidden rounded-2xl bg-secondary transition-shadow duration-300 group-hover:shadow-md">
+                        <Image
+                          src={product.src}
+                          alt={product.alt}
+                          fill
+                          className="object-contain p-2 transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        />
+                        {/* Badge "Ver produto" no hover */}
+                        <span
+                          aria-hidden
+                          className="absolute inset-x-0 bottom-0 flex translate-y-1 justify-center pb-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
                         >
-                          Ver detalhes
-                        </button>
-                      </div>
-                    </div>
+                          <span className="rounded-full bg-foreground/85 px-3 py-1 text-xs font-medium text-background backdrop-blur-sm">
+                            Ver produto
+                          </span>
+                        </span>
+                      </span>
+
+                      {/* Nome + ref abaixo */}
+                      <span className="mt-2.5 block truncate text-sm font-medium text-foreground transition-colors group-hover:text-accent">
+                        {product.name}
+                      </span>
+                      <span className="mt-0.5 block font-mono text-xs text-muted-foreground">
+                        Ref. {formatRef(product.ref)}
+                      </span>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -205,12 +264,28 @@ export function CatalogSection({
         )}
       </div>
 
-      <CatalogCta
-        title="Quer um orçamento ou não achou o que precisa?"
-        description="Conte o volume, o prazo e o produto — montamos a proposta sob medida e enviamos pelo WhatsApp."
-        ctaLabel="Falar no WhatsApp"
-        whatsappMessage="Olá! Gostaria de um orçamento de brindes personalizados."
-      />
+      {/* ── CTA de orçamento ─────────────────────────────────────────── */}
+      <div className="bg-[#2b2112]">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 py-14 text-center md:py-16">
+          <div>
+            <h2 className="text-2xl font-medium tracking-tight text-white md:text-3xl">
+              Quer um orçamento?
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 md:text-base">
+              Diga o produto, a quantidade e o prazo. A proposta volta pelo WhatsApp.
+            </p>
+          </div>
+          <a
+            href={WHATSAPP_QUOTE}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#2b2112]"
+          >
+            <WhatsAppIcon className="size-4" />
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
 
       <ProductModal
         product={selectedProduct}
