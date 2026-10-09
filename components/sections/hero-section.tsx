@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
-import { ProductCarousel } from "@/components/products/product-carousel";
+import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { getFeaturedProducts } from "@/lib/catalog";
 import { WHATSAPP_URL } from "@/lib/contact";
 
@@ -62,8 +62,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* ── Carrossel de produtos em destaque ────────────────────────── */}
-      <ProductCarousel
+      {/* ── Auto-slider de produtos em destaque ─────────────────────── */}
+      <ImageAutoSlider
         products={featuredProducts}
         className="bg-background py-6 md:py-8"
       />
