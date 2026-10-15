@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useId, useState } from "react";
 import { X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -73,7 +74,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
           <span className="sr-only">Fechar</span>
         </DialogClose>
 
-        <div className="flex shrink-0 flex-col bg-secondary md:min-h-0">
+        <div className="flex shrink-0 flex-col bg-card md:min-h-0">
           <div
             id={panelId}
             role={hasGallery ? "tabpanel" : undefined}
@@ -147,15 +148,12 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
               ? `Foto ${index + 1} de ${photos.length}: ${photo.alt}`
               : photo.alt}
           </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 md:mt-auto"
-          >
-            <WhatsAppIcon className="size-4" />
-            Pedir esse produto no WhatsApp
-          </a>
+          <Button asChild variant="brand" size="cta" className="mt-8 md:mt-auto">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon />
+              Pedir esse produto no WhatsApp
+            </a>
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

@@ -61,7 +61,7 @@ export function CollectionSection() {
         <div className="flex gap-6 overflow-x-auto px-6 pb-4 md:hidden snap-x snap-mandatory scrollbar-hide">
           {useCases.map((item) => (
             <div key={item.id} className="group flex-shrink-0 w-[75vw] snap-center">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-[#F0EDE6]">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
                 <FadeImage
                   src={item.image || "/placeholder.svg"}
                   alt={item.name}
@@ -88,7 +88,7 @@ export function CollectionSection() {
         <div className="hidden md:grid md:grid-cols-3 gap-8 md:px-12 lg:px-20">
           {useCases.map((item) => (
             <div key={item.id} className="group">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-[#F0EDE6]">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
                 <FadeImage
                   src={item.image || "/placeholder.svg"}
                   alt={item.name}

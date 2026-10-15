@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ProductCard } from "@/components/products/product-card";
 import { ProductModal } from "@/components/products/product-modal";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { Button } from "@/components/ui/button";
 import { getFeaturedProducts } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
 import { buildWhatsAppUrl } from "@/lib/contact";
@@ -45,7 +46,7 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
           <div key={product.id} className="group">
             <ProductCard
               product={product}
-              aspectRatio="4/3"
+              aspectRatio="4/5"
               onClick={() => openProduct(product)}
             />
 
@@ -60,15 +61,12 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
       </div>
 
       <div className="flex flex-col items-center gap-4 px-6 pb-20 md:px-12 lg:px-20">
-        <a
-          href={catalogWhatsAppUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-        >
-          <WhatsAppIcon className="size-4" />
-          Solicitar catálogo no WhatsApp
-        </a>
+        <Button asChild variant="brand" size="cta">
+          <a href={catalogWhatsAppUrl} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon />
+            Solicitar catálogo no WhatsApp
+          </a>
+        </Button>
         {limit && (
           <Link
             href="/produtos"

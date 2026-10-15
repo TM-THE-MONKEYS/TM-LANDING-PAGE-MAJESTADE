@@ -1,6 +1,7 @@
 "use client";
 
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export function EditorialSection({ compact = false }: { compact?: boolean }) {
@@ -14,15 +15,12 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
           Peça uma proposta sem compromisso. Atendemos empresas de todos os portes, 
           de pedidos pontuais a contratos recorrentes de brindes corporativos.
         </p>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
-        >
-          <WhatsAppIcon className="size-4" />
-          Falar no WhatsApp
-        </a>
+        <Button asChild variant="brand" size="cta" className="mt-8">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon />
+            Falar no WhatsApp
+          </a>
+        </Button>
       </div>
 
       {!compact && (

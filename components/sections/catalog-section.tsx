@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Search, X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { ProductModal } from "@/components/products/product-modal";
+import { Button } from "@/components/ui/button";
 import { catalogCategories, formatRef } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
 import { buildWhatsAppUrl } from "@/lib/contact";
@@ -105,7 +106,7 @@ export function CatalogSection({
   return (
     <section className="w-full overflow-x-clip bg-background">
       {/* ── Hero band — cor escura da marca, flui do navbar ──────────── */}
-      <div className="bg-[#2b2112] px-4 pb-8 pt-20 text-center sm:px-6 md:pb-10 md:pt-24 lg:px-8 xl:px-10">
+      <div className="bg-brand-ink px-4 pb-8 pt-20 text-center sm:px-6 md:pb-10 md:pt-24 lg:px-8 xl:px-10">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-amber-400/70">
             Majestade Personalizados
@@ -137,7 +138,7 @@ export function CatalogSection({
                   className={cn(
                     "inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-9 lg:px-3",
                     isActive
-                      ? "bg-foreground font-medium text-background"
+                      ? "bg-brand-navy font-medium text-white"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >
@@ -246,12 +247,12 @@ export function CatalogSection({
                       className="group w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                     >
                       {/* Imagem */}
-                      <span className="relative block aspect-square overflow-hidden rounded-2xl bg-secondary transition-shadow duration-300 group-hover:shadow-md">
+                      <span className="relative block aspect-[4/5] overflow-hidden rounded-2xl border border-brand-stone/15 bg-card transition-shadow duration-300 group-hover:shadow-md">
                         <Image
                           src={product.src}
                           alt={product.alt}
                           fill
-                          className="object-contain p-2 transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                          className="object-contain p-3 transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
                           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, (max-width: 1536px) 20vw, 16vw"
                         />
                         {/* Badge "Ver produto" no hover */}
@@ -282,7 +283,7 @@ export function CatalogSection({
       </div>
 
       {/* ── CTA de orçamento ─────────────────────────────────────────── */}
-      <div className="bg-[#2b2112]">
+      <div className="bg-brand-ink">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 py-14 text-center md:py-16">
           <div>
             <h2 className="text-2xl font-medium tracking-tight text-white md:text-3xl">
@@ -292,15 +293,12 @@ export function CatalogSection({
               Diga o produto, a quantidade e o prazo. A proposta volta pelo WhatsApp.
             </p>
           </div>
-          <a
-            href={WHATSAPP_QUOTE}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#2b2112]"
-          >
-            <WhatsAppIcon className="size-4" />
-            Falar no WhatsApp
-          </a>
+          <Button asChild variant="brandOnDark" size="cta">
+            <a href={WHATSAPP_QUOTE} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon />
+              Falar no WhatsApp
+            </a>
+          </Button>
         </div>
       </div>
 
