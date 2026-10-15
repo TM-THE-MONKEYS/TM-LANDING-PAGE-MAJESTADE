@@ -3,7 +3,6 @@ import { WHATSAPP_URL } from "@/lib/contact";
 export const navLinks = [
   { href: "/", label: "Início" },
   { href: "/produtos", label: "Produtos" },
-  { href: "/catalogo", label: "Catálogo" },
   { href: "/empresa", label: "Empresa" },
 ] as const;
 
@@ -11,7 +10,6 @@ export const footerLinks = {
   navegacao: [
     { label: "Início", href: "/" },
     { label: "Produtos", href: "/produtos" },
-    { label: "Catálogo", href: "/catalogo" },
     { label: "Empresa", href: "/empresa" },
   ],
   empresa: [

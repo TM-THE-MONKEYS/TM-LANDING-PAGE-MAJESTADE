@@ -53,10 +53,10 @@ export function HeroSection() {
               Solicitar orçamento
             </a>
             <Link
-              href="/catalogo"
+              href="/produtos"
               className="text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             >
-              Ver catálogo
+              Ver produtos
             </Link>
           </div>
         </div>

@@ -68,7 +68,7 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "/images/oficiais/macacao-industrial-frente.jpg",
+    src: "/images/oficiais/macacao-industrial-frente-atual.jpg",
     alt: "Macacão industrial personalizado",
     position: "left",
     span: 1,
