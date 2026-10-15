@@ -71,10 +71,10 @@ export function FeaturedProductsSection({ limit }: FeaturedProductsSectionProps)
         </a>
         {limit && (
           <Link
-            href="/catalogo"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            href="/produtos"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
-            Ver catálogo completo
+            Ver todos os produtos
           </Link>
         )}
       </div>

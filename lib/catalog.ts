@@ -423,12 +423,12 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 08. Uniformes Industriais ── refs 62–66 (27–29 aposentados) ─────────────
+  // ── 08. Uniformes Industriais ── refs 62–66 (27–29 e 65 aposentados) ────────
   {
     id: "uniformes-industriais",
     title: "Uniformes Industriais",
     description:
-      "Macacões, camisetas, polos e calças para equipes operacionais, com a identidade visual da empresa.",
+      "Macacões, camisetas e polos para equipes operacionais, com a identidade visual da empresa.",
     products: [
       {
         ref: 62,
@@ -436,18 +436,10 @@ export const catalogCategories: CatalogCategory[] = [
         name: "Macacão Industrial",
         shortDescription:
           "Macacão com bolsos, cós elástico e espaço para a marca no peito e nas costas.",
-        src: "/images/oficiais/macacao-industrial-frente.jpg",
+        src: "/images/oficiais/macacao-industrial-frente-atual.jpg",
         alt: "Macacão industrial cinza, vista de frente",
         featured: true,
         photos: [
-          {
-            src: "/images/oficiais/macacao-industrial-maleta.jpg",
-            alt: "Macacão industrial em uso, com maleta",
-          },
-          {
-            src: "/images/oficiais/macacao-industrial-lado.jpg",
-            alt: "Macacão industrial de lado",
-          },
           {
             src: "/images/oficiais/macacao-industrial-costas.jpg",
             alt: "Costas do macacão industrial",
@@ -491,36 +483,13 @@ export const catalogCategories: CatalogCategory[] = [
         alt: "Polo preta com calça cargo, vista de frente",
       },
       {
-        ref: 65,
-        id: "calca-cargo",
-        name: "Calça Cargo",
-        shortDescription:
-          "Calça cargo com bolsos laterais e traseiros, botão e zíper, para o dia a dia operacional.",
-        src: "/images/oficiais/calca-cargo-costas.jpg",
-        alt: "Calça cargo preta, vista de costas",
-        photos: [
-          {
-            src: "/images/oficiais/calca-cargo-bolso.jpg",
-            alt: "Bolso lateral da calça cargo",
-          },
-          {
-            src: "/images/oficiais/calca-cargo-cinto.jpg",
-            alt: "Cós e zíper da calça cargo",
-          },
-          {
-            src: "/images/oficiais/calca-cargo-botao.jpg",
-            alt: "Botão da calça cargo",
-          },
-        ],
-      },
-      {
         ref: 66,
         id: "blusa-manga-longa",
         name: "Blusa Manga Longa",
         shortDescription:
           "Blusa de manga longa com punho e barra em ribana, com a marca no peito.",
-        src: "/images/oficiais/blusa-manga-longa-lado.jpg",
-        alt: "Blusa preta de manga longa, vista de lado",
+        src: "/images/oficiais/blusa-manga-longa-frente.jpg",
+        alt: "Blusa preta de manga longa, vista de frente",
         photos: [
           {
             src: "/images/oficiais/blusa-manga-longa-punho.jpg",
@@ -548,7 +517,7 @@ export const catalogCategories: CatalogCategory[] = [
         name: "Jaqueta com Forro Personalizada",
         shortDescription:
           "Jaqueta matelassada com forro, bolso interno e bordado da marca na frente e nas costas.",
-        src: "/images/oficiais/jaqueta-forro-frente.jpg",
+        src: "/images/oficiais/jaqueta-forro-frente-atual.jpg",
         alt: "Jaqueta personalizada preta, vista de frente",
         photos: [
           {
@@ -579,15 +548,15 @@ export const catalogCategories: CatalogCategory[] = [
         name: "Camisa Social Branca",
         shortDescription:
           "Camisa social branca com bordado no peito, para equipes comerciais e administrativas.",
-        src: "/images/oficiais/camisa-social-branca-frente.jpg",
+        src: "/images/oficiais/camisa-social-branca-frente-atual.jpg",
         alt: "Camisa social branca personalizada, vista de frente",
         photos: [
           {
-            src: "/images/oficiais/camisa-social-branca-peito.jpg",
+            src: "/images/oficiais/camisa-social-branca-peito-atual.jpg",
             alt: "Bordado no peito da camisa social branca",
           },
           {
-            src: "/images/oficiais/camisa-social-branca-punho.jpg",
+            src: "/images/oficiais/camisa-social-branca-punho-atual.jpg",
             alt: "Punho da camisa social branca",
           },
         ],
@@ -598,15 +567,15 @@ export const catalogCategories: CatalogCategory[] = [
         name: "Camisa Social Preta",
         shortDescription:
           "Camisa social preta com bordado no peito, para uniformizar a equipe com um visual sóbrio.",
-        src: "/images/oficiais/camisa-social-preta-frente.jpg",
+        src: "/images/oficiais/camisa-social-preta-frente-atual.jpg",
         alt: "Camisa social preta personalizada, vista de frente",
         photos: [
           {
-            src: "/images/oficiais/camisa-social-preta-costas.jpg",
+            src: "/images/oficiais/camisa-social-preta-costas-atual.jpg",
             alt: "Costas da camisa social preta",
           },
           {
-            src: "/images/oficiais/camisa-social-preta-detalhe.jpg",
+            src: "/images/oficiais/camisa-social-preta-detalhe-atual.jpg",
             alt: "Bordado e punho da camisa social preta",
           },
         ],
@@ -617,16 +586,20 @@ export const catalogCategories: CatalogCategory[] = [
         name: "Camisa Social Cinza",
         shortDescription:
           "Camisa social cinza de manga longa, com punho ajustável, para o uniforme do dia a dia.",
-        src: "/images/oficiais/camisa-social-cinza-frente.jpg",
+        src: "/images/oficiais/camisa-social-cinza-frente-atual.jpg",
         alt: "Camisa social cinza, vista de frente",
         photos: [
           {
-            src: "/images/oficiais/camisa-social-cinza-costas.jpg",
+            src: "/images/oficiais/camisa-social-cinza-costas-atual.jpg",
             alt: "Costas da camisa social cinza",
           },
           {
-            src: "/images/oficiais/camisa-social-cinza-punho.jpg",
+            src: "/images/oficiais/camisa-social-cinza-punho-atual.jpg",
             alt: "Punho da camisa social cinza",
+          },
+          {
+            src: "/images/oficiais/camisa-social-cinza-peito-atual.jpg",
+            alt: "Botões da camisa social cinza",
           },
         ],
       },
@@ -635,16 +608,16 @@ export const catalogCategories: CatalogCategory[] = [
         id: "jaleco-manga-curta",
         name: "Jaleco Manga Curta",
         shortDescription:
-          "Jaleco de manga curta com bolsos frontais, para equipes operacionais e técnicas.",
-        src: "/images/oficiais/jaleco-manga-curta-frente.jpg",
+          "Jaleco de manga curta com bolsos frontais e a marca no peito e nas costas.",
+        src: "/images/oficiais/jaleco-manga-curta-frente-atual.jpg",
         alt: "Jaleco preto de manga curta, vista de frente",
         photos: [
           {
-            src: "/images/oficiais/jaleco-manga-curta-costas.jpg",
+            src: "/images/oficiais/jaleco-manga-curta-costas-atual.jpg",
             alt: "Costas do jaleco de manga curta",
           },
           {
-            src: "/images/oficiais/jaleco-manga-curta-bolso.jpg",
+            src: "/images/oficiais/jaleco-manga-curta-bolso-atual.jpg",
             alt: "Bolsos do jaleco de manga curta",
           },
         ],
@@ -981,12 +954,6 @@ export function getFeaturedProducts(limit?: number): Product[] {
   return limit ? featured.slice(0, limit) : featured;
 }
 
-export const CATALOG_PAGE_COUNT = 23;
-
-export function getCatalogPageSrc(page: number): string {
-  return `/images/catalogo-paginas/pagina-${String(page).padStart(2, "0")}.jpg`;
-}
-
 // ── Controle de referências ───────────────────────────────────────────────────
 
 /**
@@ -1011,8 +978,9 @@ export const NEXT_PRODUCT_REF = 67;
  * 27 — Macacão Industrial (ilustração)
  * 28 — Jaleco e Camisa Social (ilustração)
  * 29 — Bermuda de Uniforme (ilustração)
+ * 65 — Calça Cargo
  */
-export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35] as const;
+export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 65] as const;
 
 /**
  * Valida integridade dos refs em desenvolvimento.

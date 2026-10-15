@@ -28,6 +28,16 @@ const WHATSAPP_QUOTE = buildWhatsAppUrl(
   "Olá! Gostaria de um orçamento de brindes personalizados."
 );
 
+const CATEGORY_PRIORITY = ["uniformes-industriais", "vestuario-corporativo"];
+
+const orderedCategories = [...catalogCategories].sort((a, b) => {
+  const rank = (id: string) => {
+    const index = CATEGORY_PRIORITY.indexOf(id);
+    return index === -1 ? CATEGORY_PRIORITY.length : index;
+  };
+  return rank(a.id) - rank(b.id);
+});
+
 type CatalogSectionProps = {
   title?: string;
   description?: string;
@@ -40,7 +50,7 @@ export function CatalogSection({
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState(catalogCategories[0]?.id ?? "");
+  const [activeCategory, setActiveCategory] = useState(orderedCategories[0]?.id ?? "");
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   // Rastreia qual categoria está visível no viewport
@@ -48,13 +58,13 @@ export function CatalogSection({
     const observers: IntersectionObserver[] = [];
     const entries = new Map<string, boolean>();
 
-    catalogCategories.forEach(({ id }) => {
+    orderedCategories.forEach(({ id }) => {
       const el = sectionRefs.current.get(id);
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => {
           entries.set(id, entry.isIntersecting);
-          const first = catalogCategories.find((c) => entries.get(c.id));
+          const first = orderedCategories.find((c) => entries.get(c.id));
           if (first) setActiveCategory(first.id);
         },
         { rootMargin: "-28% 0px -60% 0px" }
@@ -76,7 +86,7 @@ export function CatalogSection({
 
   const normalized = fold(query.trim());
 
-  const visibleCategories = catalogCategories
+  const visibleCategories = orderedCategories
     .map((cat) => ({
       ...cat,
       products: normalized
@@ -117,7 +127,7 @@ export function CatalogSection({
         <div className="relative flex w-full min-w-0 flex-col gap-2 px-4 py-3 sm:px-6 lg:h-14 lg:px-8 lg:py-0 xl:px-10">
           <div className="flex w-full min-w-0 gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:absolute lg:inset-x-0 lg:top-0 lg:h-full lg:items-center lg:justify-center lg:overflow-visible">
             <div className="flex w-max gap-1.5 lg:max-w-[calc(100%-33rem)] lg:overflow-x-auto lg:[scrollbar-width:thin]">
-            {catalogCategories.map((category) => {
+            {orderedCategories.map((category) => {
               const isActive = !normalized && activeCategory === category.id;
               return (
                 <a
