@@ -1,5 +1,7 @@
 "use client";
 
+import { companyMetrics } from "@/lib/company";
+
 const testimonials = [
   {
     id: 1,
@@ -27,21 +29,14 @@ const testimonials = [
   },
 ];
 
-const metrics = [
-  { value: "15+", label: "anos de mercado" },
-  { value: "10", label: "colaboradores próprios" },
-  { value: "100%", label: "produção interna" },
-  { value: "BR", label: "entregamos em todo o Brasil" },
-];
-
 export function SocialProofSection() {
   return (
     <section className="bg-secondary">
       <div className="border-b border-border px-6 py-12 md:px-12 lg:px-20">
         <dl className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {metrics.map((m) => (
+          {companyMetrics.map((m) => (
             <div key={m.label} className="text-center">
-              <dt className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+              <dt className="text-4xl font-semibold tracking-tight text-brand-navy md:text-5xl">
                 {m.value}
               </dt>
               <dd className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">

@@ -459,19 +459,9 @@ export const catalogCategories: CatalogCategory[] = [
         id: "camiseta-recorte",
         name: "Camiseta com Recorte",
         shortDescription:
-          "Camiseta de manga curta com gola e mangas em recorte contrastante, com a marca no peito e nas costas.",
+          "Camiseta de manga curta com gola e mangas em recorte contrastante, com a marca no peito.",
         src: "/images/oficiais/camiseta-recorte-frente.jpg",
         alt: "Camiseta laranja com mangas cinza, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/camiseta-recorte-costas.jpg",
-            alt: "Costas da camiseta com recorte",
-          },
-          {
-            src: "/images/oficiais/camiseta-recorte-peito.jpg",
-            alt: "Marca no peito da camiseta com recorte",
-          },
-        ],
       },
       {
         ref: 64,
@@ -490,21 +480,11 @@ export const catalogCategories: CatalogCategory[] = [
           "Blusa de manga longa com punho e barra em ribana, com a marca no peito.",
         src: "/images/oficiais/blusa-manga-longa-frente.jpg",
         alt: "Blusa preta de manga longa, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/blusa-manga-longa-punho.jpg",
-            alt: "Punho em ribana da blusa de manga longa",
-          },
-          {
-            src: "/images/oficiais/blusa-manga-longa-barra.jpg",
-            alt: "Barra em ribana da blusa de manga longa",
-          },
-        ],
       },
     ],
   },
 
-  // ── 09. Vestuário Corporativo ── refs 44–54 (30–32 aposentados) ──────────
+  // ── 09. Vestuário Corporativo ── refs 44–51 (30–32 e 52–54 aposentados) ──
   {
     id: "vestuario-corporativo",
     title: "Vestuário Corporativo",
@@ -629,19 +609,23 @@ export const catalogCategories: CatalogCategory[] = [
         shortDescription:
           "Jaleco de manga longa com zíper, bolsos e espaço para bordado no peito, nas costas e na manga.",
         src: "/images/oficiais/jaleco-ziper-frente.jpg",
-        alt: "Jaleco cinza com zíper, vista de lado",
+        alt: "Jaleco cinza com zíper, vista de frente",
         photos: [
+          {
+            src: "/images/oficiais/jaleco-ziper-lado.jpg",
+            alt: "Jaleco cinza com zíper, vista de lado",
+          },
           {
             src: "/images/oficiais/jaleco-ziper-costas.jpg",
             alt: "Costas do jaleco com bordado",
           },
           {
-            src: "/images/oficiais/jaleco-ziper-bordado.jpg",
-            alt: "Bordado no bolso do peito do jaleco",
-          },
-          {
             src: "/images/oficiais/jaleco-ziper-manga.jpg",
             alt: "Bordado na manga do jaleco",
+          },
+          {
+            src: "/images/oficiais/jaleco-ziper-detalhe.jpg",
+            alt: "Detalhe do zíper do jaleco",
           },
         ],
       },
@@ -663,12 +647,8 @@ export const catalogCategories: CatalogCategory[] = [
             alt: "Costas do colete matelassado",
           },
           {
-            src: "/images/oficiais/colete-forro.jpg",
-            alt: "Forro interno do colete",
-          },
-          {
-            src: "/images/oficiais/colete-gola.jpg",
-            alt: "Gola do colete com bordado",
+            src: "/images/oficiais/colete-peito.jpg",
+            alt: "Bordado no peito e ombro do colete",
           },
           {
             src: "/images/oficiais/colete-bolso.jpg",
@@ -692,79 +672,6 @@ export const catalogCategories: CatalogCategory[] = [
           {
             src: "/images/oficiais/moletom-barra.jpg",
             alt: "Barra do moletom",
-          },
-        ],
-      },
-      {
-        ref: 52,
-        id: "jaqueta-corta-vento-verde",
-        name: "Jaqueta Corta-Vento Verde",
-        shortDescription:
-          "Jaqueta corta-vento com recorte nos ombros, forro matelassado e bolsos laterais.",
-        src: "/images/oficiais/jaqueta-corta-vento-verde-frente.jpg",
-        alt: "Jaqueta corta-vento verde, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-verde-costas.jpg",
-            alt: "Costas da jaqueta corta-vento verde",
-          },
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-verde-forro.jpg",
-            alt: "Forro matelassado da jaqueta verde",
-          },
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-verde-bolso.jpg",
-            alt: "Bolso da jaqueta corta-vento verde",
-          },
-        ],
-      },
-      {
-        ref: 53,
-        id: "jaqueta-corta-vento",
-        name: "Jaqueta Corta-Vento",
-        shortDescription:
-          "Jaqueta corta-vento em dois tons, com forro matelassado, bolso e punho ajustável.",
-        src: "/images/oficiais/jaqueta-corta-vento-frente.jpg",
-        alt: "Jaqueta corta-vento cinza, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-forro.jpg",
-            alt: "Forro matelassado da jaqueta corta-vento",
-          },
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-bolso.jpg",
-            alt: "Bolso da jaqueta corta-vento",
-          },
-          {
-            src: "/images/oficiais/jaqueta-corta-vento-punho.jpg",
-            alt: "Punho com fecho da jaqueta corta-vento",
-          },
-        ],
-      },
-      {
-        ref: 54,
-        id: "jaqueta-matelassada",
-        name: "Jaqueta Matelassada",
-        shortDescription:
-          "Jaqueta matelassada com gola, forro e bordado no peito e nas costas.",
-        src: "/images/oficiais/jaqueta-matelassada-costas.jpg",
-        alt: "Jaqueta matelassada preta, vista de costas",
-        photos: [
-          {
-            src: "/images/oficiais/jaqueta-matelassada-peito.jpg",
-            alt: "Bordado no peito da jaqueta matelassada",
-          },
-          {
-            src: "/images/oficiais/jaqueta-matelassada-gola.jpg",
-            alt: "Gola da jaqueta matelassada",
-          },
-          {
-            src: "/images/oficiais/jaqueta-matelassada-forro.jpg",
-            alt: "Forro interno da jaqueta matelassada",
-          },
-          {
-            src: "/images/oficiais/jaqueta-matelassada-bolso.jpg",
-            alt: "Bolso da jaqueta matelassada",
           },
         ],
       },
@@ -947,6 +854,14 @@ export const catalogCategories: CatalogCategory[] = [
 
 // ── Utilitários ───────────────────────────────────────────────────────────────
 
+/** Busca produtos pelo `id`, na ordem pedida. Ids inexistentes são ignorados. */
+export function getProductsByIds(ids: string[]): Product[] {
+  const all = catalogCategories.flatMap((category) => category.products);
+  return ids
+    .map((id) => all.find((product) => product.id === id))
+    .filter((product): product is Product => Boolean(product));
+}
+
 export function getFeaturedProducts(limit?: number): Product[] {
   const featured = catalogCategories.flatMap((category) =>
     category.products.filter((product) => product.featured),
@@ -979,8 +894,11 @@ export const NEXT_PRODUCT_REF = 67;
  * 28 — Jaleco e Camisa Social (ilustração)
  * 29 — Bermuda de Uniforme (ilustração)
  * 65 — Calça Cargo
+ * 52 — Jaqueta Corta-Vento Verde
+ * 53 — Jaqueta Corta-Vento
+ * 54 — Jaqueta Matelassada
  */
-export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 65] as const;
+export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 52, 53, 54, 65] as const;
 
 /**
  * Valida integridade dos refs em desenvolvimento.

@@ -37,6 +37,15 @@
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: #1A2940;
   --sidebar-ring: #B8860B;
+
+  /* ── Paleta da marca ──────────────────────────────────────────────────
+   * Cores oficiais Majestade. Usar os tokens (bg-brand-*, text-brand-*,
+   * border-brand-*) em vez do hex direto — ver regra de design system.
+   */
+  --brand-navy: #090070;  /* azul royal — destaque pontual, nunca em área grande */
+  --brand-gold: #B8860B;  /* = --accent, mesma cor com nome semântico de marca */
+  --brand-stone: #76807F; /* cinza neutro — bordas e textos de apoio */
+  --brand-ink: #2B2112;   /* marrom quase preto — já usado no header/CTA escuros */
 }
 
 .dark {
@@ -114,6 +123,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-stone: var(--brand-stone);
+  --color-brand-ink: var(--brand-ink);
 }
 
 @layer base {
@@ -122,6 +135,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--brand-gold) 30%, transparent);
   }
   
   html {
@@ -269,22 +286,9 @@
   animation: fadeIn 0.7s ease-out forwards;
 }
 
-/* ── Auto-slider de produtos ───────────────────────────────────────────────── */
-@keyframes product-auto-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.product-auto-slider-track {
-  animation: product-auto-scroll var(--slider-duration, 32s) linear infinite;
-}
-
-.product-auto-slider-track[data-paused="true"] {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product-auto-slider-track {
-    animation: none;
-  }
+/* ── Carrossel de produtos (use-drag-marquee) ─────────────────────────────── */
+/* Esmaece as bordas para o loop contínuo não "cortar" cartões na lateral. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
 }

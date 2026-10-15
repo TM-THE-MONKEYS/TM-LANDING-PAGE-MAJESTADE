@@ -10,7 +10,7 @@ import { footerLinks } from "@/lib/navigation";
 export function FooterSection() {
   return (
     <footer className="bg-background">
-      <div className="border-t border-border px-4 py-14 sm:px-6 md:px-12 md:py-20 lg:px-20">
+      <div className="border-t-2 border-brand-gold px-4 py-14 sm:px-6 md:px-12 md:py-20 lg:px-20">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-12 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
             <Link href="/" aria-label="Majestade Personalizados">

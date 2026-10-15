@@ -189,13 +189,13 @@ export function ProductCarousel({
                   onClick={() => openProduct(product)}
                   aria-label={`Ver detalhes de ${product.name}`}
                   tabIndex={isClone ? -1 : 0}
-                  className="group relative aspect-square w-full overflow-hidden rounded-2xl bg-secondary text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-brand-stone/15 bg-card text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 >
                   <Image
                     src={product.src}
                     alt={product.alt}
                     fill
-                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110 motion-reduce:group-hover:scale-100"
+                    className="object-contain p-3 transition-transform duration-500 group-hover:scale-110 motion-reduce:group-hover:scale-100"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
 

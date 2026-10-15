@@ -80,7 +80,7 @@ export function FaqSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-foreground underline-offset-4 hover:underline"
+              className="font-medium text-brand-navy underline-offset-4 hover:underline"
             >
               Fale direto no WhatsApp
             </a>{" "}

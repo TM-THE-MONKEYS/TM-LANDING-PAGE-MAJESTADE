@@ -79,3 +79,14 @@ Errado: nome `Camiseta Andrade`, descrição com telefone, "tecido tecnológico 
 Só o que o script faz: auto-orient, tirar EXIF, reduzir o lado maior para 1600 px se estiver acima disso, JPEG qualidade 82.
 
 Não fazer: trim automático (come a borda do produto), recorte criativo, desfoque de fundo, troca de cor, remoção de logo, upscale, gerar vista que não foi fotografada.
+
+### Padrão ideal para fotos novas (ensaio)
+
+Os cards do site usam proporção **4:5 (retrato)** com a foto inteira visível (`object-contain`, sem cortar) sobre fundo branco puro. Quanto mais a foto já chegar pronta nesse padrão, menos faixa vazia sobra ao redor do produto:
+
+- **Proporção**: 4:5 (ex.: 1200×1500 px). Evitar fotos muito mais largas que altas (deixam faixas grandes nas laterais) ou quadradas "soltas" no enquadramento.
+- **Fundo**: branco puro e liso (sem pano amassado, sombra forte ou textura) — é o que o card do site usa como base, então fundo branco "desaparece" dentro do card.
+- **Enquadramento**: produto ocupando cerca de 75–85% da altura do quadro, centralizado, mesma distância de câmera entre fotos do mesmo lote (frente/costas/detalhe).
+- **Resolução**: pelo menos 1200 px no lado maior antes do preparo (o script reduz para 1600 px se vier maior; não precisa upscale).
+
+Isso é recomendação para o próximo ensaio — não é motivo para recusar ou re-cortar fotos já entregues.

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { Button } from "@/components/ui/button";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import { getFeaturedProducts } from "@/lib/catalog";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -23,7 +24,7 @@ export function HeroSection() {
           priority
         />
 
-        <div className="absolute inset-0 bg-foreground/65" />
+        <div className="absolute inset-0 bg-brand-ink/70" />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <div className="motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] motion-safe:opacity-0">
@@ -43,15 +44,12 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3 motion-safe:animate-[reveal-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.55s_forwards] motion-safe:opacity-0 sm:flex-row sm:gap-5">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
-            >
-              <WhatsAppIcon className="size-4" />
-              Solicitar orçamento
-            </a>
+            <Button asChild variant="brandOnDark" size="cta">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon />
+                Solicitar orçamento
+              </a>
+            </Button>
             <Link
               href="/produtos"
               className="text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
@@ -62,10 +60,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* ── Auto-slider de produtos em destaque ─────────────────────── */}
+      {/* ── Carrossel de produtos em destaque ───────────────────────── */}
       <ImageAutoSlider
         products={featuredProducts}
-        className="bg-background py-6 md:py-8"
+        className="bg-background pb-6 pt-12 md:pb-8 md:pt-16"
       />
 
       {/* ── Texto institucional ──────────────────────────────────────── */}

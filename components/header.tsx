@@ -6,15 +6,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand-icons";
+import { Button } from "@/components/ui/button";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_URL } from "@/lib/contact";
 import { navLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 /**
- * Páginas internas que devem usar o header na cor escura da marca (#2b2112).
+ * Páginas internas que devem usar o header na cor escura da marca (--brand-ink).
  * Adicionar novos paths aqui conforme o projeto crescer.
  */
-const DARK_HEADER_PAGES = ["/produtos"];
+const DARK_HEADER_PAGES = ["/produtos", "/empresa"];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,7 +76,7 @@ export function Header() {
                 : "bg-transparent"
             )
           : isDarkPage
-          ? "fixed inset-x-0 top-0 z-50 bg-[#2b2112]"
+          ? "fixed inset-x-0 top-0 z-50 bg-brand-ink"
           : "fixed inset-x-0 top-0 z-50 border-b border-border bg-background"
       }
       style={
@@ -126,7 +127,7 @@ export function Header() {
                 className={cn(
                   linkClass(link.href),
                   "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
-                  isDarkPage && "focus-visible:ring-offset-[#2b2112]"
+                  isDarkPage && "focus-visible:ring-offset-brand-ink"
                 )}
               >
                 <span className="relative">
@@ -204,7 +205,7 @@ export function Header() {
           className={cn(
             "border-t px-6 py-6 lg:hidden",
             isDarkPage
-              ? "border-white/10 bg-[#2b2112]"
+              ? "border-white/10 bg-brand-ink"
               : "border-border bg-background",
             isHomePage && !isDarkPage && "rounded-b-2xl"
           )}
@@ -246,16 +247,22 @@ export function Header() {
               <InstagramIcon className="size-5" />
               {INSTAGRAM_HANDLE}
             </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              onClick={() => setIsMenuOpen(false)}
+            <Button
+              asChild
+              variant={isDarkPage ? "brandOnDark" : "brand"}
+              size="cta"
+              className="mt-3"
             >
-              <WhatsAppIcon className="size-4" />
-              WhatsApp
-            </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <WhatsAppIcon />
+                WhatsApp
+              </a>
+            </Button>
           </nav>
         </div>
       )}
