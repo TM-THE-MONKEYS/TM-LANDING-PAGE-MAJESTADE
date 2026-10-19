@@ -484,7 +484,7 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 09. Vestuário Corporativo ── refs 44–51 (30–32 e 52–54 aposentados) ──
+  // ── 09. Vestuário Corporativo ── refs 44–51, 67 (30–32 e 52–54 aposentados) ──
   {
     id: "vestuario-corporativo",
     title: "Vestuário Corporativo",
@@ -661,7 +661,7 @@ export const catalogCategories: CatalogCategory[] = [
         id: "moletom-capuz",
         name: "Moletom com Capuz",
         shortDescription:
-          "Moletom com capuz e bolso canguru, com bordado no peito para a marca da empresa.",
+          "Moletom com capuz e bolso canguru, com a marca no peito.",
         src: "/images/oficiais/moletom-frente.jpg",
         alt: "Moletom cinza com capuz, vista de frente",
         photos: [
@@ -671,7 +671,30 @@ export const catalogCategories: CatalogCategory[] = [
           },
           {
             src: "/images/oficiais/moletom-barra.jpg",
-            alt: "Barra do moletom",
+            alt: "Barra e bolso do moletom",
+          },
+        ],
+      },
+      {
+        ref: 67,
+        id: "jaqueta-matelassada",
+        name: "Jaqueta Matelassada",
+        shortDescription:
+          "Jaqueta matelassada com zíper e bordado da marca no peito e nas costas.",
+        src: "/images/oficiais/jaqueta-matelassada-peito.jpg",
+        alt: "Jaqueta matelassada preta com bordado no peito",
+        photos: [
+          {
+            src: "/images/oficiais/jaqueta-matelassada-costas.jpg",
+            alt: "Costas da jaqueta matelassada com estampa",
+          },
+          {
+            src: "/images/oficiais/jaqueta-matelassada-bolso.jpg",
+            alt: "Bolso lateral da jaqueta matelassada",
+          },
+          {
+            src: "/images/oficiais/jaqueta-matelassada-gola.jpg",
+            alt: "Gola e zíper da jaqueta matelassada",
           },
         ],
       },
@@ -879,7 +902,7 @@ export function getFeaturedProducts(limit?: number): Product[] {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 67;
+export const NEXT_PRODUCT_REF = 68;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.
