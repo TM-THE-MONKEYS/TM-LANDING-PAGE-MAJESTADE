@@ -446,7 +446,7 @@ export const catalogCategories: CatalogCategory[] = [
           },
           {
             src: "/images/oficiais/macacao-industrial-bolso.jpg",
-            alt: "Bolso do peito do macacão industrial",
+            alt: "Bolso do peito do macacão com a marca",
           },
           {
             src: "/images/oficiais/macacao-industrial-cintura.jpg",
@@ -459,9 +459,19 @@ export const catalogCategories: CatalogCategory[] = [
         id: "camiseta-recorte",
         name: "Camiseta com Recorte",
         shortDescription:
-          "Camiseta de manga curta com gola e mangas em recorte contrastante, com a marca no peito.",
+          "Camiseta de manga curta com gola e mangas em recorte contrastante, com a marca no peito e nas costas.",
         src: "/images/oficiais/camiseta-recorte-frente.jpg",
         alt: "Camiseta laranja com mangas cinza, vista de frente",
+        photos: [
+          {
+            src: "/images/oficiais/camiseta-recorte-costas.jpg",
+            alt: "Costas da camiseta com recorte e estampa",
+          },
+          {
+            src: "/images/oficiais/camiseta-recorte-peito.jpg",
+            alt: "Marca no peito da camiseta com recorte",
+          },
+        ],
       },
       {
         ref: 64,
@@ -480,6 +490,16 @@ export const catalogCategories: CatalogCategory[] = [
           "Blusa de manga longa com punho e barra em ribana, com a marca no peito.",
         src: "/images/oficiais/blusa-manga-longa-frente.jpg",
         alt: "Blusa preta de manga longa, vista de frente",
+        photos: [
+          {
+            src: "/images/oficiais/blusa-manga-longa-punho.jpg",
+            alt: "Punho e marca no peito da blusa de manga longa",
+          },
+          {
+            src: "/images/oficiais/blusa-manga-longa-barra.jpg",
+            alt: "Barra e punho da blusa de manga longa",
+          },
+        ],
       },
     ],
   },
@@ -701,7 +721,7 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 10. Camisetas ── refs 55–61 (33–35 aposentados) ─────────────────────────
+  // ── 10. Camisetas ── refs 56–59, 61 (33–35, 55 e 60 aposentados) ─────────────
   {
     id: "camisetas",
     title: "Camisetas",
@@ -709,40 +729,17 @@ export const catalogCategories: CatalogCategory[] = [
       "Camisetas e polos personalizados para eventos, campanhas e uniforme da equipe.",
     products: [
       {
-        ref: 55,
-        id: "camiseta-azul",
-        name: "Camiseta Azul",
-        shortDescription:
-          "Camiseta de manga curta em tecido leve, com espaço para a marca no peito.",
-        src: "/images/oficiais/camiseta-azul-frente.jpg",
-        alt: "Camiseta azul personalizada, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/camiseta-azul-lado.jpg",
-            alt: "Camiseta azul de lado",
-          },
-          {
-            src: "/images/oficiais/camiseta-azul-costas.jpg",
-            alt: "Costas da camiseta azul",
-          },
-        ],
-      },
-      {
         ref: 56,
         id: "camiseta-preta",
         name: "Camiseta Preta",
         shortDescription:
-          "Camiseta de manga curta com a marca no peito e estampa grande nas costas.",
+          "Camiseta de manga curta com a marca no peito e estampa nas costas.",
         src: "/images/oficiais/camiseta-preta-frente.jpg",
-        alt: "Camiseta preta personalizada, vista de lado",
+        alt: "Camiseta preta, vista de frente",
         photos: [
           {
             src: "/images/oficiais/camiseta-preta-costas.jpg",
             alt: "Costas da camiseta preta com estampa",
-          },
-          {
-            src: "/images/oficiais/camiseta-preta-estampa.jpg",
-            alt: "Detalhe da estampa nas costas da camiseta preta",
           },
         ],
       },
@@ -751,13 +748,13 @@ export const catalogCategories: CatalogCategory[] = [
         id: "camiseta-verde",
         name: "Camiseta Verde",
         shortDescription:
-          "Camiseta de manga curta com bordado pequeno no peito.",
+          "Camiseta de manga curta com a marca no peito.",
         src: "/images/oficiais/camiseta-verde-frente.jpg",
-        alt: "Camiseta verde personalizada, vista de frente",
+        alt: "Camiseta verde, vista de frente",
         photos: [
           {
             src: "/images/oficiais/camiseta-verde-peito.jpg",
-            alt: "Bordado no peito da camiseta verde",
+            alt: "Marca no peito da camiseta verde",
           },
         ],
       },
@@ -771,12 +768,8 @@ export const catalogCategories: CatalogCategory[] = [
         alt: "Camiseta preta de gola V, vista de frente",
         photos: [
           {
-            src: "/images/oficiais/camiseta-gola-v-peito.jpg",
-            alt: "Estampa no peito da camiseta de gola V",
-          },
-          {
             src: "/images/oficiais/camiseta-gola-v-costas.jpg",
-            alt: "Costas da camiseta de gola V",
+            alt: "Costas da camiseta de gola V com estampa",
           },
         ],
       },
@@ -785,51 +778,26 @@ export const catalogCategories: CatalogCategory[] = [
         id: "camiseta-manga-longa",
         name: "Camiseta Manga Longa",
         shortDescription:
-          "Camiseta de manga longa com a marca no peito, para uniforme e ações de equipe.",
+          "Camiseta de manga longa com a marca no peito.",
         src: "/images/oficiais/camiseta-manga-longa-frente.jpg",
         alt: "Camiseta vermelha de manga longa, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/camiseta-manga-longa-lado.jpg",
-            alt: "Camiseta de manga longa de lado",
-          },
-          {
-            src: "/images/oficiais/camiseta-manga-longa-peito.jpg",
-            alt: "Estampa no peito da camiseta de manga longa",
-          },
-        ],
-      },
-      {
-        ref: 60,
-        id: "camiseta-vies",
-        name: "Camiseta com Viés",
-        shortDescription:
-          "Camiseta com gola e mangas em viés contrastante, com a marca no peito e nas costas.",
-        src: "/images/oficiais/camiseta-vies-frente.jpg",
-        alt: "Camiseta cinza com viés preto, vista de frente",
-        photos: [
-          {
-            src: "/images/oficiais/camiseta-vies-costas.jpg",
-            alt: "Costas da camiseta com viés",
-          },
-        ],
       },
       {
         ref: 61,
         id: "camiseta-polo",
         name: "Camisa Polo",
         shortDescription:
-          "Polo de manga curta com a marca no peito e nas costas, e gola com vista interna.",
+          "Polo de manga curta com a marca no peito e nas costas.",
         src: "/images/oficiais/camiseta-polo-frente.jpg",
         alt: "Camisa polo preta, vista de frente",
         photos: [
           {
             src: "/images/oficiais/camiseta-polo-costas.jpg",
-            alt: "Costas da camisa polo",
+            alt: "Costas da camisa polo com estampa",
           },
           {
             src: "/images/oficiais/camiseta-polo-gola.jpg",
-            alt: "Gola da camisa polo",
+            alt: "Gola e vista da camisa polo",
           },
         ],
       },
@@ -920,8 +888,10 @@ export const NEXT_PRODUCT_REF = 68;
  * 52 — Jaqueta Corta-Vento Verde
  * 53 — Jaqueta Corta-Vento
  * 54 — Jaqueta Matelassada
+ * 55 — Camiseta Azul
+ * 60 — Camiseta com Viés
  */
-export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 52, 53, 54, 65] as const;
+export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 52, 53, 54, 55, 60, 65] as const;
 
 /**
  * Valida integridade dos refs em desenvolvimento.

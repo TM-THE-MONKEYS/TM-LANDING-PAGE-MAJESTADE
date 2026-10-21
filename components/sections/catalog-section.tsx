@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Search, X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
+import { ProductCard } from "@/components/products/product-card";
 import { ProductModal } from "@/components/products/product-modal";
 import { Button } from "@/components/ui/button";
-import { catalogCategories, formatRef } from "@/lib/catalog";
+import { catalogCategories } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
 import { buildWhatsAppUrl } from "@/lib/contact";
 import { cn } from "@/lib/utils";
@@ -105,50 +106,59 @@ export function CatalogSection({
 
   return (
     <section className="w-full overflow-x-clip bg-background">
-      {/* ── Hero band — cor escura da marca, flui do navbar ──────────── */}
-      <div className="bg-brand-ink px-4 pb-8 pt-20 text-center sm:px-6 md:pb-10 md:pt-24 lg:px-8 xl:px-10">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-amber-400/70">
+      {/* ── Hero band — foto + overlay da marca, flui do navbar ───────── */}
+      <div className="relative overflow-hidden px-4 pb-8 pt-20 text-center sm:px-6 md:pb-10 md:pt-24 lg:px-8 xl:px-10">
+        <Image
+          src="/images/produtos/hero.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand-ink/80" aria-hidden />
+        <div className="relative mx-auto max-w-3xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-brand-gold/80">
             Majestade Personalizados
           </p>
           <h1 className="text-4xl font-medium tracking-tight text-white sm:text-5xl md:text-6xl">
             {title}
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 md:text-base">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/55 md:text-base">
             {description}
           </p>
         </div>
       </div>
 
-      {/* ── Navegação por categoria — busca ao lado das linhas no desktop */}
+      {/* ── Navegação por categoria — linhas à esquerda, busca à direita */}
       <nav
         aria-label="Linhas de produtos"
         className="sticky top-16 z-40 border-b border-border bg-background/95 backdrop-blur-sm"
       >
-        <div className="relative flex w-full min-w-0 flex-col gap-2 px-4 py-3 sm:px-6 lg:h-14 lg:px-8 lg:py-0 xl:px-10">
-          <div className="flex w-full min-w-0 gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:absolute lg:inset-x-0 lg:top-0 lg:h-full lg:items-center lg:justify-center lg:overflow-visible">
-            <div className="flex w-max gap-1.5 lg:max-w-[calc(100%-33rem)] lg:overflow-x-auto lg:[scrollbar-width:thin]">
-            {orderedCategories.map((category) => {
-              const isActive = !normalized && activeCategory === category.id;
-              return (
-                <a
-                  key={category.id}
-                  href={`#${category.id}`}
-                  aria-current={isActive ? "location" : undefined}
-                  className={cn(
-                    "inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-9 lg:px-3",
-                    isActive
-                      ? "bg-brand-navy font-medium text-white"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  {NAV_LABELS[category.id] ?? category.title}
-              </a>
-            );
-          })}
+        <div className="flex w-full min-w-0 flex-col gap-2 px-4 py-3 sm:px-6 lg:h-14 lg:flex-row lg:items-center lg:gap-4 lg:px-8 lg:py-0 xl:px-10">
+          <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:[scrollbar-width:thin]">
+            <div className="flex w-max gap-1.5 pr-2">
+              {orderedCategories.map((category) => {
+                const isActive = !normalized && activeCategory === category.id;
+                return (
+                  <a
+                    key={category.id}
+                    href={`#${category.id}`}
+                    aria-current={isActive ? "location" : undefined}
+                    className={cn(
+                      "inline-flex min-h-11 shrink-0 items-center rounded-full px-3.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-9 lg:px-3",
+                      isActive
+                        ? "bg-brand-navy font-medium text-white"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                    )}
+                  >
+                    {NAV_LABELS[category.id] ?? category.title}
+                  </a>
+                );
+              })}
             </div>
           </div>
-          <div className="relative w-full shrink-0 lg:absolute lg:top-1/2 lg:right-8 lg:w-56 lg:-translate-y-1/2 xl:right-10">
+          <div className="relative w-full shrink-0 lg:w-56">
             <label htmlFor="catalog-search" className="sr-only">
               Buscar produto
             </label>
@@ -181,7 +191,7 @@ export function CatalogSection({
           <p
             id="catalog-search-count"
             aria-live="polite"
-            className="px-4 pb-2 text-center text-xs text-muted-foreground sm:px-6 lg:px-8"
+            className="px-4 pb-2 text-xs text-muted-foreground sm:px-6 lg:px-8"
           >
             {resultCount === 1
               ? "1 produto encontrado"
@@ -236,44 +246,18 @@ export function CatalogSection({
                   </span>
                 </div>
 
-                {/* Cards */}
-                <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+                {/* Cards — ProductCard compartilhado (foto cobre o quadro) */}
+                <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-4 xl:grid-cols-5 lg:gap-x-5 lg:gap-y-10">
                   {category.products.map((product) => (
-                    <button
+                    <ProductCard
                       key={product.id}
-                      type="button"
+                      product={product}
                       onClick={() => openProduct(product)}
-                      aria-label={`Ver detalhes de ${product.name}`}
-                      className="group w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                    >
-                      {/* Imagem */}
-                      <span className="relative block aspect-[4/5] overflow-hidden rounded-2xl border border-brand-stone/15 bg-card transition-shadow duration-300 group-hover:shadow-md">
-                        <Image
-                          src={product.src}
-                          alt={product.alt}
-                          fill
-                          className="object-contain p-3 transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, (max-width: 1536px) 20vw, 16vw"
-                        />
-                        {/* Badge "Ver produto" no hover */}
-                        <span
-                          aria-hidden
-                          className="absolute inset-x-0 bottom-0 flex translate-y-1 justify-center pb-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-                        >
-                          <span className="rounded-full bg-foreground/85 px-3 py-1 text-xs font-medium text-background backdrop-blur-sm">
-                            Ver produto
-                          </span>
-                        </span>
-                      </span>
-
-                      {/* Nome + ref abaixo */}
-                      <span className="mt-2.5 line-clamp-2 text-sm font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
-                        {product.name}
-                      </span>
-                      <span className="mt-0.5 block font-mono text-xs text-muted-foreground">
-                        Ref. {formatRef(product.ref)}
-                      </span>
-                    </button>
+                      caption
+                      align="center"
+                      showHoverHint
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                    />
                   ))}
                 </div>
               </div>

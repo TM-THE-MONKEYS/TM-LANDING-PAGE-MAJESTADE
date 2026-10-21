@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useId, useState } from "react";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,9 +23,12 @@ type ProductModalProps = {
   onOpenChange: (open: boolean) => void;
 };
 
+const navButtonClass =
+  "absolute top-1/2 z-[1] inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-foreground/10 bg-background/90 text-foreground shadow-sm backdrop-blur-sm transition-[transform,background-color,opacity,box-shadow] duration-200 hover:bg-background hover:shadow-md active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-card motion-reduce:transition-none motion-reduce:active:scale-100 md:size-11 md:opacity-0 md:group-hover/gallery:opacity-100 md:group-focus-within/gallery:opacity-100";
+
 /**
  * Ficha do produto. Um único popup para home, carrossel e /produtos.
- * Com mais de uma foto, a troca fica nas miniaturas sob a imagem.
+ * Com mais de uma foto: setas na imagem, miniaturas e teclado ← →.
  */
 export function ProductModal({ product, open, onOpenChange }: ProductModalProps) {
   const photos = product ? getProductPhotos(product) : [];
@@ -34,6 +37,14 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
   const statusId = useId();
   const hasGallery = photos.length > 1;
   const photo = photos[index] ?? photos[0];
+
+  const goNext = () => {
+    setIndex((current) => (current + 1) % photos.length);
+  };
+
+  const goPrev = () => {
+    setIndex((current) => (current - 1 + photos.length) % photos.length);
+  };
 
   useEffect(() => {
     if (open) setIndex(0);
@@ -45,11 +56,11 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        setIndex((current) => (current + 1) % photos.length);
+        goNext();
       }
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        setIndex((current) => (current - 1 + photos.length) % photos.length);
+        goPrev();
       }
     };
 
@@ -78,16 +89,40 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
           <div
             id={panelId}
             role={hasGallery ? "tabpanel" : undefined}
-            className="relative h-[42dvh] min-h-52 md:h-auto md:min-h-0 md:flex-1"
+            className={cn(
+              "group/gallery relative h-[42dvh] min-h-52 md:h-auto md:min-h-0 md:flex-1",
+              hasGallery && "select-none",
+            )}
           >
             <Image
               key={photo.src}
               src={photo.src}
               alt={photo.alt}
               fill
-              className="object-contain p-3"
+              className="object-contain p-3 motion-safe:animate-[fadeIn_0.28s_ease-out]"
               sizes="(max-width: 768px) 100vw, 520px"
             />
+
+            {hasGallery && (
+              <>
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label="Foto anterior"
+                  className={cn(navButtonClass, "left-2 md:left-3")}
+                >
+                  <ChevronLeft className="size-5 md:size-6" aria-hidden />
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label="Próxima foto"
+                  className={cn(navButtonClass, "right-2 md:right-3")}
+                >
+                  <ChevronRight className="size-5 md:size-6" aria-hidden />
+                </button>
+              </>
+            )}
           </div>
 
           {hasGallery && (

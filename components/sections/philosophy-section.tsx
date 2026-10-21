@@ -4,22 +4,31 @@ const chapters = [
   {
     title: "O começo",
     caption: "No porão da casa do fundador, em Montenegro (RS).",
-    src: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=1200",
-    alt: "Início da produção artesanal de brindes",
+    src: "/images/empresa/comeco.jpg",
+    alt: "Oficina pequena com impressora e produção artesanal de brindes no início da Majestade",
   },
   {
     title: "Hoje",
     caption: "Estrutura própria de produção, também em Montenegro (RS).",
-    src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200",
-    alt: "Estrutura própria da Majestade Personalizados em Montenegro, RS",
+    src: "/images/empresa/hoje.jpg",
+    alt: "Pavilhão industrial amplo com estrutura própria de produção da Majestade Personalizados",
   },
 ];
 
 export function PhilosophySection() {
   return (
     <section id="historia" className="bg-background">
-      <div className="bg-brand-ink text-white">
-        <div className="mx-auto max-w-3xl px-6 pb-16 pt-32 text-center md:px-12 md:pb-24 md:pt-40">
+      <div className="relative overflow-hidden text-white">
+        <Image
+          src="/images/empresa/hero.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand-ink/78" aria-hidden />
+        <div className="relative mx-auto max-w-3xl px-6 pb-16 pt-32 text-center md:px-12 md:pb-24 md:pt-40">
           <span aria-hidden className="mx-auto mb-6 block h-0.5 w-12 bg-brand-gold" />
           <h1 className="text-5xl font-medium leading-[1.02] tracking-tight md:text-7xl lg:text-8xl">
             Nossa história.
