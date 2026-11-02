@@ -13,37 +13,37 @@ const faqs = [
     id: "moq",
     question: "Qual é a quantidade mínima de pedido?",
     answer:
-      "A quantidade mínima varia por produto e técnica de personalização. Em geral, trabalhamos a partir de 12 unidades para itens com silk-screen ou bordado, e a partir de 1 unidade para gravação a laser. Para volumes maiores, conseguimos condições especiais de preço e prazo — entre em contato e informe o volume estimado.",
+      "A quantidade mínima depende do produto e da técnica de personalização. Em geral, trabalhamos a partir de 12 unidades em silk-screen ou bordado, e a partir de 1 unidade em gravação a laser. No orçamento confirmamos o mínimo da peça que você precisa.",
   },
   {
     id: "prazo",
     question: "Qual é o prazo médio de produção?",
     answer:
-      "Após a aprovação da arte-final e confirmação do pedido, o prazo padrão é de 10 a 20 dias úteis, dependendo do produto e da quantidade. Pedidos urgentes podem ser negociados — informe a data limite ao solicitar o orçamento e verificamos a viabilidade.",
+      "Depois da arte-final aprovada e do pedido confirmado, o prazo costuma ficar entre 10 e 20 dias úteis, conforme produto e volume. Se houver data limite, informe no WhatsApp para avaliarmos a viabilidade.",
   },
   {
     id: "arte",
     question: "Como funciona a arte-final e o mockup?",
     answer:
-      "Antes de qualquer produção, enviamos um mockup digital do produto com a sua arte aplicada para aprovação. Só iniciamos a produção após a confirmação por escrito. Caso necessite, nosso time pode adaptar arquivos fornecidos ou criar a arte do zero sem custo adicional no orçamento.",
+      "Antes de produzir, enviamos um mockup digital com a arte aplicada para sua aprovação. A produção só começa após a confirmação. Se precisar ajustar arquivos, nosso time orienta o que é necessário para a técnica escolhida.",
   },
   {
     id: "frete",
     question: "Vocês entregam em todo o Brasil?",
     answer:
-      "Sim. Entregamos em todo o território nacional via transportadora ou Correios, conforme o volume e o destino. O frete é calculado no orçamento e pode ser incluso ou cobrado à parte, dependendo do acordo comercial. Para grandes volumes, trabalhamos com fretes negociados.",
+      "Sim. Enviamos para todo o Brasil por transportadora ou Correios, conforme volume e destino. O frete entra no orçamento — incluso ou à parte, conforme o acordo comercial.",
   },
   {
     id: "pagamento",
-    question: "Quais são as formas de pagamento aceitas?",
+    question: "Quais são as formas de pagamento?",
     answer:
-      "Aceitamos PIX, boleto bancário e transferência. Para empresas com CNPJ ativo, também trabalhamos com faturamento (prazo de pagamento), mediante análise de crédito. Informe a necessidade na hora do orçamento.",
+      "Trabalhamos com PIX, boleto e transferência. Para empresas com CNPJ, faturamento pode ser avaliado caso a caso. Informe a preferência ao pedir o orçamento.",
   },
   {
     id: "nf",
     question: "Vocês emitem nota fiscal?",
     answer:
-      "Sim, emitimos nota fiscal para todas as vendas, tanto para pessoas jurídicas quanto físicas. Trabalhamos com NFe (nota fiscal eletrônica), o que facilita o processo de pagamento corporativo e prestação de contas.",
+      "Sim. Emitimos NFe para pessoa jurídica e física, o que facilita o pagamento corporativo e a prestação de contas.",
   },
 ];
 
@@ -56,7 +56,8 @@ export function FaqSection() {
             Perguntas frequentes
           </h2>
           <p className="mt-4 text-sm text-muted-foreground md:text-base">
-            Respondemos as dúvidas mais comuns de quem está avaliando fornecedores de brindes corporativos.
+            Respostas diretas sobre pedido mínimo, prazo, arte e entrega —
+            o que costuma surgir no primeiro contato B2B.
           </p>
         </div>
 
@@ -75,16 +76,16 @@ export function FaqSection() {
 
         <div className="mt-10 rounded-2xl bg-secondary px-6 py-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Não encontrou o que procurava?{" "}
+            Ainda tem dúvida?{" "}
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-brand-navy underline-offset-4 hover:underline"
             >
-              Fale direto no WhatsApp
+              Fale no WhatsApp
             </a>{" "}
-            — respondemos em até 2h úteis.
+            — respondemos em horário comercial.
           </p>
         </div>
       </div>

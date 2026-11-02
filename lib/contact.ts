@@ -5,7 +5,7 @@ export function buildWhatsAppUrl(message: string): string {
 }
 
 export const WHATSAPP_URL = buildWhatsAppUrl(
-  "Olá! Gostaria de solicitar um orçamento."
+  "Olá! Gostaria de um orçamento de brindes corporativos."
 );
 
 export const INSTAGRAM_URL = "https://www.instagram.com/majestadepersonalizacoes/";

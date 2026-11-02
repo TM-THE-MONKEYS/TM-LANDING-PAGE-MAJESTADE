@@ -9,8 +9,7 @@ Encaixe o produto numa destas. O id fica em `catalogCategories`.
 | id | O que entra |
 |---|---|
 | `squeeze-garrafas` | squeezes e garrafas térmicas |
-| `canecas-termicas` | canecas térmicas |
-| `canecas-copos` | caneca e copo que não são a linha térmica |
+| `canecas-termicas` | canecas e copos térmicos |
 | `cuia-e-bomba` | cuia, bomba |
 | `kit-vinho` | kit vinho |
 | `chaveiros` | chaveiros |
@@ -18,7 +17,7 @@ Encaixe o produto numa destas. O id fica em `catalogCategories`.
 | `uniformes-industriais` | macacão, polo operacional, calça cargo, uniforme de trabalho |
 | `vestuario-corporativo` | jaqueta, corta-vento, colete, moletom, camisa social, jaleco |
 | `camisetas` | camiseta, gola V, manga longa, viés, polo casual |
-| `acessorios` | boné, mochila, bolsa térmica, guarda-chuva |
+| `acessorios` | agendas, cadernos, blocos |
 
 Polo casual de brinde fica em `camisetas`. Polo de uniforme operacional fica em `uniformes-industriais`.
 

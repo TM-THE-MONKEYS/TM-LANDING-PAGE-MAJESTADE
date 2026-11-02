@@ -11,29 +11,29 @@ import { cn } from "@/lib/utils";
 /** Peças que mostram a variedade da produção. Saem do catálogo, nunca de arquivo solto. */
 const showcaseProducts = getProductsByIds([
   "macacao-industrial",
-  "caneca-termica-canudo-1200ml",
+  "caneca-termica-alca-base",
   "colete-personalizado",
-  "kit-vinho-caixa-xadrez",
-  "squeeze-inox-900ml",
-  "cuia-pe-de-massa-medalhao",
+  "kit-vinho-garrafa-4-pecas",
+  "squeeze-inox-alca-tampa",
+  "cuia-pe-de-massa",
 ]);
 
 const pillars = [
   {
-    title: "Fabricação própria",
-    text: "Cada brinde sai da nossa estrutura, pronto para representar a credibilidade da sua empresa.",
+    title: "Produção na fábrica",
+    text: "Personalização feita aqui — menos surpresa de acabamento e mais controle de prazo.",
   },
   {
-    title: "Atendimento pensado para empresas",
-    text: "Volume, prazo e consistência na marca: o que o mercado B2B mais cobra.",
+    title: "Atendimento B2B",
+    text: "Volume, arte-final e entrega alinhados ao que compras e marketing pedem no dia a dia.",
   },
   {
-    title: "Do evento ao uniforme",
-    text: "Do brinde de um evento corporativo ao uniforme da equipe.",
+    title: "Do brinde ao uniforme",
+    text: "Linha de brindes, kits e vestuário corporativo no mesmo fornecedor.",
   },
 ];
 
-const titleLines = ["Por que escolher", "a Majestade."];
+const titleLines = ["Por que a", "Majestade."];
 
 export function TechnologySection() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -100,22 +100,25 @@ export function TechnologySection() {
             style={{ transitionDelay: revealed ? "260ms" : "0ms" }}
           >
             <span className="text-6xl font-semibold leading-none tracking-tight text-brand-gold md:text-7xl lg:text-8xl">
-              15+
+              15
             </span>
-            <span className="max-w-[12ch] text-sm leading-snug text-white/70 md:text-base">
-              anos de estrada atendendo empresas
+            <span className="max-w-[14ch] text-sm leading-snug text-white/70 md:text-base">
+              anos fabricando brindes para empresas
             </span>
           </p>
 
           <dl
             className={cn(
-              "mt-10 divide-y divide-white/15 border-y border-b-white/15 border-t-brand-gold transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+              "mt-10 grid gap-3 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
               revealed ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
             )}
             style={{ transitionDelay: revealed ? "400ms" : "0ms" }}
           >
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="py-5">
+              <div
+                key={pillar.title}
+                className="rounded-2xl border border-white/15 bg-white/8 px-5 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-md md:px-6"
+              >
                 <dt className="text-base font-medium md:text-lg">{pillar.title}</dt>
                 <dd className="mt-1.5 max-w-prose text-sm leading-relaxed text-white/70 md:text-base">
                   {pillar.text}
@@ -146,7 +149,7 @@ export function TechnologySection() {
               href="/produtos"
               className="inline-flex text-sm text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
             >
-              Ver mais produtos
+              Ver catálogo completo
             </Link>
           </div>
         </div>

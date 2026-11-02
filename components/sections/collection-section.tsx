@@ -22,28 +22,28 @@ const useCases = [
     name: "Eventos e Feiras",
     description: "Materiais promocionais para maximizar a visibilidade da marca",
     tag: "Marketing",
-    image: "/images/catalogo/12-chapeus-bones/bone-e-chapeu.png",
+    image: "/images/oficiais/agenda-diaria-frente.jpg",
   },
   {
     id: 4,
     name: "Kits de Boas-vindas",
     description: "Composição de brindes institucionais para novos colaboradores e parceiros",
     tag: "Institucional",
-    image: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-madeira.png",
+    image: "/images/oficiais/kit-vinho-2-pecas-frente.jpg",
   },
   {
     id: 5,
     name: "Datas Comemorativas",
     description: "Ações sazonais com produtos personalizados para campanhas especiais",
     tag: "Campanhas",
-    image: "/images/catalogo/02-cuia-e-bomba/cuia-pe-de-massa-medalhao.png",
+    image: "/images/oficiais/cuia-pe-de-massa-frente.jpg",
   },
   {
     id: 6,
     name: "Ações Promocionais",
     description: "Brindes em volume para distribuição em ações de marketing e vendas",
     tag: "Vendas",
-    image: "/images/catalogo/08-canetas/canetas-linha-01.png",
+    image: "/images/oficiais/caneta-touch-metal-frente.jpg",
   },
 ];
 

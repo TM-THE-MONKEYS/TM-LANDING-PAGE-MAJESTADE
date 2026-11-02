@@ -71,7 +71,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
   if (!product || !photo) return null;
 
   const whatsappUrl = buildWhatsAppUrl(
-    `Olá! Gostaria de saber mais sobre o produto: ${product.name} (Ref. ${formatRef(product.ref)}).`,
+    `Olá! Gostaria de orçamento do produto ${product.name} (Ref. ${formatRef(product.ref)}).`,
   );
 
   return (

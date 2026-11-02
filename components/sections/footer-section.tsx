@@ -23,8 +23,8 @@ export function FooterSection() {
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Fabricação de brindes corporativos personalizados. Mais de 15 anos 
-              fortalecendo marcas de empresas em Montenegro, RS e em todo o Brasil.
+              Fábrica de brindes corporativos em Montenegro, RS. 15 anos de
+              produção própria e atendimento B2B em todo o Brasil.
             </p>
             <div className="mt-5 flex flex-col gap-2">
               <a

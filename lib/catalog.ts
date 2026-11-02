@@ -77,358 +77,437 @@ export function getProductPhotos(product: Product): ProductPhoto[] {
 // ── Catálogo ──────────────────────────────────────────────────────────────────
 
 export const catalogCategories: CatalogCategory[] = [
-  // ── 01. Squeeze e Garrafas ── refs 1–8 ──────────────────────────────────────
+  // ── 01. Squeeze e Garrafas ── refs 84–97 (1–8 aposentados) ──────────────────
   {
     id: "squeeze-garrafas",
     title: "Squeeze e Garrafas",
     description:
-      "Squeezes em inox e acrílico, e garrafas térmicas para uso diário da equipe ou como brinde institucional.",
+      "Garrafas térmicas, squeezes, copos e coqueteleiras para o dia a dia ou brinde institucional.",
     products: [
       {
-        ref: 1,
-        id: "squeeze-acrilico",
-        name: "Squeeze Acrílico",
+        ref: 84,
+        id: "garrafa-termica-formato-coca",
+        name: "Garrafa Térmica Formato Coca",
         shortDescription:
-          "Squeeze transparente em acrílico, com tampa e base em aço inox.",
-        src: "/images/oficiais/squeeze-acrilico.jpg",
-        alt: "Squeeze acrílico azul com tampa e base de inox",
+          "Garrafa térmica em inox com silhueta de garrafa de refrigerante e tampa rosqueável.",
+        src: "/images/oficiais/garrafa-termica-formato-coca-frente.jpg",
+        alt: "Garrafas térmicas formato coca em preto e inox",
       },
       {
-        ref: 2,
-        id: "squeeze-inox-alca",
-        name: "Squeeze Inox com Alça",
+        ref: 85,
+        id: "squeeze-inox-alca-tampa",
+        name: "Squeeze Inox com Alça na Tampa",
         shortDescription:
-          "Squeeze em aço inox com alça na tampa, para levar no dia a dia.",
-        src: "/images/oficiais/squeeze-inox-alca.jpg",
-        alt: "Squeeze inox preto com alça na tampa",
+          "Squeeze em inox com ombros curvos e tampa preta com alça.",
+        src: "/images/oficiais/squeeze-inox-alca-tampa-frente.jpg",
+        alt: "Squeezes de inox com alça na tampa, em várias cores",
+        featured: true,
       },
       {
-        ref: 3,
+        ref: 86,
+        id: "squeeze-termico-copo",
+        name: "Squeeze Térmico com Copo",
+        shortDescription:
+          "Squeeze térmico com copo na tampa e alça no copo, em várias cores.",
+        src: "/images/oficiais/squeeze-termico-copo-frente.jpg",
+        alt: "Squeezes térmicos com copo na tampa em várias cores",
+      },
+      {
+        ref: 87,
         id: "garrafa-termica-alca",
         name: "Garrafa Térmica com Alça",
         shortDescription:
           "Garrafa térmica alta em inox, com alça lateral e copo na tampa.",
-        src: "/images/oficiais/garrafa-termica-alca.jpg",
-        alt: "Garrafa térmica de inox com alça",
+        src: "/images/oficiais/garrafa-termica-alca-frente.jpg",
+        alt: "Garrafa térmica de inox com alça lateral",
       },
       {
-        ref: 4,
-        id: "garrafa-termica-slim",
-        name: "Garrafa Térmica",
+        ref: 88,
+        id: "coqueteleira-compartimentos",
+        name: "Coqueteleira com Compartimentos",
         shortDescription:
-          "Garrafa térmica slim em inox, sem alça, para uso pessoal e brindes.",
-        src: "/images/oficiais/garrafa-termica-slim.jpg",
+          "Coqueteleira com tampa de bico, grade misturadora e compartimento na base.",
+        src: "/images/oficiais/coqueteleira-compartimentos-frente.jpg",
+        alt: "Coqueteleira com compartimentos, montada e desmontada",
+      },
+      {
+        ref: 89,
+        id: "garrafa-termica-slim",
+        name: "Garrafa Térmica Slim",
+        shortDescription:
+          "Garrafa térmica slim em inox, com copo na tampa e sem alça.",
+        src: "/images/oficiais/garrafa-termica-slim-frente.jpg",
         alt: "Garrafa térmica slim de inox",
       },
       {
-        ref: 5,
-        id: "squeeze-inox-900ml",
-        name: "Squeeze Inox",
-        shortDescription:
-          "Squeeze em aço inox, em acabamento fosco ou escovado.",
-        src: "/images/oficiais/squeeze-inox.jpg",
-        alt: "Squeezes de inox fosco e escovado",
-        featured: true,
-      },
-      {
-        ref: 6,
+        ref: 90,
         id: "garrafa-termica-infusor",
         name: "Garrafa Térmica com Infusor",
         shortDescription:
-          "Garrafa térmica com infusor, em várias cores, para chá ou café.",
-        src: "/images/oficiais/garrafa-termica-infusor.jpg",
-        alt: "Garrafas térmicas coloridas com infusor",
+          "Garrafa térmica com faixa de temperatura na tampa e infusor interno, em várias cores.",
+        src: "/images/oficiais/garrafa-termica-infusor-frente.jpg",
+        alt: "Garrafas térmicas coloridas com infusor e display",
       },
       {
-        ref: 7,
-        id: "squeeze-tampa",
-        name: "Squeeze com Tampa",
+        ref: 91,
+        id: "copo-twister",
+        name: "Copo Twister",
         shortDescription:
-          "Squeeze com tampa de bico, em inox e pintura, para o uso diário.",
-        src: "/images/oficiais/squeeze-tampa.jpg",
-        alt: "Squeezes com tampa de bico",
+          "Copo plástico com textura twister, tampa e canudo, em várias cores.",
+        src: "/images/oficiais/copo-twister-frente.jpg",
+        alt: "Copos twister com tampa e canudo em várias cores",
       },
       {
-        ref: 8,
-        id: "squeeze-manga",
-        name: "Squeeze com Manga de Silicone",
+        ref: 92,
+        id: "coqueteleira-plastica",
+        name: "Coqueteleira Plástica",
         shortDescription:
-          "Squeeze térmico com manga de silicone e copo na tampa.",
-        src: "/images/oficiais/squeeze-manga.jpg",
-        alt: "Squeezes com manga de silicone",
+          "Coqueteleira plástica com tampa e coador, em várias cores.",
+        src: "/images/oficiais/coqueteleira-plastica-frente.jpg",
+        alt: "Coqueteleiras plásticas em várias cores",
+      },
+      {
+        ref: 93,
+        id: "copo-tampa-canudo",
+        name: "Copo com Tampa e Canudo",
+        shortDescription:
+          "Copo plástico transparente com tampa colorida e canudo.",
+        src: "/images/oficiais/copo-tampa-canudo-frente.jpg",
+        alt: "Copos transparentes com tampa colorida e canudo",
+      },
+      {
+        ref: 94,
+        id: "copo-parede-dupla-canudo",
+        name: "Copo Parede Dupla com Canudo",
+        shortDescription:
+          "Copo de parede dupla transparente com tampa e canudo interno, em várias cores.",
+        src: "/images/oficiais/copo-parede-dupla-canudo-frente.jpg",
+        alt: "Copos de parede dupla com tampa e canudo",
+      },
+      {
+        ref: 95,
+        id: "coqueteleira-shake",
+        name: "Coqueteleira Shake",
+        shortDescription:
+          "Coqueteleira plástica com escala, tampa de bico e mola misturadora, em várias cores de tampa.",
+        src: "/images/oficiais/coqueteleira-shake-frente.jpg",
+        alt: "Coqueteleiras shake com tampas coloridas",
+      },
+      {
+        ref: 96,
+        id: "garrafa-termica-corda",
+        name: "Garrafa Térmica com Corda",
+        shortDescription:
+          "Garrafa térmica formato coca com tampa de inox e alça de corda.",
+        src: "/images/oficiais/garrafa-termica-corda-frente.jpg",
+        alt: "Garrafa térmica preta com corda na tampa",
+      },
+      {
+        ref: 97,
+        id: "squeeze-acrilico",
+        name: "Squeeze Acrílico",
+        shortDescription:
+          "Squeeze transparente em acrílico, com tampa e base em aço inox.",
+        src: "/images/oficiais/squeeze-acrilico-frente.jpg",
+        alt: "Squeeze acrílico azul com tampa e base de inox",
       },
     ],
   },
 
-  // ── 02. Canecas Térmicas ── refs 9–10, 39–43 (11 aposentado) ───────────────
+  // ── 02. Canecas e Copos Térmicos ── refs 98–102 (9–11, 14, 39–43 aposentados)
   {
     id: "canecas-termicas",
-    title: "Canecas Térmicas",
+    title: "Canecas e Copos Térmicos",
     description:
-      "Canecas com tampa, canudo, abridor ou display — a linha mais pedida para brindes corporativos.",
+      "Canecas e copos térmicos com alça ou tampa — a linha mais pedida para brindes corporativos.",
     products: [
       {
-        ref: 9,
-        id: "caneca-termica-abridor-500ml",
-        name: "Caneca Térmica com Abridor 500ml",
+        ref: 98,
+        id: "caneca-termica-alca-base",
+        name: "Caneca Térmica com Alça e Base",
         shortDescription:
-          "Caneca térmica com abridor de garrafas embutido na base, um diferencial que chama atenção como brinde.",
-        src: "/images/catalogo/04-canecas-termicas/caneca-termica-abridor-500ml.png",
-        alt: "Caneca térmica com abridor 500ml",
+          "Caneca térmica em inox com alça, tampa e base pretas.",
+        src: "/images/oficiais/caneca-termica-alca-base-frente.jpg",
+        alt: "Caneca térmica de inox com alça, tampa e base pretas",
         featured: true,
       },
       {
-        ref: 10,
-        id: "caneca-termica-canudo-1200ml",
-        name: "Caneca Térmica com Canudo 1200ml",
+        ref: 99,
+        id: "caneca-termica-pint",
+        name: "Caneca Térmica Pint",
         shortDescription:
-          "Caneca de grande capacidade com canudo e alça, a linha mais pedida atualmente para brindes corporativos.",
-        src: "/images/catalogo/04-canecas-termicas/caneca-termica-canudo-1200ml.png",
-        alt: "Caneca térmica com canudo 1200ml",
+          "Caneca térmica cônica com borda de inox, disponível em várias cores.",
+        src: "/images/oficiais/caneca-termica-pint-frente.jpg",
+        alt: "Canecas térmicas pint em várias cores",
       },
       {
-        ref: 39,
-        id: "caneca-termica-inox-tampa",
-        name: "Caneca Térmica Inox com Tampa",
+        ref: 100,
+        id: "caneca-termica-tampa-loop",
+        name: "Caneca Térmica com Tampa",
         shortDescription:
-          "Caneca térmica em inox com tampa, base e alça pretas, para o uso diário da equipe.",
-        src: "/images/oficiais/caneca-termica-inox-tampa.jpg",
-        alt: "Caneca térmica de inox com tampa e base pretas",
+          "Caneca térmica cônica com tampa preta de abertura deslizante e alça na tampa.",
+        src: "/images/oficiais/caneca-termica-tampa-loop-frente.jpg",
+        alt: "Caneca térmica azul com tampa preta",
       },
       {
-        ref: 40,
-        id: "caneca-termica-alca",
-        name: "Caneca Térmica com Alça",
+        ref: 101,
+        id: "caneca-termica-alta-alca",
+        name: "Caneca Térmica Alta com Alça",
         shortDescription:
-          "Caneca térmica com alça e tampa, em inox ou pintura, com o interior à mostra na linha de cores.",
-        src: "/images/oficiais/caneca-termica-alca.jpg",
-        alt: "Caneca térmica com alça preta e variações de cor",
-      },
-      {
-        ref: 41,
-        id: "caneca-termica-alta",
-        name: "Caneca Térmica Alta",
-        shortDescription:
-          "Caneca térmica alta em inox, com alça anatômica e tampa de aço.",
-        src: "/images/oficiais/caneca-termica-alta.jpg",
+          "Caneca térmica alta em inox com alça preta, anéis na base e tampa de aço.",
+        src: "/images/oficiais/caneca-termica-alta-alca-frente.jpg",
         alt: "Caneca térmica alta de inox com alça preta",
       },
       {
-        ref: 42,
-        id: "caneca-termica-alca-acrilica",
-        name: "Caneca Térmica com Alça Acrílica",
+        ref: 102,
+        id: "caneca-termica-alca-cores",
+        name: "Caneca Térmica com Alça",
         shortDescription:
-          "Caneca térmica com alça em acrílico colorido e tampa, em várias cores para a marca do cliente.",
-        src: "/images/oficiais/caneca-termica-alca-acrilica.jpg",
-        alt: "Canecas térmicas com alça de acrílico em várias cores",
-      },
-      {
-        ref: 43,
-        id: "caneca-termica-cores",
-        name: "Caneca Térmica em Cores",
-        shortDescription:
-          "Caneca térmica alta com pintura e tampa, disponível em várias cores, com o interior à mostra.",
-        src: "/images/oficiais/caneca-termica-cores.jpg",
-        alt: "Caneca térmica preta e a linha em outras cores",
+          "Caneca térmica com alça e tampa pretas, disponível em várias cores.",
+        src: "/images/oficiais/caneca-termica-alca-cores-frente.jpg",
+        alt: "Canecas térmicas com alça preta em várias cores",
       },
     ],
   },
 
-  // ── 03. Canecas e Copos Térmicos ── refs 12–14 ──────────────────────────────
-  {
-    id: "canecas-copos",
-    title: "Canecas e Copos Térmicos",
-    description:
-      "Linha inox parede dupla e copos térmicos com abridor, para presentear com praticidade.",
-    products: [
-      {
-        ref: 12,
-        id: "caneca-inox-parede-dupla-250ml",
-        name: "Caneca Inox Parede Dupla 250ml",
-        shortDescription:
-          "Caneca compacta em inox com parede dupla, mantém a bebida na temperatura certa e tem ótimo acabamento.",
-        src: "/images/catalogo/03-canecas/caneca-inox-parede-dupla-250ml.png",
-        alt: "Caneca inox parede dupla 250ml",
-      },
-      {
-        ref: 13,
-        id: "caneca-inox-alca-acrilica-400ml",
-        name: "Caneca Inox com Alça Acrílica 400ml",
-        shortDescription:
-          "Caneca em inox com alça em acrílico colorido, disponível em diversas cores para combinar com a marca do cliente.",
-        src: "/images/catalogo/03-canecas/caneca-inox-alca-acrilica-400ml.png",
-        alt: "Caneca inox com alça acrílica 400ml",
-      },
-      {
-        ref: 14,
-        id: "copo-termico-abridor-500ml",
-        name: "Copo Térmico com Abridor 500ml",
-        shortDescription:
-          "Copo térmico de parede dupla com abridor de garrafas na base, prático para eventos e happy hours corporativos.",
-        src: "/images/catalogo/05-copos-termicos/copo-termico-abridor-500ml.png",
-        alt: "Copo térmico com abridor 500ml",
-      },
-    ],
-  },
-
-  // ── 04. Cuia e Bomba ── refs 15–17 ──────────────────────────────────────────
+  // ── 03. Cuia e Bomba ── refs 103–105 (15–17 aposentados) ────────────────────
   {
     id: "cuia-e-bomba",
     title: "Cuia e Bomba",
     description:
-      "Cuias de madeira, com pintura ou pé de massa, e bombas em inox — a tradição gaúcha personalizada com a marca da sua empresa.",
+      "Cuias de madeira com pé de massa, bocal de metal ou pintura — a tradição gaúcha com a marca da sua empresa.",
     products: [
       {
-        ref: 15,
-        id: "cuia-pe-de-massa-medalhao",
-        name: "Cuia Pé de Massa com Medalhão",
+        ref: 103,
+        id: "cuia-pe-de-massa",
+        name: "Cuia Pé de Massa",
         shortDescription:
-          "Cuia tradicional com pé de massa e medalhão personalizável — a tradição gaúcha com a marca da sua empresa.",
-        src: "/images/catalogo/02-cuia-e-bomba/cuia-pe-de-massa-medalhao.png",
-        alt: "Cuia com pé de massa e medalhão",
+          "Cuia com acabamento natural e pé de massa, com área para a marca na cuia e no pé.",
+        src: "/images/oficiais/cuia-pe-de-massa-frente.jpg",
+        alt: "Cuia com pé de massa, vista de frente",
         featured: true,
       },
       {
-        ref: 16,
-        id: "cuia-com-pedestal",
-        name: "Cuia com Pedestal",
+        ref: 104,
+        id: "cuia-bocal-pe-metal",
+        name: "Cuia com Bocal e Pé de Metal",
         shortDescription:
-          "Cuia com base em pedestal, acabamento resistente, ideal para presentear parceiros e clientes.",
-        src: "/images/catalogo/02-cuia-e-bomba/cuia-com-pedestal.png",
-        alt: "Cuia com pedestal",
+          "Cuia com acabamento natural, bocal e pé de metal, com área para a marca na frente.",
+        src: "/images/oficiais/cuia-bocal-pe-metal-frente.jpg",
+        alt: "Cuia natural com bocal e pé de metal",
       },
       {
-        ref: 17,
-        id: "bomba-inox-rosca",
-        name: "Bomba Inox com Rosca",
+        ref: 105,
+        id: "cuia-preta",
+        name: "Cuia Preta",
         shortDescription:
-          "Bomba em aço inox com filtro de rosca, complemento perfeito para qualquer cuia personalizada.",
-        src: "/images/catalogo/02-cuia-e-bomba/bomba-inox-rosca.png",
-        alt: "Bomba inox com rosca",
+          "Cuia de madeira com pintura preta e área para gravação na frente.",
+        src: "/images/oficiais/cuia-preta-frente.jpg",
+        alt: "Cuia preta com gravação na frente",
       },
     ],
   },
 
-  // ── 05. Kit Vinho ── refs 18–20 ─────────────────────────────────────────────
+  // ── 05. Kit Vinho ── refs 20, 68–72 ─────────────────────────────────────────
   {
     id: "kit-vinho",
     title: "Kit Vinho",
     description:
-      "Kits em caixa de madeira, caixa xadrez ou estojo de garrafa, ideais para presentes institucionais e datas comemorativas.",
+      "Kits, saca-rolhas e abridor elétrico — presentes institucionais para datas comemorativas.",
     products: [
-      {
-        ref: 18,
-        id: "kit-vinho-caixa-madeira",
-        name: "Kit Vinho Caixa de Madeira",
-        shortDescription:
-          "Kit com acessórios de vinho em estojo de madeira, presente institucional elegante para datas comemorativas.",
-        src: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-madeira.png",
-        alt: "Kit vinho em caixa de madeira",
-      },
-      {
-        ref: 19,
-        id: "kit-vinho-caixa-xadrez",
-        name: "Kit Vinho Caixa Xadrez",
-        shortDescription:
-          "Kit vinho com tabuleiro de xadrez embutido na tampa da caixa — um brinde diferente para clientes e parceiros.",
-        src: "/images/catalogo/06-kit-vinho/kit-vinho-caixa-xadrez.png",
-        alt: "Kit vinho em caixa xadrez",
-        featured: true,
-      },
       {
         ref: 20,
         id: "kit-vinho-garrafa-4-pecas",
         name: "Kit Vinho Garrafa 4 Peças",
         shortDescription:
-          "Estojo em formato de garrafa com 4 acessórios essenciais para harmonização, prático para transportar e presentear.",
-        src: "/images/catalogo/06-kit-vinho/kit-vinho-garrafa-4-pecas.png",
-        alt: "Kit vinho garrafa 4 peças",
+          "Estojo em formato de garrafa com tampa, espuma e 4 acessórios de vinho.",
+        src: "/images/oficiais/kit-vinho-garrafa-4-pecas-frente.jpg",
+        alt: "Kit vinho em estojo de garrafa aberto com 4 peças",
+      },
+      {
+        ref: 68,
+        id: "kit-vinho-2-pecas",
+        name: "Kit Vinho 2 Peças",
+        shortDescription:
+          "Caixa de madeira com tampa deslizante, espuma e 2 acessórios de vinho.",
+        src: "/images/oficiais/kit-vinho-2-pecas-frente.jpg",
+        alt: "Kit vinho 2 peças em caixa de madeira aberta",
+      },
+      {
+        ref: 69,
+        id: "kit-vinho-5-pecas",
+        name: "Kit Vinho 5 Peças",
+        shortDescription:
+          "Caixa com espuma e 5 acessórios de vinho, incluindo saca-rolhas e termômetro.",
+        src: "/images/oficiais/kit-vinho-5-pecas-frente.jpg",
+        alt: "Kit vinho 5 peças em caixa aberta",
+      },
+      {
+        ref: 70,
+        id: "kit-vinho-suporte-madeira",
+        name: "Kit Vinho Suporte de Madeira",
+        shortDescription:
+          "Bloco de madeira com acessórios de vinho encaixados no suporte.",
+        src: "/images/oficiais/kit-vinho-suporte-madeira-frente.jpg",
+        alt: "Kit vinho em suporte vertical de madeira",
+      },
+      {
+        ref: 71,
+        id: "saca-rolhas",
+        name: "Saca-Rolhas",
+        shortDescription:
+          "Saca-rolhas de aço com alavanca, espiral e lâmina corta-lacre.",
+        src: "/images/oficiais/saca-rolhas-frente.jpg",
+        alt: "Saca-rolhas de aço aberto, vista de frente",
+      },
+      {
+        ref: 72,
+        id: "abridor-eletrico-vinho",
+        name: "Abridor Elétrico de Vinho",
+        shortDescription:
+          "Abridor elétrico de vinho em acabamento metálico, com botão e espiral visível.",
+        src: "/images/oficiais/abridor-eletrico-vinho-frente.jpg",
+        alt: "Abridores elétricos de vinho em várias cores",
       },
     ],
   },
 
-  // ── 06. Chaveiros ── refs 21–23 ─────────────────────────────────────────────
+  // ── 06. Chaveiros ── refs 76–83 (21–23 aposentados) ─────────────────────────
   {
     id: "chaveiros",
     title: "Chaveiros",
     description:
-      "Chaveiros em couro ou metal, alta visibilidade para reforçar a marca no dia a dia do cliente.",
+      "Chaveiros em metal — mosquetão, abridor, pneu e formatos especiais para personalizar com a marca.",
     products: [
       {
-        ref: 21,
-        id: "chaveiro-couro-sortido",
-        name: "Chaveiro em Couro",
+        ref: 76,
+        id: "chaveiro-formato-pneu",
+        name: "Chaveiro Formato Pneu",
         shortDescription:
-          "Chaveiro em couro legítimo com gravação personalizada, alta durabilidade e visibilidade no dia a dia do cliente.",
-        src: "/images/catalogo/07-chaveiros/chaveiro-couro-sortido.png",
-        alt: "Chaveiros em couro sortidos",
-        featured: true,
+          "Chaveiro em formato de pneu com aro colorido e argola, disponível em várias cores.",
+        src: "/images/oficiais/chaveiro-formato-pneu-frente.jpg",
+        alt: "Chaveiros formato pneu em várias cores de aro",
       },
       {
-        ref: 22,
-        id: "chaveiro-couro-individual",
-        name: "Chaveiro em Couro — Modelo Individual",
+        ref: 77,
+        id: "chaveiro-mosquetao-placa",
+        name: "Chaveiro Mosquetão com Placa",
         shortDescription:
-          "Variação em couro com mosquetão, ideal para personalização de logo e informações de contato.",
-        src: "/images/catalogo/07-chaveiros/chaveiro-couro-individual-a.png",
-        alt: "Chaveiro em couro individual",
+          "Mosquetão de metal com placa retangular para a marca e furo para argola.",
+        src: "/images/oficiais/chaveiro-mosquetao-placa-frente.jpg",
+        alt: "Chaveiro mosquetão de metal com placa frontal",
       },
       {
-        ref: 23,
-        id: "chaveiro-metal-sortido",
-        name: "Chaveiro em Metal",
+        ref: 78,
+        id: "chaveiro-mosquetao-abridor",
+        name: "Chaveiro Mosquetão Abridor",
         shortDescription:
-          "Chaveiro em metal resistente, acabamento premium, ótimo para marcas que buscam um brinde mais robusto.",
-        src: "/images/catalogo/07-chaveiros/chaveiro-metal-sortido.png",
-        alt: "Chaveiros em metal sortidos",
+          "Chaveiro de metal com abridor, placa para a marca e mosquetão na base.",
+        src: "/images/oficiais/chaveiro-mosquetao-abridor-frente.jpg",
+        alt: "Chaveiro mosquetão abridor com placa frontal",
+      },
+      {
+        ref: 79,
+        id: "chaveiro-mosquetao-abridor-argola",
+        name: "Chaveiro Mosquetão Abridor com Argola",
+        shortDescription:
+          "Mosquetão de metal com abridor, placa para a marca e argola giratória.",
+        src: "/images/oficiais/chaveiro-mosquetao-abridor-argola-frente.jpg",
+        alt: "Chaveiro mosquetão abridor com argola giratória",
+      },
+      {
+        ref: 80,
+        id: "chaveiro-bomba-combustivel",
+        name: "Chaveiro Bomba de Combustível",
+        shortDescription:
+          "Chaveiro de metal em formato de bico de bomba, com mosquetão e argola.",
+        src: "/images/oficiais/chaveiro-bomba-combustivel-frente.jpg",
+        alt: "Chaveiro de metal em formato de bomba de combustível",
+      },
+      {
+        ref: 81,
+        id: "chaveiro-metal-abridor",
+        name: "Chaveiro Metal Abridor",
+        shortDescription:
+          "Chaveiro abridor de metal com argola, disponível em várias cores.",
+        src: "/images/oficiais/chaveiro-metal-abridor-frente.jpg",
+        alt: "Chaveiros abridor de metal em várias cores",
+      },
+      {
+        ref: 82,
+        id: "chaveiro-bota-abridor",
+        name: "Chaveiro Bota Abridor",
+        shortDescription:
+          "Chaveiro de metal em formato de bota, com mosquetão, abridor e área para a marca.",
+        src: "/images/oficiais/chaveiro-bota-abridor-frente.jpg",
+        alt: "Chaveiro de metal em formato de bota com abridor",
+      },
+      {
+        ref: 83,
+        id: "chaveiro-metal-retangular-abridor",
+        name: "Chaveiro Metal Retangular Abridor",
+        shortDescription:
+          "Chaveiro abridor retangular de metal com placa para a marca e argola.",
+        src: "/images/oficiais/chaveiro-metal-retangular-abridor-frente.jpg",
+        alt: "Chaveiro abridor retangular de metal com placa",
       },
     ],
   },
 
-  // ── 07. Canetas ── refs 24–26 ────────────────────────────────────────────────
+  // ── 07. Canetas ── refs 106–109 (24–26 aposentados) ─────────────────────────
   {
     id: "canetas",
     title: "Canetas",
     description:
-      "Diversas linhas e acabamentos, o brinde corporativo mais clássico e versátil.",
+      "Canetas touch, metal, plásticas e com estojo — o brinde corporativo mais clássico e versátil.",
     products: [
       {
-        ref: 24,
-        id: "canetas-linha-01",
-        name: "Linha de Canetas Clássica",
+        ref: 106,
+        id: "caneta-touch-metal",
+        name: "Caneta Touch Metal",
         shortDescription:
-          "Canetas em diversas cores e acabamentos foscos ou metalizados, o brinde corporativo mais versátil que existe.",
-        src: "/images/catalogo/08-canetas/canetas-linha-01.png",
-        alt: "Linha de canetas 01",
-      },
-      {
-        ref: 25,
-        id: "canetas-linha-02",
-        name: "Linha de Canetas Executiva",
-        shortDescription:
-          "Canetas com clipe metálico e corpo colorido, acabamento mais sofisticado para brindes institucionais.",
-        src: "/images/catalogo/08-canetas/canetas-linha-02.png",
-        alt: "Linha de canetas 02",
+          "Caneta metálica com ponteira touch e clipe, disponível em várias cores.",
+        src: "/images/oficiais/caneta-touch-metal-frente.jpg",
+        alt: "Canetas touch metálicas em várias cores",
         featured: true,
       },
       {
-        ref: 26,
-        id: "canetas-linha-03",
-        name: "Linha de Canetas Touch",
+        ref: 107,
+        id: "caneta-metal-estojo",
+        name: "Caneta Metal com Estojo",
         shortDescription:
-          "Canetas com ponteira touch para telas sensíveis ao toque, praticidade extra no dia a dia do cliente.",
-        src: "/images/catalogo/08-canetas/canetas-linha-03.png",
-        alt: "Linha de canetas 03",
+          "Caneta metálica preta com detalhes dourados e estojo para presentear.",
+        src: "/images/oficiais/caneta-metal-estojo-frente.jpg",
+        alt: "Canetas metálicas pretas com estojo",
+      },
+      {
+        ref: 108,
+        id: "caneta-metal-grip",
+        name: "Caneta Metal com Grip",
+        shortDescription:
+          "Caneta metálica com grip emborrachado, clipe e área para a marca no corpo.",
+        src: "/images/oficiais/caneta-metal-grip-frente.jpg",
+        alt: "Canetas metálicas com grip emborrachado",
+      },
+      {
+        ref: 109,
+        id: "caneta-plastica-colorida",
+        name: "Caneta Plástica Colorida",
+        shortDescription:
+          "Caneta plástica com corpo branco, grip e clipe coloridos, em várias cores.",
+        src: "/images/oficiais/caneta-plastica-colorida-frente.jpg",
+        alt: "Canetas plásticas com grip colorido",
       },
     ],
   },
 
-  // ── 08. Uniformes Industriais ── refs 62–66 (27–29 e 65 aposentados) ────────
+  // ── 08. Uniformes Industriais ── inclui vestuário + camisetas (antes categorias separadas)
+  // refs 62–66, 44–51, 67, 56–59, 61 (27–35, 52–55, 60, 65 aposentados)
   {
     id: "uniformes-industriais",
     title: "Uniformes Industriais",
     description:
-      "Macacões, camisetas e polos para equipes operacionais, com a identidade visual da empresa.",
+      "Macacões, camisetas, polos, jaquetas, camisas e jalecos para uniformizar a equipe — operacional e corporativo.",
     products: [
       {
         ref: 62,
@@ -501,16 +580,6 @@ export const catalogCategories: CatalogCategory[] = [
           },
         ],
       },
-    ],
-  },
-
-  // ── 09. Vestuário Corporativo ── refs 44–51, 67 (30–32 e 52–54 aposentados) ──
-  {
-    id: "vestuario-corporativo",
-    title: "Vestuário Corporativo",
-    description:
-      "Jaquetas, coletes, moletons, camisas sociais e jalecos para uniformizar a equipe.",
-    products: [
       {
         ref: 44,
         id: "jaqueta-forro-personalizada",
@@ -718,16 +787,6 @@ export const catalogCategories: CatalogCategory[] = [
           },
         ],
       },
-    ],
-  },
-
-  // ── 10. Camisetas ── refs 56–59, 61 (33–35, 55 e 60 aposentados) ─────────────
-  {
-    id: "camisetas",
-    title: "Camisetas",
-    description:
-      "Camisetas e polos personalizados para eventos, campanhas e uniforme da equipe.",
-    products: [
       {
         ref: 56,
         id: "camiseta-preta",
@@ -804,40 +863,39 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 11. Acessórios ── refs 36–38 ─────────────────────────────────────────────
+  // ── 11. Acessórios ── refs 73–75 (36–38 aposentados) ────────────────────────
   {
     id: "acessorios",
-    title: "Chapéus, Bonés e Acessórios",
+    title: "Agendas, Cadernos e Blocos",
     description:
-      "Bonés, chapéus, mochilas, bolsas térmicas e guarda-chuvas para completar o kit de brindes da sua empresa.",
+      "Agendas, cadernos e blocos de anotações para completar o kit de brindes.",
     products: [
       {
-        ref: 36,
-        id: "bone-e-chapeu",
-        name: "Bonés e Chapéus",
+        ref: 73,
+        id: "agenda-diaria",
+        name: "Agenda Diária",
         shortDescription:
-          "Bonés e chapéus personalizados com bordado ou silk, alta visibilidade da marca em uso externo.",
-        src: "/images/catalogo/12-chapeus-bones/bone-e-chapeu.png",
-        alt: "Boné e chapéu personalizados",
+          "Agenda diária com capa emborrachada, costura na borda e marcador de página.",
+        src: "/images/oficiais/agenda-diaria-frente.jpg",
+        alt: "Agenda diária preta com costura na capa",
       },
       {
-        ref: 37,
-        id: "mochila-bolsa-termica",
-        name: "Mochilas e Bolsas Térmicas",
+        ref: 74,
+        id: "caderno-espiral",
+        name: "Caderno Espiral",
         shortDescription:
-          "Mochilas para notebook e bolsas térmicas personalizadas, brindes de alto valor percebido pelo cliente.",
-        src: "/images/catalogo/13-mochilas-bolsas-termicas/mochila-bolsa-termica.png",
-        alt: "Mochila e bolsa térmica",
-        featured: true,
+          "Caderno com capa bicolor e espiral metálica na lateral.",
+        src: "/images/oficiais/caderno-espiral-frente.jpg",
+        alt: "Caderno espiral preto com faixa lateral",
       },
       {
-        ref: 38,
-        id: "guarda-chuva-guarda-sol",
-        name: "Guarda-Chuva e Guarda-Sol",
+        ref: 75,
+        id: "bloco-anotacoes-eco",
+        name: "Bloco de Anotações Ecológico com Caneta",
         shortDescription:
-          "Guarda-chuvas e guarda-sóis personalizados, ótimos para ações sazonais e presença de marca ao ar livre.",
-        src: "/images/catalogo/14-guarda-chuvas/guarda-chuva-guarda-sol.png",
-        alt: "Guarda-chuva e guarda-sol",
+          "Bloco ecológico com espiral, autoadesivos coloridos e caneta no elástico.",
+        src: "/images/oficiais/bloco-anotacoes-eco-frente.jpg",
+        alt: "Bloco ecológico aberto com autoadesivos e caneta",
       },
     ],
   },
@@ -870,7 +928,7 @@ export function getFeaturedProducts(limit?: number): Product[] {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 68;
+export const NEXT_PRODUCT_REF = 110;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.
@@ -890,8 +948,44 @@ export const NEXT_PRODUCT_REF = 68;
  * 54 — Jaqueta Matelassada
  * 55 — Camiseta Azul
  * 60 — Camiseta com Viés
+ * 13 — Caneca Inox com Alça Acrílica 400ml
+ * 42 — Caneca Térmica com Alça Acrílica
+ * 18 — Kit Vinho Caixa de Madeira
+ * 19 — Kit Vinho Caixa Xadrez
+ * 12 — Caneca Inox Parede Dupla 250ml
+ * 21 — Chaveiro em Couro
+ * 22 — Chaveiro em Couro — Modelo Individual
+ * 23 — Chaveiro em Metal
+ * 1 — Squeeze Acrílico
+ * 2 — Squeeze Inox com Alça
+ * 3 — Garrafa Térmica com Alça (foto antiga)
+ * 4 — Garrafa Térmica Slim (foto antiga)
+ * 5 — Squeeze Inox
+ * 6 — Garrafa Térmica com Infusor (foto antiga)
+ * 7 — Squeeze com Tampa
+ * 8 — Squeeze com Manga de Silicone
+ * 9 — Caneca Térmica com Abridor 500ml
+ * 10 — Caneca Térmica com Canudo 1200ml
+ * 39 — Caneca Térmica Inox com Tampa
+ * 40 — Caneca Térmica com Alça (foto antiga)
+ * 41 — Caneca Térmica Alta
+ * 43 — Caneca Térmica em Cores
+ * 14 — Copo Térmico com Abridor 500ml
+ * 36 — Bonés e Chapéus
+ * 37 — Mochilas e Bolsas Térmicas
+ * 38 — Guarda-Chuva e Guarda-Sol
+ * 15 — Cuia Pé de Massa com Medalhão
+ * 16 — Cuia com Pedestal
+ * 17 — Bomba Inox com Rosca
+ * 24 — Linha de Canetas Clássica
+ * 25 — Linha de Canetas Executiva
+ * 26 — Linha de Canetas Touch
  */
-export const RETIRED_PRODUCT_REFS = [11, 27, 28, 29, 30, 31, 32, 33, 34, 35, 52, 53, 54, 55, 60, 65] as const;
+export const RETIRED_PRODUCT_REFS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23,
+  24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+  52, 53, 54, 55, 60, 65,
+] as const;
 
 /**
  * Valida integridade dos refs em desenvolvimento.
