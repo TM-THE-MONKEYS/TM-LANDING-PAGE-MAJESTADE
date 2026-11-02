@@ -4,11 +4,11 @@ import { WhatsAppFloat } from "@/components/whatsapp-float";
 
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <Header />
-      {children}
+      <main>{children}</main>
       <FooterSection />
       <WhatsAppFloat />
-    </main>
+    </div>
   );
 }

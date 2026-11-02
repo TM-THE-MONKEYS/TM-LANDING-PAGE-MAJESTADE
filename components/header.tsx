@@ -63,7 +63,7 @@ export function Header() {
   const logoSrc =
     showScrolledStyle && !isDarkPage
       ? "/logo-majestade-navy-gold.png"
-      : "/logo-majestade-white-gold.png";
+      : "/logo-majestade-hero.png";
 
   return (
     <header

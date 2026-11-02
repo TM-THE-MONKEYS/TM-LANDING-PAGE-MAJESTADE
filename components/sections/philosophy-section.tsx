@@ -34,8 +34,8 @@ export function PhilosophySection() {
             Nossa história.
           </h1>
           <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl">
-            De um porão em Montenegro (RS) a uma fábrica com estrutura própria,
-            há mais de 15 anos fortalecendo a marca de empresas.
+            De um porão em Montenegro (RS) a uma fábrica com estrutura própria —
+            15 anos personalizando brindes para empresas.
           </p>
         </div>
       </div>
@@ -62,9 +62,8 @@ export function PhilosophySection() {
         </div>
 
         <p className="mx-auto mt-14 max-w-3xl text-center text-xl leading-relaxed text-foreground md:mt-20 md:text-2xl md:leading-relaxed">
-          Tudo começou no porão da casa do fundador. Com trabalho constante, a
-          Majestade cresceu: hoje temos estrutura própria, equipe dedicada e
-          clientes em todo o Brasil.
+          Começamos no porão da casa do fundador. Hoje a Majestade opera com
+          fábrica própria, equipe interna e envios para empresas em todo o Brasil.
         </p>
       </div>
     </section>

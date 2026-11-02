@@ -10,30 +10,31 @@ export function AboutSection({ showVideo = false }: { showVideo?: boolean }) {
       <div className="mx-auto max-w-3xl px-6 py-16 text-center md:px-12 md:py-24 lg:px-20">
         <span aria-hidden className="mx-auto mb-6 block h-0.5 w-12 bg-brand-gold" />
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
-          Sobre nós
+          Sobre a Majestade
         </h2>
         <p className="mt-8 text-xl leading-relaxed text-foreground md:text-2xl md:leading-relaxed">
-          A Majestade Personalizados é uma fábrica gaúcha de brindes corporativos, com mais
-          de 15 anos de experiência. Sabemos o que o mercado B2B exige: prazo, volume e
-          consistência na personalização, do primeiro pedido de teste ao contrato recorrente.
+          Somos uma fábrica gaúcha de brindes corporativos, com 15 anos de
+          produção própria em Montenegro (RS). Atendemos empresas que precisam
+          de prazo, volume e personalização consistente — do pedido pontual ao
+          fornecimento recorrente.
         </p>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-          Somos referência em personalização corporativa em Montenegro (RS) e região.
-          Em cada peça vai a identidade da sua empresa e o mesmo cuidado de sempre.
+          Cada peça leva a identidade da sua marca. A personalização fica na
+          nossa estrutura, com equipe própria.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Button asChild variant="brand" size="cta">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon />
-              Falar no WhatsApp
+              Pedir orçamento
             </a>
           </Button>
           <Link
             href="/produtos"
             className="rounded-sm text-sm font-medium text-brand-navy underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
-            Ver produtos
+            Ver catálogo
           </Link>
         </div>
       </div>
@@ -52,7 +53,7 @@ export function AboutSection({ showVideo = false }: { showVideo?: boolean }) {
           <div className="absolute inset-0 bg-brand-ink/55" />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="px-6 text-center text-xl font-medium text-white md:text-3xl">
-              Fabricação própria. Qualidade garantida. Atendimento corporativo.
+              Produção própria. Atendimento B2B. Montenegro, RS.
             </p>
           </div>
         </div>

@@ -1,31 +1,24 @@
 "use client";
 
 import { companyMetrics } from "@/lib/company";
+import { WHATSAPP_URL } from "@/lib/contact";
 
-const testimonials = [
+/**
+ * Trechos curtos e anônimos — a empresa tem poucas avaliações no Google.
+ * Sem nomes completos, cidades ou histórias inventadas.
+ */
+const reviews = [
   {
     id: 1,
     quote:
-      "Encomendamos kits de boas-vindas para mais de 200 novos colaboradores. A Majestade entregou no prazo, com qualidade excelente e a arte ficou perfeita. Recomendo sem hesitar.",
-    author: "Gestora de RH",
-    company: "Empresa do setor industrial — Serra Gaúcha",
-    segment: "Kit Onboarding",
+      "Bom atendimento e personalização bem feita. Pedido chegou como combinado.",
+    source: "Avaliação no Google",
   },
   {
     id: 2,
     quote:
-      "Precisávamos de brindes para um evento corporativo em 12 dias úteis. Achei que não daria — a Majestade entregou no prazo e ainda mandou mockup antes de produzir. Voltamos a comprar.",
-    author: "Coordenador de Marketing",
-    company: "Empresa de tecnologia — Porto Alegre, RS",
-    segment: "Brindes para evento",
-  },
-  {
-    id: 3,
-    quote:
-      "Trabalho com compras de brindes há 8 anos e a Majestade é um dos poucos fornecedores que tem produção própria de verdade. A consistência de qualidade lote a lote faz toda a diferença.",
-    author: "Comprador Corporativo",
-    company: "Grupo varejista — Sul do Brasil",
-    segment: "Pedidos recorrentes",
+      "Produção própria faz diferença no acabamento. Voltamos a comprar.",
+    source: "Avaliação no Google",
   },
 ];
 
@@ -50,35 +43,42 @@ export function SocialProofSection() {
       <div className="px-6 py-16 md:px-12 md:py-24 lg:px-20">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
-            O que dizem nossos clientes
+            Avaliações no Google
           </h2>
           <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            Empresas de todo o Brasil que confiam na Majestade para seus brindes corporativos.
+            Poucas, mas reais — quem já comprou costuma destacar atendimento e
+            acabamento da personalização.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
+        <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
+          {reviews.map((r) => (
             <figure
-              key={t.id}
-              className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-6"
+              key={r.id}
+              className="flex flex-col gap-4 rounded-2xl border border-brand-stone/20 bg-white/55 px-6 py-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.65)] backdrop-blur-md"
             >
-              <span className="block text-4xl leading-none text-accent select-none" aria-hidden>
-                &ldquo;
-              </span>
-              <blockquote className="flex-1 text-sm leading-relaxed text-muted-foreground -mt-4">
-                {t.quote}
+              <blockquote className="flex-1 text-sm leading-relaxed text-muted-foreground">
+                &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <figcaption className="border-t border-border pt-4">
-                <p className="text-sm font-medium text-foreground">{t.author}</p>
-                <p className="text-xs text-muted-foreground">{t.company}</p>
-                <span className="mt-2 inline-block rounded-full border border-accent/30 px-2.5 py-0.5 text-xs text-accent">
-                  {t.segment}
-                </span>
+              <figcaption className="text-xs text-muted-foreground">
+                {r.source}
               </figcaption>
             </figure>
           ))}
         </div>
+
+        <p className="mx-auto mt-10 max-w-md text-center text-sm text-muted-foreground">
+          Quer validar com a sua demanda?{" "}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-brand-navy underline-offset-4 hover:underline"
+          >
+            Peça um orçamento no WhatsApp
+          </a>
+          .
+        </p>
       </div>
     </section>
   );

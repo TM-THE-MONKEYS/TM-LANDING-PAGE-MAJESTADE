@@ -9,16 +9,16 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
     <section className="bg-background">
       <div id="contato" className="px-6 py-16 text-center md:px-12 md:py-20 lg:px-20">
         <h2 className="mx-auto max-w-2xl text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Pronto para colocar a marca da sua empresa na mão de quem importa?
+          Precisa de orçamento para um pedido ou campanha?
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-muted-foreground">
-          Peça uma proposta sem compromisso. Atendemos empresas de todos os portes, 
-          de pedidos pontuais a contratos recorrentes de brindes corporativos.
+          Envie produto, quantidade e prazo pelo WhatsApp. Montamos a proposta
+          com base na sua demanda — sem inventar pacote genérico.
         </p>
         <Button asChild variant="brand" size="cta" className="mt-8">
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon />
-            Falar no WhatsApp
+            Pedir orçamento
           </a>
         </Button>
       </div>
@@ -36,7 +36,7 @@ export function EditorialSection({ compact = false }: { compact?: boolean }) {
           <div className="absolute inset-0 bg-foreground/30" />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-center text-white text-xl font-medium md:text-3xl px-6">
-              Fabricação própria. Qualidade garantida. Atendimento corporativo.
+              Produção própria em Montenegro. Atendimento B2B.
             </p>
           </div>
         </div>

@@ -11,8 +11,9 @@ const montserrat = Montserrat({
 });
 
 const SITE_URL = 'https://majestadepersonalizados.com.br'
-const OG_TITLE = 'Majestade Personalizados | Brindes Corporativos em Montenegro, RS'
-const OG_DESCRIPTION = 'Mais de 15 anos fabricando brindes corporativos personalizados para empresas. Canecas, chaveiros, squeezes e produtos sob medida com a identidade da sua marca.'
+const OG_TITLE = 'Majestade Personalizados | Brindes corporativos em Montenegro, RS'
+const OG_DESCRIPTION =
+  'Fábrica gaúcha de brindes corporativos com 15 anos de produção própria. Canecas, squeezes, kits, uniformes e personalização sob medida — orçamento pelo WhatsApp.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,7 +64,7 @@ const jsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-majestade-navy-gold.png`,
   image: `${SITE_URL}/logo-majestade-navy-gold.png`,
-  foundingDate: '2016',
+  foundingDate: '2011',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Montenegro',
@@ -84,7 +85,7 @@ const jsonLd = {
     name: 'Brazil',
   },
   sameAs: [
-    'https://www.instagram.com/majestadepersonalizados/',
+    'https://www.instagram.com/majestadepersonalizacoes/',
     'https://wa.me/5551995451992',
   ],
 }

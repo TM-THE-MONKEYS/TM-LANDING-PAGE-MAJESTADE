@@ -19,7 +19,7 @@ export const footerLinks = {
   ],
   atendimento: [
     { label: "Montenegro, RS", href: "/empresa" },
-    { label: "Atendimento B2B", href: WHATSAPP_URL },
-    { label: "Produção sob demanda", href: "/produtos" },
+    { label: "Orçamento no WhatsApp", href: WHATSAPP_URL },
+    { label: "Catálogo de produtos", href: "/produtos" },
   ],
 } as const;

@@ -7,30 +7,27 @@ import { WhatsAppIcon } from "@/components/icons/brand-icons";
 import { ProductCard } from "@/components/products/product-card";
 import { ProductModal } from "@/components/products/product-modal";
 import { Button } from "@/components/ui/button";
-import { catalogCategories } from "@/lib/catalog";
+import { catalogCategories, formatRef } from "@/lib/catalog";
 import type { Product } from "@/lib/catalog";
 import { buildWhatsAppUrl } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const NAV_LABELS: Record<string, string> = {
   "squeeze-garrafas": "Garrafas",
-  "canecas-termicas": "Canecas",
-  "canecas-copos": "Copos",
+  "canecas-termicas": "Canecas e copos",
   "cuia-e-bomba": "Cuia",
   "kit-vinho": "Kit vinho",
   chaveiros: "Chaveiros",
   canetas: "Canetas",
   "uniformes-industriais": "Uniformes",
-  "vestuario-corporativo": "Vestuário",
-  camisetas: "Camisetas",
-  acessorios: "Acessórios",
+  acessorios: "Agendas",
 };
 
 const WHATSAPP_QUOTE = buildWhatsAppUrl(
-  "Olá! Gostaria de um orçamento de brindes personalizados."
+  "Olá! Gostaria de um orçamento de brindes corporativos."
 );
 
-const CATEGORY_PRIORITY = ["uniformes-industriais", "vestuario-corporativo"];
+const CATEGORY_PRIORITY = ["uniformes-industriais"];
 
 const orderedCategories = [...catalogCategories].sort((a, b) => {
   const rank = (id: string) => {
@@ -87,17 +84,27 @@ export function CatalogSection({
     value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 
   const normalized = fold(query.trim());
+  const refQuery = normalized.replace(/^0+/, "") || normalized;
+
+  const matchesProduct = (p: Product, catTitle: string) => {
+    if (!normalized) return true;
+    const refDisplay = fold(formatRef(p.ref));
+    const refRaw = String(p.ref);
+    return (
+      fold(p.name).includes(normalized) ||
+      fold(p.shortDescription).includes(normalized) ||
+      fold(catTitle).includes(normalized) ||
+      fold(p.id).includes(normalized) ||
+      refDisplay.includes(normalized) ||
+      refRaw.includes(refQuery)
+    );
+  };
 
   const visibleCategories = orderedCategories
     .map((cat) => ({
       ...cat,
       products: normalized
-        ? cat.products.filter(
-            (p) =>
-              fold(p.name).includes(normalized) ||
-              fold(p.shortDescription).includes(normalized) ||
-              fold(cat.title).includes(normalized)
-          )
+        ? cat.products.filter((p) => matchesProduct(p, cat.title))
         : cat.products,
     }))
     .filter((cat) => cat.products.length > 0);
@@ -160,7 +167,7 @@ export function CatalogSection({
           </div>
           <div className="relative w-full shrink-0 lg:w-56">
             <label htmlFor="catalog-search" className="sr-only">
-              Buscar produto
+              Buscar por nome ou referência
             </label>
             <Search
               className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
@@ -171,7 +178,7 @@ export function CatalogSection({
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar produto"
+              placeholder="Nome ou ref. (ex.: 012)"
               aria-describedby={normalized ? "catalog-search-count" : undefined}
               className="h-11 w-full rounded-full border border-border bg-background py-2 pl-9 pr-10 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:h-9 lg:text-sm [&::-webkit-search-cancel-button]:hidden"
             />
@@ -271,16 +278,17 @@ export function CatalogSection({
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 py-14 text-center md:py-16">
           <div>
             <h2 className="text-2xl font-medium tracking-tight text-white md:text-3xl">
-              Quer um orçamento?
+              Pedir orçamento
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/55 md:text-base">
-              Diga o produto, a quantidade e o prazo. A proposta volta pelo WhatsApp.
+              Informe produto (ou ref.), quantidade e prazo. Respondemos pelo WhatsApp
+              em horário comercial.
             </p>
           </div>
           <Button asChild variant="brandOnDark" size="cta">
             <a href={WHATSAPP_QUOTE} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon />
-              Falar no WhatsApp
+              Abrir WhatsApp
             </a>
           </Button>
         </div>

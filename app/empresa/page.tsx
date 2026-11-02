@@ -5,9 +5,9 @@ import { CompanyNumbersSection } from "@/components/sections/company-numbers-sec
 import { AboutSection } from "@/components/sections/about-section";
 
 export const metadata: Metadata = {
-  title: "Nossa História | Majestade Personalizados",
+  title: "Empresa | Majestade Personalizados",
   description:
-    "Conheça a trajetória da Majestade Personalizados: mais de 15 anos fabricando brindes corporativos com estrutura própria em Montenegro (RS).",
+    "15 anos de fábrica própria em Montenegro (RS): da oficina no porão à estrutura atual de brindes corporativos personalizados.",
 };
 
 export default function EmpresaPage() {

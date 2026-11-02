@@ -5,15 +5,15 @@ import { CatalogSection } from "@/components/sections/catalog-section";
 export const metadata: Metadata = {
   title: "Produtos | Majestade Personalizados",
   description:
-    "Conheça as linhas de brindes corporativos personalizados da Majestade — canecas térmicas, squeezes, kit vinho, cuia e bomba, uniformes, vestuário e muito mais.",
+    "Catálogo de brindes corporativos com produção própria: squeezes, canecas, kits, cuia, chaveiros, uniformes e vestuário. Busque por nome ou referência e peça orçamento no WhatsApp.",
 };
 
 export default function ProdutosPage() {
   return (
     <PageShell>
       <CatalogSection
-        title="Nossos produtos"
-        description="Escolha a linha, abra o produto e peça o orçamento pelo WhatsApp."
+        title="Catálogo"
+        description="Linhas com produção própria. Abra o produto, anote a referência e peça o orçamento no WhatsApp."
       />
     </PageShell>
   );
