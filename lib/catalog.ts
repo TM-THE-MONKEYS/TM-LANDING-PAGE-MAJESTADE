@@ -372,6 +372,88 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
+  // ── 05b. Kit Churrasco ── refs 110–117 ──────────────────────────────────────
+  {
+    id: "kit-churrasco",
+    title: "Kit Churrasco",
+    description:
+      "Kits churrasco, kits queijo e tábuas de corte — presentes para a temporada e o dia a dia.",
+    products: [
+      {
+        ref: 110,
+        id: "kit-churrasco-4-pecas",
+        name: "Kit Churrasco 4 Peças",
+        shortDescription:
+          "Tábua de bambu com faca, garfo, chaira e pegador com cabos de madeira.",
+        src: "/images/oficiais/kit-churrasco-4-pecas-frente.jpg",
+        alt: "Kit churrasco 4 peças sobre tábua de bambu",
+      },
+      {
+        ref: 111,
+        id: "kit-churrasco-2-pecas",
+        name: "Kit Churrasco 2 Peças",
+        shortDescription:
+          "Faca e garfo com cabos de madeira, acompanhados de estojo preto.",
+        src: "/images/oficiais/kit-churrasco-2-pecas-frente.jpg",
+        alt: "Kit churrasco 2 peças com estojo preto",
+      },
+      {
+        ref: 112,
+        id: "kit-churrasco-3-pecas-encaixe",
+        name: "Kit Churrasco 3 Peças",
+        shortDescription:
+          "Tábua de madeira com encaixes, garfo e faca com cabos de madeira.",
+        src: "/images/oficiais/kit-churrasco-3-pecas-encaixe-frente.jpg",
+        alt: "Kit churrasco 3 peças em tábua com encaixes",
+      },
+      {
+        ref: 113,
+        id: "kit-queijo-4-pecas",
+        name: "Kit Queijo 4 Peças",
+        shortDescription:
+          "Tábua oval de madeira com três utensílios para queijo e cabos combinando.",
+        src: "/images/oficiais/kit-queijo-4-pecas-frente.jpg",
+        alt: "Kit queijo 4 peças em tábua oval",
+      },
+      {
+        ref: 114,
+        id: "kit-churrasco-7-pecas",
+        name: "Kit Churrasco 7 Peças",
+        shortDescription:
+          "Conjunto com tábua, facas e garfo em estojo preto com tampa.",
+        src: "/images/oficiais/kit-churrasco-caixa-tabua-frente.jpg",
+        alt: "Kit churrasco 7 peças com caixa preta e tábua",
+      },
+      {
+        ref: 115,
+        id: "kit-queijo-3-pecas",
+        name: "Kit Queijo 3 Peças",
+        shortDescription:
+          "Caixa kraft com tábua redonda e utensílios de queijo com cabos de madeira.",
+        src: "/images/oficiais/kit-queijo-3-pecas-frente.jpg",
+        alt: "Kit queijo 3 peças em caixa kraft aberta",
+      },
+      {
+        ref: 116,
+        id: "kit-churrasco-3-pecas",
+        name: "Kit Churrasco 3 Peças com Tábua",
+        shortDescription:
+          "Faca, garfo e tábua retangular de madeira com canaleta.",
+        src: "/images/oficiais/kit-churrasco-3-pecas-frente.jpg",
+        alt: "Kit churrasco com faca, garfo e tábua",
+      },
+      {
+        ref: 117,
+        id: "tabua-corte-alca",
+        name: "Tábua de Corte com Alça",
+        shortDescription:
+          "Tábua vertical de bambu com alça e base, acompanhada de acessório de madeira.",
+        src: "/images/oficiais/tabua-corte-alca-frente.jpg",
+        alt: "Tábua de corte com alça e base de bambu",
+      },
+    ],
+  },
+
   // ── 06. Chaveiros ── refs 76–83 (21–23 aposentados) ─────────────────────────
   {
     id: "chaveiros",
@@ -928,7 +1010,7 @@ export function getFeaturedProducts(limit?: number): Product[] {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 110;
+export const NEXT_PRODUCT_REF = 118;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.
