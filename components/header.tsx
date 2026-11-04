@@ -65,28 +65,33 @@ export function Header() {
       ? "/logo-majestade-navy-gold.png"
       : "/logo-majestade-hero.png";
 
+  const promoBarOffset = "var(--promo-bar-height, 0px)";
+
   return (
     <header
       className={
         isHomePage
           ? cn(
-              "fixed top-4 left-1/2 z-50 w-[90%] max-w-5xl -translate-x-1/2 transition-all duration-300",
+              "fixed left-1/2 z-50 w-[90%] max-w-5xl -translate-x-1/2 transition-all duration-300",
               showScrolledStyle
                 ? "rounded-full bg-background/80 backdrop-blur-md"
                 : "bg-transparent"
             )
           : isDarkPage
-          ? "fixed inset-x-0 top-0 z-50 bg-brand-ink"
-          : "fixed inset-x-0 top-0 z-50 border-b border-border bg-background"
+          ? "fixed inset-x-0 z-50 bg-brand-ink"
+          : "fixed inset-x-0 z-50 border-b border-border bg-background"
       }
-      style={
-        isHomePage && showScrolledStyle
+      style={{
+        top: isHomePage
+          ? `calc(${promoBarOffset} + 1rem)`
+          : promoBarOffset,
+        ...(isHomePage && showScrolledStyle
           ? {
               boxShadow:
                 "rgba(14,63,126,.04) 0 0 0 1px,rgba(42,51,69,.04) 0 1px 1px -.5px,rgba(42,51,70,.04) 0 3px 3px -1.5px,rgba(42,51,70,.04) 0 6px 6px -3px,rgba(14,63,126,.04) 0 12px 12px -6px,rgba(14,63,126,.04) 0 24px 24px -12px",
             }
-          : undefined
-      }
+          : {}),
+      }}
     >
       <div
         className={
