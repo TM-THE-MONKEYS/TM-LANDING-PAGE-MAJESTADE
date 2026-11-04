@@ -6,7 +6,9 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>{children}</main>
+      <main style={{ paddingTop: "var(--promo-bar-height, 0px)" }}>
+        {children}
+      </main>
       <FooterSection />
       <WhatsAppFloat />
     </div>

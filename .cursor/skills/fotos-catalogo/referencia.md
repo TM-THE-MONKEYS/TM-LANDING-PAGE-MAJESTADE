@@ -12,6 +12,7 @@ Encaixe o produto numa destas. O id fica em `catalogCategories`.
 | `canecas-termicas` | canecas e copos térmicos |
 | `cuia-e-bomba` | cuia, bomba |
 | `kit-vinho` | kit vinho |
+| `kit-churrasco` | kit churrasco, kit queijo, tábuas de corte |
 | `chaveiros` | chaveiros |
 | `canetas` | canetas |
 | `uniformes-industriais` | macacão, polo operacional, calça cargo, uniforme de trabalho |

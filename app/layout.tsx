@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { PromoProvider } from '@/components/promo/promo-provider'
 import { AGENCY } from '@/lib/agency'
 import './globals.css'
 
@@ -102,6 +103,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <PromoProvider />
         {children}
         <Analytics />
       </body>

@@ -17,6 +17,7 @@ const NAV_LABELS: Record<string, string> = {
   "canecas-termicas": "Canecas e copos",
   "cuia-e-bomba": "Cuia",
   "kit-vinho": "Kit vinho",
+  "kit-churrasco": "Kit churrasco",
   chaveiros: "Chaveiros",
   canetas: "Canetas",
   "uniformes-industriais": "Uniformes",
@@ -51,6 +52,24 @@ export function CatalogSection({
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState(orderedCategories[0]?.id ?? "");
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  // Abre direto na categoria do hash (ex.: /produtos#acessorios)
+  useEffect(() => {
+    const scrollToHash = () => {
+      const id = window.location.hash.replace(/^#/, "");
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      setActiveCategory(id);
+      window.requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
 
   // Rastreia qual categoria está visível no viewport
   useEffect(() => {
