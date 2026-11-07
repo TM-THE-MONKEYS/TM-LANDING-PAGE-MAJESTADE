@@ -65,19 +65,6 @@ export function HeroSection() {
         products={featuredProducts}
         className="bg-background pb-6 pt-12 md:pb-8 md:pt-16"
       />
-
-      {/* ── Texto institucional ──────────────────────────────────────── */}
-      <div className="px-6 pb-16 pt-4 md:px-12 md:pb-20 md:pt-8 lg:px-20 lg:pb-24">
-        <p className="mx-auto max-w-3xl text-center text-2xl leading-relaxed text-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
-          Silk, bordado e sublimação —
-          <br className="hidden sm:block" />
-          com a melhor qualidade do mercado.
-        </p>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground md:text-base">
-          Há mais de 15 anos personalizamos brindes corporativos com produção própria:
-          a peça passa pelo nosso controle de qualidade antes de ir para a sua empresa, sem surpresas, com a melhor qualidade do mercado e em qualquer lugar do Brasil.
-        </p>
-      </div>
     </section>
   );
 }
