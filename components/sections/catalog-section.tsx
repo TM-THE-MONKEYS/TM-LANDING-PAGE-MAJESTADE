@@ -16,8 +16,10 @@ const NAV_LABELS: Record<string, string> = {
   "squeeze-garrafas": "Garrafas",
   "canecas-termicas": "Canecas e copos",
   "cuia-e-bomba": "Cuia",
-  "kit-vinho": "Kit vinho",
+  "kit-queijo-e-vinho": "Kit queijo e vinho",
   "kit-churrasco": "Kit churrasco",
+  "bolsas-termicas": "Bolsas térmicas",
+  "guarda-sois": "Guarda-sóis",
   chaveiros: "Chaveiros",
   canetas: "Canetas",
   "uniformes-industriais": "Uniformes",
@@ -54,10 +56,16 @@ export function CatalogSection({
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   // Abre direto na categoria do hash (ex.: /produtos#acessorios)
+  // Alias: #kit-vinho → #kit-queijo-e-vinho (rename da categoria)
   useEffect(() => {
+    const HASH_ALIASES: Record<string, string> = {
+      "kit-vinho": "kit-queijo-e-vinho",
+    };
+
     const scrollToHash = () => {
-      const id = window.location.hash.replace(/^#/, "");
-      if (!id) return;
+      const raw = window.location.hash.replace(/^#/, "");
+      if (!raw) return;
+      const id = HASH_ALIASES[raw] ?? raw;
       const el = document.getElementById(id);
       if (!el) return;
       setActiveCategory(id);
@@ -159,7 +167,7 @@ export function CatalogSection({
       {/* ── Navegação por categoria — linhas à esquerda, busca à direita */}
       <nav
         aria-label="Linhas de produtos"
-        className="sticky top-16 z-40 border-b border-border bg-background/95 backdrop-blur-sm"
+        className="sticky top-[calc(var(--promo-bar-height,0px)+var(--site-header-height,4rem))] z-40 border-b border-border bg-background/95 backdrop-blur-sm"
       >
         <div className="flex w-full min-w-0 flex-col gap-2 px-4 py-3 sm:px-6 lg:h-14 lg:flex-row lg:items-center lg:gap-4 lg:px-8 lg:py-0 xl:px-10">
           <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:[scrollbar-width:thin]">
@@ -255,7 +263,7 @@ export function CatalogSection({
                   if (el) sectionRefs.current.set(category.id, el);
                   else sectionRefs.current.delete(category.id);
                 }}
-                className="scroll-mt-48 lg:scroll-mt-32"
+                className="scroll-mt-[calc(var(--promo-bar-height,0px)+12rem)] lg:scroll-mt-[calc(var(--promo-bar-height,0px)+8rem)]"
               >
                 {/* Cabeçalho da categoria */}
                 <div className="mb-6 border-t border-border pt-6 text-center md:mb-8 md:pt-8">

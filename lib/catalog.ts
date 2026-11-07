@@ -308,12 +308,12 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 05. Kit Vinho ── refs 20, 68–72 ─────────────────────────────────────────
+  // ── 05. Kit Queijo e Vinho ── refs 20, 68–72, 112, 113, 115 ────────────────
   {
-    id: "kit-vinho",
-    title: "Kit Vinho",
+    id: "kit-queijo-e-vinho",
+    title: "Kit Queijo e Vinho",
     description:
-      "Kits, saca-rolhas e abridor elétrico — presentes institucionais para datas comemorativas.",
+      "Kits de vinho e queijo, saca-rolhas e abridor elétrico — presentes institucionais para datas comemorativas.",
     products: [
       {
         ref: 20,
@@ -369,15 +369,42 @@ export const catalogCategories: CatalogCategory[] = [
         src: "/images/oficiais/abridor-eletrico-vinho-frente.jpg",
         alt: "Abridores elétricos de vinho em várias cores",
       },
+      {
+        ref: 112,
+        id: "kit-queijo-3-pecas-encaixe",
+        name: "Kit Queijo 3 Peças com Encaixe",
+        shortDescription:
+          "Tábua de madeira com encaixes, garfo e faca com cabos de madeira.",
+        src: "/images/oficiais/kit-churrasco-3-pecas-encaixe-frente.jpg",
+        alt: "Kit queijo 3 peças em tábua com encaixes",
+      },
+      {
+        ref: 113,
+        id: "kit-queijo-4-pecas",
+        name: "Kit Queijo 4 Peças",
+        shortDescription:
+          "Tábua oval de madeira com três utensílios para queijo e cabos combinando.",
+        src: "/images/oficiais/kit-queijo-4-pecas-frente.jpg",
+        alt: "Kit queijo 4 peças em tábua oval",
+      },
+      {
+        ref: 115,
+        id: "kit-queijo-3-pecas",
+        name: "Kit Queijo 3 Peças",
+        shortDescription:
+          "Caixa kraft com tábua redonda e utensílios de queijo com cabos de madeira.",
+        src: "/images/oficiais/kit-queijo-3-pecas-frente.jpg",
+        alt: "Kit queijo 3 peças em caixa kraft aberta",
+      },
     ],
   },
 
-  // ── 05b. Kit Churrasco ── refs 110–117 ──────────────────────────────────────
+  // ── 05b. Kit Churrasco ── refs 110, 111, 114, 116, 117 ──────────────────────
   {
     id: "kit-churrasco",
     title: "Kit Churrasco",
     description:
-      "Kits churrasco, kits queijo e tábuas de corte — presentes para a temporada e o dia a dia.",
+      "Kits churrasco e tábuas de corte — presentes para a temporada e o dia a dia.",
     products: [
       {
         ref: 110,
@@ -398,24 +425,6 @@ export const catalogCategories: CatalogCategory[] = [
         alt: "Kit churrasco 2 peças com estojo preto",
       },
       {
-        ref: 112,
-        id: "kit-churrasco-3-pecas-encaixe",
-        name: "Kit Churrasco 3 Peças",
-        shortDescription:
-          "Tábua de madeira com encaixes, garfo e faca com cabos de madeira.",
-        src: "/images/oficiais/kit-churrasco-3-pecas-encaixe-frente.jpg",
-        alt: "Kit churrasco 3 peças em tábua com encaixes",
-      },
-      {
-        ref: 113,
-        id: "kit-queijo-4-pecas",
-        name: "Kit Queijo 4 Peças",
-        shortDescription:
-          "Tábua oval de madeira com três utensílios para queijo e cabos combinando.",
-        src: "/images/oficiais/kit-queijo-4-pecas-frente.jpg",
-        alt: "Kit queijo 4 peças em tábua oval",
-      },
-      {
         ref: 114,
         id: "kit-churrasco-7-pecas",
         name: "Kit Churrasco 7 Peças",
@@ -423,15 +432,6 @@ export const catalogCategories: CatalogCategory[] = [
           "Conjunto com tábua, facas e garfo em estojo preto com tampa.",
         src: "/images/oficiais/kit-churrasco-caixa-tabua-frente.jpg",
         alt: "Kit churrasco 7 peças com caixa preta e tábua",
-      },
-      {
-        ref: 115,
-        id: "kit-queijo-3-pecas",
-        name: "Kit Queijo 3 Peças",
-        shortDescription:
-          "Caixa kraft com tábua redonda e utensílios de queijo com cabos de madeira.",
-        src: "/images/oficiais/kit-queijo-3-pecas-frente.jpg",
-        alt: "Kit queijo 3 peças em caixa kraft aberta",
       },
       {
         ref: 116,
@@ -454,7 +454,82 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 06. Chaveiros ── refs 76–83 (21–23 aposentados) ─────────────────────────
+  // ── 06. Bolsas Térmicas ── refs 118–119 ─────────────────────────────────────
+  {
+    id: "bolsas-termicas",
+    title: "Bolsas Térmicas",
+    description:
+      "Bolsas térmicas para personalizar — alça de ombro ou alças de mão, com área para a marca.",
+    products: [
+      {
+        ref: 118,
+        id: "bolsa-termica-ombro",
+        name: "Bolsa Térmica de Ombro",
+        shortDescription:
+          "Bolsa térmica preta com alça de ombro ajustável, zíper no topo e bolso frontal.",
+        src: "/images/oficiais/bolsa-termica-ombro-frente.jpg",
+        alt: "Bolsa térmica preta de ombro, vista de frente",
+        photos: [
+          {
+            src: "/images/oficiais/bolsa-termica-ombro-lado.jpg",
+            alt: "Bolsa térmica de ombro em três quartos",
+          },
+          {
+            src: "/images/oficiais/bolsa-termica-ombro-interno.jpg",
+            alt: "Bolsa térmica de ombro aberta, interior térmico",
+          },
+        ],
+      },
+      {
+        ref: 119,
+        id: "bolsa-termica-alcas",
+        name: "Bolsa Térmica com Alças",
+        shortDescription:
+          "Bolsa térmica preta com alças de mão, bolso frontal com zíper e área para a marca.",
+        src: "/images/oficiais/bolsa-termica-alcas-frente.jpg",
+        alt: "Bolsa térmica preta com alças de mão, vista de frente",
+      },
+    ],
+  },
+
+  // ── 07. Guarda-sóis ── refs 120–122 ─────────────────────────────────────────
+  {
+    id: "guarda-sois",
+    title: "Guarda-sóis",
+    description:
+      "Guarda-sóis personalizados — painéis coloridos, dupla cobertura ou capa colorida para a marca.",
+    products: [
+      {
+        ref: 120,
+        id: "guarda-sol-azul-amarelo",
+        name: "Guarda-sol Azul e Amarelo",
+        shortDescription:
+          "Guarda-sol com painéis azul e amarelo, abas laterais e área para a marca.",
+        src: "/images/oficiais/guarda-sol-azul-amarelo-frente.jpg",
+        alt: "Guarda-sol azul e amarelo aberto, vista de frente",
+      },
+      {
+        ref: 121,
+        id: "guarda-sol-duplo",
+        name: "Guarda-sol Duplo",
+        shortDescription:
+          "Guarda-sol de dupla cobertura em painéis azul e branco, com área para a marca.",
+        src: "/images/oficiais/guarda-sol-duplo-frente.jpg",
+        alt: "Guarda-sol duplo azul e branco visto de cima",
+      },
+      {
+        ref: 122,
+        id: "guarda-sol-com-capa",
+        name: "Guarda-sol com Capa",
+        shortDescription:
+          "Guarda-sol azul com borda branca, mastro articulado e capas em várias cores.",
+        src: "/images/oficiais/guarda-sol-com-capa-frente.jpg",
+        alt: "Guarda-sol azul com capa e capas coloridas ao lado",
+      },
+    ],
+  },
+
+  // ── 08. Chaveiros ── refs 76–83 (21–23 aposentados) ─────────────────────────
   {
     id: "chaveiros",
     title: "Chaveiros",
@@ -536,7 +611,7 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 07. Canetas ── refs 106–109 (24–26 aposentados) ─────────────────────────
+  // ── 09. Canetas ── refs 106–109 (24–26 aposentados) ─────────────────────────
   {
     id: "canetas",
     title: "Canetas",
@@ -583,7 +658,7 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 08. Uniformes Industriais ── inclui vestuário + camisetas (antes categorias separadas)
+  // ── 10. Uniformes Industriais ── inclui vestuário + camisetas (antes categorias separadas)
   // refs 62–66, 44–51, 67, 56–59, 61 (27–35, 52–55, 60, 65 aposentados)
   {
     id: "uniformes-industriais",
@@ -1010,7 +1085,7 @@ export function getFeaturedProducts(limit?: number): Product[] {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 118;
+export const NEXT_PRODUCT_REF = 123;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.

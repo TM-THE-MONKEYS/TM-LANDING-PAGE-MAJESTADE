@@ -11,8 +11,10 @@ Encaixe o produto numa destas. O id fica em `catalogCategories`.
 | `squeeze-garrafas` | squeezes e garrafas térmicas |
 | `canecas-termicas` | canecas e copos térmicos |
 | `cuia-e-bomba` | cuia, bomba |
-| `kit-vinho` | kit vinho |
-| `kit-churrasco` | kit churrasco, kit queijo, tábuas de corte |
+| `kit-queijo-e-vinho` | kit queijo, kit vinho |
+| `kit-churrasco` | kit churrasco, tábuas de corte |
+| `bolsas-termicas` | bolsas térmicas |
+| `guarda-sois` | guarda-sóis |
 | `chaveiros` | chaveiros |
 | `canetas` | canetas |
 | `uniformes-industriais` | macacão, polo operacional, calça cargo, uniforme de trabalho |

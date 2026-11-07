@@ -5,6 +5,8 @@
 
 :root {
   --promo-bar-height: 0px;
+  /* Header interno (h-16) — usado no sticky do catálogo abaixo da barra marrom */
+  --site-header-height: 4rem;
   --background: #FAFAF8;
   --foreground: #0F1B2D;
   --card: #FFFFFF;
