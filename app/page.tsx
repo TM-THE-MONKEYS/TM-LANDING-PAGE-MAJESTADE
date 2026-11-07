@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/page-shell";
 import { HeroSection } from "@/components/sections/hero-section";
+import { TechniquesSection } from "@/components/sections/techniques-section";
 import { TechnologySection } from "@/components/sections/technology-section";
 import { EditorialSection } from "@/components/sections/editorial-section";
 import { SocialProofSection } from "@/components/sections/social-proof-section";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <PageShell>
       <HeroSection />
+      <TechniquesSection />
       <TechnologySection />
       <EditorialSection compact />
       <SocialProofSection />
