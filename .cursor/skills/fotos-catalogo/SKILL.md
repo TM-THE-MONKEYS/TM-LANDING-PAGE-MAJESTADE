@@ -2,8 +2,8 @@
 name: fotos-catalogo
 description: >-
   Cadastra fotos oficiais de produtos no catálogo da Majestade (lib/catalog.ts):
-  agrupa ângulos do mesmo item, aposenta refs removidas, escreve nome e
-  descrição curta, e prepara os JPEGs. Use quando o usuário enviar fotos de
+  agrupa ângulos do mesmo item, aposenta refs removidas, consulta imprimus.com.br
+  para nome/descrição, e prepara os JPEGs. Use quando o usuário enviar fotos de
   produtos, pedir para adicionar, trocar ou apagar itens do catálogo, ou
   mencionar ref, camisetas, vestuário, canecas, squeezes ou images/oficiais.
 ---
@@ -40,12 +40,26 @@ Regras de agrupamento e exemplos: [referencia.md](referencia.md).
 
 ## Nome, descrição e alt
 
-Português do Brasil. O nome é o tipo da peça, não a marca impressa na amostra (Andrade, Versatt, Tropical, Quatro Rodas e similares são exemplo de personalização).
+Português do Brasil. O nome é o tipo da peça, não a marca impressa na amostra (Andrade, Versatt, Tropical, Quatro Rodas, Jeep, JBS e similares são exemplo de personalização).
 
-- **name**: tipo + o que separa no grid. Cor quando a linha se distingue por cor (`Camiseta Azul`). Corte quando se distingue por corte (`Camiseta Gola V`, `Camiseta Manga Longa`). Sem capacidade, tecido ou slogan que a foto não mostra.
-- **shortDescription**: uma frase. Começa pelo tipo da peça. Diz só construção visível e onde a marca aparece (peito, costas, manga). Sem "premium", "ideal para", "alta qualidade", nome de cliente, telefone ou rede social.
+### Consulta Imprimus (padrão)
+
+Antes de fechar `name` e `shortDescription`, consulte [imprimus.com.br](https://imprimus.com.br/) e busque o produto equivalente (categoria + formato + material).
+
+1. Abra a listagem da categoria (ex.: Chaveiros) ou use a busca do site.
+2. Entre na página do item mais parecido com a foto.
+3. Use o **nome comercial** deles como base do `name` (ex.: `Chaveiro Couro Gota`, `Chaveiro Couro Oval Mosquete`).
+4. Use a **descrição curta** deles como base do `shortDescription` — adapte só o necessário ao ritmo de uma frase do catálogo Majestade (sem quantidade mínima, medidas, peso, telefone ou CTA de orçamento).
+5. Se não achar equivalente no Imprimus, caia nas regras abaixo e diga na resposta que a consulta não encontrou par.
+
+Não copie preço, código interno (IHG-…), texto de SEO nem política comercial do Imprimus.
+
+### Regras locais
+
+- **name**: tipo + o que separa no grid. Cor quando a linha se distingue por cor (`Camiseta Azul`). Corte quando se distingue por corte (`Camiseta Gola V`, `Camiseta Manga Longa`). Sem capacidade, tecido ou slogan que a foto não mostra — salvo quando o Imprimus confirma o material/formato no nome.
+- **shortDescription**: uma frase. Começa pelo tipo da peça. Diz construção visível e onde a marca aparece (peito, costas, manga), preferindo o texto do Imprimus quando houver par. Sem "premium", "ideal para", "alta qualidade", nome de cliente, telefone ou rede social.
 - **alt**: a vista, não o texto da estampa. Ex.: `Costas da camiseta preta com estampa`. A principal pode completar com `vista de frente`.
-- Não invente algodão, dry-fit, ml ou forro se isso não está na foto nem na fala do usuário. Se a foto não deixa claro, descreva o que se vê.
+- Não invente algodão, dry-fit, ml ou forro se isso não está na foto, na fala do usuário **nem** no item Imprimus usado como base. Se a foto não deixa claro e o Imprimus não ajuda, descreva o que se vê.
 
 No mesmo lote, as frases seguem o mesmo ritmo. Uma diz "manga curta e marca no peito"; a irmã não vira parágrafo de venda.
 
