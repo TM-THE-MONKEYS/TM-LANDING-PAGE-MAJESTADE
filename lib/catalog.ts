@@ -529,12 +529,12 @@ export const catalogCategories: CatalogCategory[] = [
     ],
   },
 
-  // ── 08. Chaveiros ── refs 76–83 (21–23 aposentados) ─────────────────────────
+  // ── 08. Chaveiros ── refs 76–83, 123–124 (21–23 aposentados) ────────────────
   {
     id: "chaveiros",
     title: "Chaveiros",
     description:
-      "Chaveiros em metal — mosquetão, abridor, pneu e formatos especiais para personalizar com a marca.",
+      "Chaveiros em metal e couro — mosquetão, abridor, pneu e formatos especiais para personalizar com a marca.",
     products: [
       {
         ref: 76,
@@ -607,6 +607,24 @@ export const catalogCategories: CatalogCategory[] = [
           "Chaveiro abridor retangular de metal com placa para a marca e argola.",
         src: "/images/oficiais/chaveiro-metal-retangular-abridor-frente.jpg",
         alt: "Chaveiro abridor retangular de metal com placa",
+      },
+      {
+        ref: 123,
+        id: "chaveiro-couro-gota",
+        name: "Chaveiro Couro Gota",
+        shortDescription:
+          "Chaveiro em couro, almofadado formato gota. Acompanha mosquete em banho níquel.",
+        src: "/images/oficiais/chaveiro-couro-gota-frente.jpg",
+        alt: "Chaveiros em couro formato gota com mosquetão, várias cores",
+      },
+      {
+        ref: 124,
+        id: "chaveiro-couro-oval-mosquete",
+        name: "Chaveiro Couro Oval Mosquete",
+        shortDescription:
+          "Chaveiro em couro, formato oval. Acompanha mosquete em banho níquel.",
+        src: "/images/oficiais/chaveiro-couro-oval-mosquete-frente.jpg",
+        alt: "Chaveiros em couro formato oval com mosquetão, várias cores",
       },
     ],
   },
@@ -1085,7 +1103,7 @@ export function getFeaturedProducts(limit?: number): Product[] {
  *   { ref: 39, id: "novo-produto", name: "Novo Produto", ... }
  *   Depois: NEXT_PRODUCT_REF = 40
  */
-export const NEXT_PRODUCT_REF = 123;
+export const NEXT_PRODUCT_REF = 125;
 
 /**
  * Refs de produtos removidos do catálogo. Permanentes: não reutilizar.
