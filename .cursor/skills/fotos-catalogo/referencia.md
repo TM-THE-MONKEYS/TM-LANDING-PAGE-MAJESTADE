@@ -13,7 +13,7 @@ Encaixe o produto numa destas. O id fica em `catalogCategories`.
 | `cuia-e-bomba` | cuia, bomba |
 | `kit-queijo-e-vinho` | kit queijo, kit vinho |
 | `kit-churrasco` | kit churrasco, tábuas de corte |
-| `bolsas-termicas` | bolsas térmicas |
+| `bolsas-termicas` | bolsas térmicas personalizadas |
 | `guarda-sois` | guarda-sóis |
 | `chaveiros` | chaveiros |
 | `canetas` | canetas |
