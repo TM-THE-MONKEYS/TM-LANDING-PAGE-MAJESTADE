@@ -13,12 +13,12 @@ import { buildWhatsAppUrl } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const NAV_LABELS: Record<string, string> = {
-  "squeeze-garrafas": "Garrafas",
+  "squeeze-garrafas": "Squeezes e garrafas",
   "canecas-termicas": "Canecas e copos",
-  "cuia-e-bomba": "Cuia",
-  "kit-queijo-e-vinho": "Kit queijo e vinho",
-  "kit-churrasco": "Kit churrasco",
-  "bolsas-termicas": "Bolsas térmicas",
+  "cuia-e-bomba": "Cuias",
+  "kit-queijo-e-vinho": "Kits queijo e vinho",
+  "kit-churrasco": "Kits churrasco",
+  "bolsas-termicas": "Bolsas térmicas personalizadas",
   "guarda-sois": "Guarda-sóis",
   chaveiros: "Chaveiros",
   canetas: "Canetas",
